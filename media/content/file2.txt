@@ -1,0 +1,8 @@
+<div>
+<h3>This is other content<h3>
+<p style='font-size:10px'><em>This is the bike I want!!!</em></p>
+<div>
+    <img src="/media/images/img1.jpg">
+</div>
+</div>
+

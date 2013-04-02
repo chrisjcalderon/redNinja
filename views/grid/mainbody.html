@@ -1,0 +1,28 @@
+<div data-bind="attr:{class:gridCss}">
+
+	<!-- ko if:mainbody.hasContentTop() -->
+	<div id="rt-content-top">
+		<!-- ko template:{name:'grid/mainbody-section',data:{position:mainbody.contentTop,me:mainbody,type:'top',blocks:blocks}}--> <!-- /ko --> 
+		<div class="clear"></div>
+	</div>
+	<!-- /ko --> <!--End Content Top-->
+	
+	<div class="rt-block component-block">
+		<div class="component-content">
+            <!-- ko if:mainbody.componentModule().template!=''  -->
+                <!-- ko template:{name:mainbody.componentModule().template,data:mainbody.componentModule().data,afterRender:mainbody.componentModule().afterRender} --><!-- /ko -->
+            <!-- /ko --> 
+            <!-- ko if:mainbody.componentModule().template==''  -->			
+                <div data-bind="html:mainbody.componentModule().data"></div>
+            <!-- /ko --> 
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!--end component -->
+	<!-- ko if:mainbody.hasContentBottom() -->
+	<div id="rt-content-bottom">
+		<!-- ko template:{name:'grid/mainbody-section',data:{position:mainbody.contentBottom,me:mainbody,type:'bottom',blocks:blocks}}--> <!-- /ko --> 
+		<div class="clear"></div>
+	</div>
+	<!-- /ko --> <!--End Content Bottom-->
+</div>

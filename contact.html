@@ -1,0 +1,28 @@
+<html lang="en">
+    <head>
+       <script type="text/javascript" 
+        my-module = "demo\contact/" 
+        my-onload="thisIsMyLoadEvent" 
+        my-container="contactModule"
+        src="/scripts/app/baseController.js"></script>    
+    </head>
+    <body>
+        <!--Can I add my-base="true" my-op="addToBase" -->
+        <div id="contactModule">
+            <h3 data-bind="text:appTitle"></h3>
+            <em>This is an example of how a parent can propagate to the child...</em>
+            <br>
+                <span>Start time:</span>
+                <input type="text" data-bind="jqDatepicker:startDate">
+                <span data-bind="text:startDate"></span>
+            <br>
+                <strong><span data-bind="text:fromParent"></span></strong>
+                <div data-bind="jqDialog:{autoOpen: false, width:'auto',modal: true,close:closeDialog },openDialog:openDialog" title="View Contact">                
+                <div data-bind="template:{name:'/demo/contact',data:contact}"></div>
+                <div title="Change Content" data-bind="jqButton:{},click:changeContent">Change Content</div>                                    
+                <div title="Close" data-bind="jqButton:{},click:closeDialog">Close</div>                                    
+            </div>
+
+        </div>
+    </body>
+</html>

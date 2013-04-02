@@ -1,0 +1,89 @@
+
+.listItem {
+    cursor: pointer;
+}
+.listItem:hover {
+    color: #2d7ba6;
+    text-decoration: underline
+}
+
+.item {    
+    cursor: move;
+    float: left;
+    background-color: #dde2e4
+}
+
+
+.page-header {
+    width:99%;
+    border: 1px solid #ececec;
+    padding: 5px;            
+}
+            
+.page-content,.page-footer {
+    width:99%;
+    border: 1px solid #ececec;
+    padding: 5px;            
+    margin-top: 10px; 
+    float: left;               
+}
+.page-content div.left {
+    width: 25%;
+    float:left;
+    padding: 5px;
+    background-color: #eef6ff;
+}
+.page-content div.content {
+    width: 72%;
+    float:right;
+    padding: 5px;                
+}
+
+.page-footer {
+    background-color: #2d7ba6;
+    color: white;
+}
+
+.page-header {
+    background-color: #2d7ba6;
+    color: white;
+}
+
+
+.infuser-loading {
+    font-size: 16px;
+    color: #2d7ba6;
+    font-style: italic;
+}
+
+.title_wrapper > h2{
+    cursor: pointer;
+}
+
+.dataTables_length {
+    float: left;
+    padding: 5px;
+}
+.dataTables_filter{
+    float: right;
+    padding: 5px;
+}
+
+.activeLink, .routeLink:hover {
+    color: white !important;
+    font-weight: bold; 
+    background-color: #2d7ba6;
+}
+
+.routeHeader{
+    color: white !important;
+    font-weight: bold; 
+    ackground-color: #2d7ba6;    
+    padding: 5px;
+    text-align: center
+}
+.routeLink {
+    padding: 2px;
+    width: 98%;cursor: 
+    pointer
+}

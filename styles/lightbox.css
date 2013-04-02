@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+}
+/**
+ * Tags
+ *
+ */
+body {
+	background: #454545 url(../images/jquery-lightbox/bg-body.png) repeat-x;
+	color: #fff;
+	text-align: center;
+	font: medium "Trebuchet MS", Arial, sans-serif;
+}
+a, a:visited {
+	color: #A3D01A;
+	text-decoration: none;
+}
+a:hover {
+	color: #A3D01A;
+	text-decoration: underline;
+}
+p, h2, h3, pre, code, dl, ul { margin-bottom: 10px; }
+h3 { border-bottom: 1px solid #fff; }
+dt { font-weight: bold; }
+dd { margin-left: 15px; }
+ul li ul { margin-left: 15px; }
+pre,code {
+	background-color: #333;
+	padding: 10px;
+	font: 12px "Courier New", Courier, monospace;
+	width: 460px;
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+p.download { text-indent: -99999px; }
+p.download a {
+	display: block;
+	background: url(../images/jquery-lightbox/ico-download.png) no-repeat;
+	width: 135px;
+	height: 140px;
+	position: absolute;
+	top: 260px;
+	left: 20px;
+}
+/**
+ * Layout structure lightbox-logo
+ *
+ */
+#container {
+	margin: 0 auto;
+	padding: 20px 0;
+	text-align: left;
+	width: 750px;
+	position: relative;
+	overflow: hidden;
+}
+#branding h1 { background: url(../images/jquery-lightbox/lightbox-logo.png?version=0.5) no-repeat; 	zoom: 1;}
+#branding h1 a {
+	cursor: default;
+	display: block;
+	height: 208px;
+	text-indent: -99999px;
+	width: 735px;
+}
+#branding span { display: none; }
+#content { margin: -50px 0 0 245px; }
+#footer {
+	border-top: 1px solid #fff;
+	padding: 10px 0;
+	font-size: .8em;
+}
+/* jQuery lightBox plugin - Gallery style */
+#gallery ul { list-style: none; }
+#gallery ul li { display: inline; }
+#gallery ul img {
+	border: 5px solid #3e3e3e;
+	border-width: 5px 5px 20px;
+}
+#gallery ul a:hover img {
+	border: 5px solid #fff;
+	border-width: 5px 5px 20px;
+	color: #fff;
+}
+#gallery ul a:hover { color: #fff; }
+
+/* Style for Usual tabs */
+ul.idTabs { width: 100%; }
+ul.idTabs li { 
+	list-style: none; 
+	float: left; 
+}
+ul.idTabs a {
+  display: block;
+  padding: 6px 10px;
+  text-decoration: none!important;
+  font: 10px Verdana;
+  color: #FFF;
+  background: #333;
+  border-bottom: 1px solid #454545;
+}
+ul.idTabs a:hover {
+  color:#FFF;
+  background:#222;
+}
+ul.idTabs a.selected {
+  color: #fff;
+  font-weight: bold;
+  background-color: #454545;
+  cursor:default;
+}
+div.tab {
+	background-color: #444;
+	clear: both;
+	padding: 20px;
+	*margin-top: -10px;
+}
+#mourao {
+	font-size: 9px;
+	line-height: 1px;
+	color: #666;
+}
+#mourao a { color: #666; }

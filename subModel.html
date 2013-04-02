@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+       <script type="text/javascript" 
+        my-module = "submodel/"
+        my-container="subModelDemo"
+        src="/scripts/app/baseController.js"></script>    
+    </head>
+    <body>
+        <div id="subModelDemo">
+            <h3 data-bind="text:appTitle"></h3>
+            <div title="Button" data-bind="jqButton:{},click:addItem">Add Item</div>
+            <ul data-bind="foreach:items" style="width: 200px;border: 1px solid blue">
+                <li data-bind="text:text,click:$root.removeItem" title="Click to remove" class="listItem"></li>
+            </ul>
+        </div>
+    </body>
+</html>

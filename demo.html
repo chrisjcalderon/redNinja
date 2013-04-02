@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Demo Web Page</title>
+        <style>
+            body {
+            font-family: Tahoma;
+            font-size: 10pt;
+            }
+
+        </style>
+        <script type="text/javascript" src="/scripts/app/baseController.js" my-module = "demo/" my-root   = ""></script>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="page-header">
+             <div data-bind="template:{name:page.header.template(),data:page.header.data}"></div>
+        </div>        
+        
+        <div class="page-content">
+            <!--Left-->
+            <div class="left">
+                    <div data-bind="template:{name:page.left.template(),data:page.left.data}"></div>
+            </div>
+
+            <!--Main-->
+            <div class="content">
+                <h3 data-bind="text:right"></h3>
+                Edit the Title: <input type="text" data-bind="value:page.header.data().appTitle">
+                <hr>
+                <div data-bind="html:someStuff"></div>                
+                <hr>                
+                <div  title="A button" data-bind="jqButton:{disabled:false},click:clickMe">Click Me</div>
+                <div  title="A button" data-bind="jqButton:{disabled:false},click:changeLeft">Change Left</div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div class="page-footer">
+            <div data-bind="template:{name:page.footer.template(),data:page.footer.data}"></div>            
+        </div>
+
+    </body>
+</html>

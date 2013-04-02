@@ -1,0 +1,43 @@
+$.fn.superfish.defaults = {
+	hoverClass:    'sfHover',          // the class applied to hovered list items
+	pathClass:     'overideThisToUse', // the class you have applied to list items that lead to the current page
+	pathLevels:    1,                  // the number of levels of submenus that remain open or are restored using pathClass
+	delay:         800,                // the delay in milliseconds that the mouse can remain outside a submenu without it closing
+	animation:     {opacity:'show'},   // an object equivalent to first parameter of jQuery’s .animate() method. Used to animate the submenu open
+	animationOut:  {opacity:'hide'},   // an object equivalent to first parameter of jQuery’s .animate() method Used to animate the submenu closed
+	speed:         'normal',           // speed of the opening animation. Equivalent to second parameter of jQuery’s .animate() method
+	speedOut:      'fast',             // speed of the closing animation. Equivalent to second parameter of jQuery’s .animate() method
+	autoArrows:    true,               // if true, arrow mark-up generated automatically = cleaner source code at expense of initialisation performance
+	disableHI:     false,              // set to true to disable hoverIntent detection
+	useClick:      false,              // set this to true to require a click to open and close submenus. Note that the link will never be followed when in this mode
+	onInit:        $.noop,             // callback function fires once Superfish is initialised – 'this' is the containing ul
+	onBeforeShow:  $.noop,             // callback function fires just before reveal animation begins – 'this' is the ul about to open
+	onShow:        $.noop,             // callback function fires once reveal animation completed – 'this' is the opened ul
+	onBeforeHide:  $.noop,             // callback function fires just before closing animation – 'this' is the ul about to close
+	onHide:        $.noop,             // callback function fires after a submenu has closed – 'this' is the ul that just closed
+	onIdle:        $.noop              // callback function fires when the 'current' submenu is restored (if using pathClass functionality)
+};
+
+-----------------
+
+//link to the CSS files for this menu type
+<link rel="stylesheet" media="screen" href="superfish.css">
+
+// link to the JavaScript files (hoverIntent is optional)
+// if you use hoverIntent, use the updated r7 version (see FAQ)
+<script src="hoverIntent.js"></script>
+<script src="superfish.js"></script>
+
+// initialise Superfish
+<script>
+
+	jQuery(document).ready(function() {
+		jQuery('ul.sf-menu').superfish({
+			delay:       1000,                            // one second delay on mouseout
+			animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation
+			speed:       'fast',                          // faster animation speed
+			autoArrows:  false                            // disable generation of arrow mark-up
+		});
+	});
+
+</script>

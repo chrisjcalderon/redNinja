@@ -1,0 +1,132 @@
+/**
+* @version   $Id: typography.css 1589 2012-07-11 15:16:36Z james $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+ 
+/* Content Boxes */
+.contentbox1, .contentbox2, .contentbox3, .contentbox4 {padding: 15px;margin-bottom: 15px;border-radius: 3px;}
+
+/* Quote Styles */
+blockquote {padding: 5px 0 0 35px;}
+blockquote p {padding: 0 35px 5px 0;font-size: 15px;}
+.blockquote, .typography-style-dark blockquote {background: url(../images/typography/dark/quote-l.png) 0 0 no-repeat;}
+.typography-style-light blockquote {background: url(../images/typography/light/quote-l.png) 0 0 no-repeat;}
+.blockquote p, .typography-style-dark blockquote p {background: url(../images/typography/dark/quote-r.png) 100% 100% no-repeat;}
+.typography-style-light blockquote p {background: url(../images/typography/light/quote-r.png) 100% 100% no-repeat;}
+blockquote.alignleft {width: 30%;float: left;margin: 25px 25px 25px 0;}
+blockquote.alignright {width: 30%;float: right;margin: 25px 0 25px 25px;}
+blockquote.alignleft p, blockquote.alignright p {background: none;padding: 0;}
+blockquote.noquotes {padding: 0;background: none;}
+blockquote.noquotes p {padding: 0;background: none;}
+
+/* Pre/Code Styles */
+pre {overflow: auto;padding: 17px 15px;margin-bottom: 15px;font-size: 11px;line-height: 17px;cursor: text;}
+pre, .typography-style-dark pre {background: #222;border: 1px solid #333;}
+.typography-style-light pre {background: #fafafa;border: 1px solid #eaeaea;color: #555;}
+pre.lines, .typography-style-dark pre.lines {background: #151515 url(../images/typography/dark/pre-lines.png) 50% 0;border: none;transition: background-color 0.3s linear;}
+pre.lines:hover, .typography-style-dark pre.lines:hover {background-color: #202020;}
+.typography-style-light pre.lines {background: #eaeaea url(../images/typography/light/pre-lines.png) 50% 0;border: none;color: #333;}
+
+/* Emphasis Styles*/
+em.italic {font-style: italic;font-weight: bold;}
+em.bold {font-size: 1.1em;font-weight: bold;line-height: 1.4em;font-style: normal;}
+em.bold2 {font-size: 1.2em;font-weight: bold;line-height: 1.5em;font-style: normal;}
+em.normal {font-style: normal;}
+em.nobold {font-weight: normal;}
+em.highlight {font-style: normal;padding: 2px 5px;border-radius: 4px;text-shadow: none;}
+em.highlight.white {background: #fff;color: #000;}
+.typography-style-light em.highlight.white {background: #ddd;color: #000;}
+em.highlight.black {background: #000;color: #fff;}
+em.highlight.green {background: #74924A;color: #fff;}
+em.highlight.yellow {background: #D69839;color: #fff;}
+em.highlight.blue {background: #488AAD;color: #fff;}
+em.highlight.red {background: #BD5151;color: #fff;}
+.rt-upper {text-transform: uppercase;}
+.rt-center {text-align: center;}
+.rt-justify {text-align: justify;}
+
+/* Drop Caps */
+.dropcap {overflow: hidden;}
+.dropcap:first-letter {font-size: 300%;margin: 0 13px 0 0;line-height: 110%;float: left;}
+.dropcap2:first-letter, .dropcap4:first-letter, .dropcap6:first-letter {font-size: 30px;margin: 0 10px 10px 0;line-height: 30px;width: 30px;float: left;border-radius: 100%;padding: 6px;text-align: center;}
+.dropcap3:first-letter, .dropcap5:first-letter, .dropcap7:first-letter {font-size: 30px;margin: 0 10px 10px 0;line-height: 30px;width: 30px;float: left;padding: 6px;text-align: center;}
+.dropcap2:first-letter {background: #333;}
+.typography-style-light .dropcap2:first-letter {background: #555;color: #fff;}
+.dropcap3:first-letter {background: #333;border-radius: 2px;}
+.typography-style-light .dropcap3:first-letter {background: #555;color: #fff;}
+.dropcap4:first-letter {background: #ddd;color: #555;}
+.dropcap5:first-letter {background: #ddd;color: #555;border: 1px solid rgba(255,255,255,0.3);border-radius: 2px;}
+
+/* Inset Styles */
+.inset-left {float: left;margin-right: 20px;}
+.inset-right {float: right;margin-left: 20px;}
+.inset-right-title, .inset-left-title {display: block;font-size: 100%;font-weight: bold;}
+.inset-left, .inset-right {display: block;padding: 10px;width: 20%;font-size: 100%;font-style: italic;margin-top: 15px;position: relative;text-align: justify; margin-bottom: 15px;}
+
+/* List and Text Styles - Icons */
+.list-icon {padding: 0;margin: 0 0 15px 0;background: none;}
+.list-icon li {list-style: none;padding: 0 0 0 24px;margin: 0 0 5px 0;background-repeat: no-repeat;}
+.list-icon li a {font-size: 100%;line-height: 1.7em;}
+.text-icon {display: inline-block;line-height: 20px;font-size: 110%;background-repeat: no-repeat;padding-left: 24px;}
+span.email, span.phone, span.quote, span.cart, span.rss, span.tags, span.write, span.info, span.sound, .email li, .phone li, .quote li, .cart li, .rss li, .tags li, .write li, .info li, .sound li {background-image: url(../images/typography/dark/icon-set1.png);}
+.typography-style-light span.email, .typography-style-light span.phone, .typography-style-light span.quote, .typography-style-light span.cart, .typography-style-light span.rss, .typography-style-light span.tags, .typography-style-light span.write, .typography-style-light span.info, .typography-style-light span.sound, .typography-style-light .email li, .typography-style-light .phone li, .typography-style-light .quote li, .typography-style-light .cart li, .typography-style-light .rss li, .typography-style-light .tags li, .typography-style-light .write li, .typography-style-light .info li, .typography-style-light .sound li {background-image: url(../images/typography/light/icon-set1.png);}
+span.rightarrow, span.leftarrow, span.circlearrow, span.downarrow, span.uparrow, span.person, span.calendar, span.doc, span.bulb, .rightarrow li, .leftarrow li, .circlearrow li, .downarrow li, .uparrow li, .person li, .calendar li, .doc li, .bulb li {background-image: url(../images/typography/dark/icon-set2.png);}
+.typography-style-light span.rightarrow, .typography-style-light span.leftarrow, .typography-style-light span.circlearrow, .typography-style-light span.downarrow, .typography-style-light span.uparrow, .typography-style-light span.person, .typography-style-light span.calendar, .typography-style-light span.doc, .typography-style-light span.bulb, .typography-style-light .rightarrow li, .typography-style-light .leftarrow li, .typography-style-light .circlearrow li, .typography-style-light .downarrow li, .typography-style-light .uparrow li, .typography-style-light .person li, .typography-style-light .calendar li, .typography-style-light .doc li, .typography-style-light .bulb li {background-image: url(../images/typography/light/icon-set2.png);}
+span.twitter, span.youtube, span.skype, span.facebook, span.like, span.video, span.dropbox, span.vimeo, span.paypal, .twitter li, .youtube li, .skype li, .facebook li, .like li, .video li, .dropbox li, .vimeo li, .paypal li {background-image: url(../images/typography/dark/icon-set3.png);}
+.typography-style-light span.twitter, .typography-style-light span.youtube, .typography-style-light span.skype, .typography-style-light span.facebook, .typography-style-light span.like, .typography-style-light span.video, .typography-style-light span.dropbox, .typography-style-light span.vimeo, .typography-style-light span.paypal, .typography-style-light .twitter li, .typography-style-light .youtube li, .typography-style-light .skype li, .typography-style-light .facebook li, .typography-style-light .like li, .typography-style-light .video li, .typography-style-light .dropbox li, .typography-style-light .vimeo li, .typography-style-light .paypal li {background-image: url(../images/typography/light/icon-set3.png);}
+.text-icon.email, .text-icon.rightarrow, .text-icon.twitter, .email li, .rightarrow li, .twitter li {background-position: 0 4px;}
+.text-icon.phone, .text-icon.leftarrow, .text-icon.youtube, .phone li, .leftarrow li, .youtube li {background-position: 0 -296px;}
+.text-icon.quote, .text-icon.circlearrow, .text-icon.skype, .quote li, .circlearrow li, .skype li {background-position: 0 -596px;}
+.text-icon.cart, .text-icon.downarrow, .text-icon.facebook, .cart li, .downarrow li, .facebook li {background-position: 0 -896px;}
+.text-icon.rss, .text-icon.uparrow, .text-icon.like, .rss li, .uparrow li, .like li {background-position: 0 -1196px;}
+.text-icon.tags, .text-icon.person, .text-icon.video, .tags li, .person li, .video li {background-position: 0 -1496px;}
+.text-icon.write, .text-icon.calendar, .text-icon.dropbox, .write li, .calendar li, .dropbox li {background-position: 0 -1796px;}
+.text-icon.info, .text-icon.doc, .text-icon.vimeo, .info li, .doc li, .vimeo li {background-position: 0 -2096px;}
+.text-icon.sound, .text-icon.bulb, .text-icon.paypal, .sound li, .bulb li, .paypal li {background-position: 0 -2396px;}
+
+/* Standard List Styles */
+.checkmark, .circle-checkmark, .square-checkmark, .circle-small, .circle, .circle-large, .triangle-small, .triangle, .triangle-large, .bullet {margin: 0 0 25px 0;padding: 0;}
+.checkmark li, .circle-checkmark li, .square-checkmark li, .circle-small li, .circle li, .circle-large li, .triangle-small li, .triangle li, .triangle-large li, .bullet li {list-style-type: none;padding: 0 0 0 30px;position: relative;margin-bottom: 8px;}
+.checkmark li a, .circle-checkmark li a, .square-checkmark li a, .circle-small li a, .circle li a, .circle-large li a, .triangle-small li a, .triangle li a, .triangle-large li {font-size: 100%;line-height: 1.7em;}
+.checkmark li:after {content:"";display:block;width: 4px;height: 8px;border-color: #fff;border-style: solid;border-width: 0 3px 3px 0;position:absolute;left: 14px;top: 3px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.circle-checkmark li:before {content:"";display: block;border-color: #fff;border-style: solid;border-width: 9px;border-radius: 9px;height: 0;width: 0;position: absolute;left: 7px;top: 1px;}
+.circle-checkmark li:after {content:"";display:block;width: 3px;height: 6px;border-color: #000;border-width: 0 2px 2px 0;border-style: solid;position:absolute;left: 14px;top: 5px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.typography-style-light .circle-checkmark li:after {border-color: #fff;}
+.square-checkmark li:before {content:"";display: block;border-color: #fff;border-width: 7px;border-style: solid;height: 0;width: 0;position: absolute;left: 9px;top: 3px;}
+.square-checkmark li:after {content:"";display:block;width: 3px;height: 6px;border-color: #000;border-width: 0 2px 2px 0;border-style: solid;position:absolute;left: 14px;top: 9px;margin-top: -4px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.typography-style-light .square-checkmark li:after {border-color: #fff;}
+.triangle-small li:after {content:"";display:block;width: 0;height: 0;border-color: transparent transparent transparent #fff;border-style: solid;border-width: 3px;position:absolute;left: 18px;top: 7px;}
+.triangle li:after {content:"";display:block;width: 0;height: 0;border-color: transparent transparent transparent #fff;border-style: solid;border-width: 4px;position:absolute;left: 17px;top: 6px;}
+.triangle.green li:after {border-color: transparent transparent transparent #74924A;}
+.triangle.yellow li:after {border-color: transparent transparent transparent #D69839;}
+.triangle.red li:after {border-color: transparent transparent transparent #BD5151;}
+.triangle.blue li:after {border-color: transparent transparent transparent #488AAD;}
+.triangle.white li:after {border-color: transparent transparent transparent #ccc;}
+.triangle.black li:after {border-color: transparent transparent transparent #000;}
+.triangle-large li:after {content:"";display:block;width: 0;height: 0;border-color: transparent transparent transparent #fff;border-style: solid;border-width: 6px;position:absolute;left: 15px;top: 4px;}
+.circle-small li:after {content:"";display:block;width: 0;height: 0;border-color: #fff;border-style: solid;border-width: 2px;border-radius: 2px;position:absolute;left: 16px;top: 8px;}
+.circle li:after {content:"";display:block;width: 0;height: 0;border-color: #fff;border-style: solid;border-width: 3px;border-radius: 3px;position:absolute;left: 15px;top: 7px;}
+.circle-large li:after {content:"";display:block;width: 0;height: 0;border-color: #fff;border-style: solid;border-width: 5px;border-radius: 5px;position:absolute;left: 12px;top: 5px;}
+.circle.green li:after, .checkmark.green li:after {border-color: #74924A;}
+.circle.yellow li:after, .checkmark.yellow li:after {border-color: #D69839;}
+.circle.red li:after, .checkmark.red li:after {border-color: #BD5151;}
+.circle.blue li:after, .checkmark.blue li:after {border-color: #488AAD;}
+.circle.white li:after, .checkmark.white li:after {border-color: #ccc;}
+.circle.black li:after, .checkmark.black li:after {border-color: #000;}
+.bullet li {background-position: 15px 7px;background-repeat: no-repeat;}
+
+/* Notice/System Styles */
+.approved, .attention, .alert, .notice {padding: 15px;border-radius: 6px;font-weight: bold;border: 1px solid #C1E8C1;}
+#system-message dd ul {border-radius: 6px;}
+.approved a, .attention a, .alert a, .notice a {color: #222 !important;text-decoration: underline;}
+.approved a:hover, .attention a:hover, .alert a:hover, .notice a:hover {color: #000 !important;text-shadow: none;}
+.approved {background: #d1eed1;text-shadow: 1px 1px 1px rgba(255,255,255,0.3);color: #444;}
+.attention, #system-message dd.notice ul {background: #FDF5D9;text-shadow: 1px 1px 1px rgba(255,255,255,0.3);color: #444;border: 1px solid #FCEEC1;}
+.alert, #system-message .error ul {background: #fddfde;color: #444;text-shadow: 1px 1px 1px rgba(255,255,255,0.3);border: 1px solid #FBC9C8;}
+.notice, #system-message dd ul {background: #ddf4fb;color: #444;text-shadow: 1px 1px 1px rgba(255,255,255,0.3);border: 1px solid #C8EEF9;}
+
+/* Forms and Inputs */
+.inputbox, textarea, .rt-joomla .contact input.required:focus, .rt-joomla .contact textarea.required:focus, #contact-form dd input:focus, #contact-form dd textarea:focus {-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-ms-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;}
+.inputbox:focus, textarea:focus, .rt-joomla .contact input.required:focus, .rt-joomla .contact textarea.required:focus, input#username, input#password, #contact-form dd input:focus, #member-registration dd input:focus, input#jform_email:focus {outline: 0;}

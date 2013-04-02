@@ -1,0 +1,161 @@
+<div id="rt-page-surround" class="rt-bg">  
+
+    <!-- ko if:hasModules('top') || hasModules('header') -->
+    <header id="rt-top-surround" class="rt-bg2">
+	    <!-- ko if:hasModules('top') -->
+	    <div id="rt-top" class="block-module">
+		    <div class="rt-container">
+                    <!-- ko template:{name:'grid/section',data:getSection('top')}--> <!-- /ko --> 
+			    <div class="clear"></div>
+		    </div>
+	    </div>
+	    <!-- /ko --> <!--End Top-->
+
+	    <!-- ko if:hasModules('header') -->
+	    <div id="rt-header">
+		    <div class="rt-container">			
+                <!-- ko template:{name:'grid/section',data:getSection('header')}--> <!-- /ko --> 
+			    <div class="clear"></div>
+		    </div>
+	    </div>
+	    <!-- /ko --> <!--End Header-->
+    </header>
+    <!-- /ko --> 
+
+    <div class="rt-page-container rt-container rt-light">
+	    <!-- ko if:hasModules('drawer') -->
+	    <div id="rt-drawer">
+		    <div class="rt-container">
+                <!-- ko template:{name:'grid/section',data:getSection('drawer')}--> <!-- /ko --> 
+			    <div class="clear"></div>
+		    </div>
+	    </div>
+	    <!-- /ko --> <!-- End Drawer-->
+
+	    <!-- ko if:hasModules('showcase') -->
+	    <div id="rt-showcase">
+            <div class="rt-showcase-pattern">
+		        <div class="rt-container">
+			        <!-- ko template:{name:'grid/section',data:getSection('showcase')}--> <!-- /ko --> 
+			        <div class="clear"></div>
+		        </div>
+                </div>
+	    </div>
+	    <!-- /ko --> <!--End Showcase-->
+
+            <div id="rt-transition" style="visibility: visible; opacity: 1;">
+                <div id="rt-mainbody-surround">
+
+	                <!-- ko if:hasModules('navigation') -->
+	                <div id="rt-navigation">
+		                <div class="rt-container">			
+                            <!-- ko template:{name:'grid/section',data:getSection('navigation')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End Nav-->
+   
+	                <!-- ko if:hasModules('feature') -->
+	                <div id="rt-feature" class="block-module">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('feature')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End Feafute-->
+
+	                <!-- ko if:hasModules('utility') -->
+	                <div id="rt-utility" class="block-module">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('utility')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End Utility-->
+
+	                <!-- ko if:hasModules('breadcrumb') -->
+	                <div id="rt-breadcrumbs">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('breadcrumb')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End Breadcrumbs-->
+
+	                <!-- ko if:hasModules('maintop') -->
+	                <div id="rt-maintop" class="block-module">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('maintop')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End MainTop-->
+
+
+	                <!--Begin Main Body -->
+                    <!-- ko template:{name:contentSection.layout(),data:contentSection}--> <!-- /ko --> 
+	                <!--End  Main Body -->
+
+	                <!-- ko if:hasModules('mainbottom') -->
+	                <div id="rt-mainbottom" class="block-module">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('mainbottom')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--end Main bottom-->
+
+	                <!-- ko if:hasModules('extension') -->
+	                <div id="rt-extension" class="block-module">
+		                <div class="rt-container">
+			                <!-- ko template:{name:'grid/section',data:getSection('extension')}--> <!-- /ko --> 
+			                <div class="clear"></div>
+		                </div>
+	                </div>
+	                <!-- /ko --> <!--End Extension-->
+
+              </div> <!--End rt-mainbody-surround-->
+            </div><!--End rt-transition-->
+
+        <!-- ko if:hasModules('bottom') -->
+        <div id="rt-bottom" class="block-module">
+	        <div class="rt-container">
+		        <!-- ko template:{name:'grid/section',data:getSection('bottom')}--> <!-- /ko --> 
+		        <div class="clear"></div>
+	        </div>
+        </div>
+        <!-- /ko --> <!--End Bottom-->
+
+    </div><!--rt-page-container -->
+
+
+    <footer id="rt-footer-surround" class="rt-light">
+            <!-- ko if:hasModules('footer') -->
+            <div id="rt-footer">
+	            <div class="rt-container">
+		            <!-- ko template:{name:'grid/section',data:getSection('footer')}--> <!-- /ko --> 
+		            <div class="clear"></div>
+	            </div>
+            </div>
+            <!-- /ko --> <!--End Footer-->
+
+            <!-- ko if:hasModules('copyright') -->
+            <div id="rt-copyright">
+	            <div class="rt-container">
+		            <!-- ko template:{name:'grid/section',data:getSection('copyright')}--> <!-- /ko --> 
+		            <div class="clear"></div>
+	            </div>
+            </div>
+            <!-- /ko --> <!--End Copyright-->
+    </footer>
+
+    <!-- ko if:hasModules('debug') -->
+    <div id="rt-debug">
+	    <div class="rt-container">
+		    <!-- ko template:{name:'grid/section',data:getSection('debug')}--> <!-- /ko --> 
+		    <div class="clear"></div>
+	    </div>
+    </div>
+    <!-- /ko --> <!--End Debug-->
+
+</div>

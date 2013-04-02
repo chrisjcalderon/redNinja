@@ -1,0 +1,33 @@
+
+<div id="item-page">
+<h2>About Joomla!</h2>
+
+
+
+<h3>What is Joomla?</h3>
+<p>Joomla is an award-winning content management system (CMS), which enables you to build Web sites and powerful online applications. Many aspects, including its ease-of-use and extensibility, have made Joomla the most popular Web site software available. Best of all, Joomla is an open source solution that is freely available to everyone.</p>
+
+<h3>What Joomla! can do?</h3>
+<p>Joomla is used all over the world to power Web sites of all shapes and sizes. For example:</p>
+<ul>
+  <li>Corporate Web sites or portals</li>
+  <li>Corporate intranets and extranets</li>
+  <li>Online magazines, newspapers, and publications</li>
+  <li>E-commerce and online reservations</li>
+  <li>Government applications</li>
+  <li>Small business Web sites</li>
+  <li>Non-profit and organizational Web sites</li>
+  <li>Community-based portals</li>
+  <li>School and church Web sites</li>
+  <li>Personal or family homepages</li>
+</ul>
+
+<br>
+
+<h3>Site and Administrator</h3>
+<p>Your site actually has two separate sites. The site (also called the front end) is what visitors to your site will see. The administrator (also called the back end) is only used by people managing your site. You can access the administrator by clicking the "Site Administrator" link on the "This Site" menu or by adding /administrator to the end of you domain name.</p>
+<p>Log in to the administrator using the username and password created during the installation of Joomla.</p>
+
+<h3>Learn More</h3>
+<p>There is much more to learn about how to use Joomla! to create the web site you envision. You can learn much more at the <a href="http://docs.joomla.org" target="_blank">Joomla! documentation site</a> and on the<a href="http://forum.joomla.org" target="_blank"> Joomla! forums</a>.</p>
+</div>

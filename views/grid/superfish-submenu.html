@@ -1,0 +1,6 @@
+<ul data-bind="foreach:menus">
+    <li>
+		<a href="#" data-bind="text:title"></a>            
+        <!-- ko template:{if:hasMenus(),name:'grid/superfish-submenu',data:$data} --><!-- /ko -->            
+    </li>
+</ul>

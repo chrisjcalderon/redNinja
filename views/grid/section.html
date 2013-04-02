@@ -1,0 +1,23 @@
+<!--Start Section-->
+<div>
+    <!--<h1 data-bind="text:name"></h1>-->
+     <!--Start Sections-->
+    <div data-bind="foreach:{data:_positions, as:'position'}" class="rt-section">
+        <div data-bind="attr:{class:$parent.getClass($index())}">
+                <!-- ko foreach:{data:modules,as:'module'} -->
+                    <!-- koa if:ready() -->
+                        <div data-bind="attr:{class:'rt-block ' + $parent.css() + ' ' + css}">
+                             <div class="module-surround">
+		                          <div data-bind="if:showTitle" class="module-title">
+	                                 <h2 class="title" data-bind="text:title"></h2>
+	                               </div>
+	                               <div class="module-content">	
+                                       <!-- ko template:{name:template,data:data,afterRender:afterRender} --><!-- /ko -->
+			                        </div>
+	                         </div>
+                        </div>
+                    <!-- /koa --> 
+                <!-- /ko --> 
+        </div>        
+    </div><!--End Sections-->    
+</div><!--End Section-->

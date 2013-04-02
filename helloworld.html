@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World!</title>
+        
+        <script type="text/javascript"  src="/scripts/app/baseController.js" my-root="" my-module="helloworld"></script> 
+    </head>
+    
+    <body>
+            <h1>Hello there!</h1>
+            <span data-bind="text:helloWorldText"></span>
+            <p>An observable array, click add name to add stuff to it</p>            
+            <div  title="Add" data-bind="jqButton:{disabled:false},click:addNew">Add to the list...</div>
+            <ul data-bind="foreach:names">
+                <li style="margin-bottom: 5px">
+                   <div>
+                     <span data-bind="text:name"></span> 
+                     <a href="#" data-bind="click:$parent.remove">Remove...</a>
+                   </div>
+                </li>
+            </ul>        
+    </body>
+
+</html>

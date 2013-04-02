@@ -1,0 +1,21 @@
+<!--Start Content Section-->
+<!-- ko foreach:position-->
+    <div data-bind="if:hasModules(),attr:{class:$parent.me.getClass($parent.position, $index(),$parent )}" >
+        <div>
+            <!-- ko foreach:{data:modules,as:'module'} -->
+                    <!--Module Chrome-->
+                    <div class="rt-block">
+                            <div class="module-surround">
+		                        <div data-bind="if:showTitle" class="module-title">
+	                                <h2 class="title" data-bind="text:name"></h2>
+	                            </div>
+	                            <div class="module-content">
+                                    <!-- ko template:{name:template,data:data,afterRender:afterRender} --><!-- /ko -->
+			                    </div>
+	                        </div>
+                    </div>
+                    <!--End Module Chrome-->
+            <!-- /ko --> 
+        </div>
+    </div>        
+<!-- /ko --> 

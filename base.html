@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Demo</title>
+        <script type="text/javascript" src="/scripts/app/baseController.js"
+                my-module = "demo\main/heyYo"                
+                my-root   = ""></script>
+    </head>
+    <body>
+
+        <div data-bind="template:{name:'/demo/header'}"></div>
+        <input type="text" data-bind="value:firstName,valueUpdate:'keyup'">&nbsp;&nbsp; 
+        <span data-bind ="text:firstName"></span>
+        <br>This is the model dialog title:<input type='text' data-bind ="value:dialog.title">
+        <br>Modules Loaded: 
+            <ul data-bind="foreach:modules">
+                <li data-bind="text:$data"></li>
+            </ul>
+        <hr>
+           <br>Clients
+            <ul data-bind="foreach:clients">
+                <li data-bind="text:name() + '/' + address()"></li>
+            </ul>
+        <hr>
+        <div  title="Load Moodel" data-bind="jqButton:{disabled:initialized()},click:loadModel">Load Model</div>
+        <div title="Add Client" data-bind="jqButton:{disabled:false},click:addClient">Add Client</div>
+
+        <div title="Sub Model Action" data-bind="jqButton:{disabled:false},click:clickButton">Sub Model Action</div>
+        <div title="Get Model" data-bind="jqButton:{disabled:false},click:getModel">Dialog Model</div>
+        <div title="Add using SendMessage" data-bind="jqButton:{},click:openContact">SM- Open Contact</div>
+        <hr>
+        
+        <div id="dynamicmodule1" style="float: left;border: 1px solid red;padding: 5px"></div>
+        <div id="dynamicmodule2" style="float: left;margin-left: 20px;border: 1px solid red;padding: 5px"></div>
+        <div style="clear: both"></div>
+
+        <div style="width: 100%">
+            <div id="dynContainer" style="border: 2px dotted gray;padding: 5px;float: left;width:48%">
+                <h3>This container will have View Models Created via API</h3>
+                <div style="clear: both"></div>            
+            </div>            
+            <div id="dynContainer2" style="border: 2px dotted gray;padding: 5px;float: left;width:48%;float: left;background-color:#ecf4f6;margin-left: 5px">
+                <h3>This is handled by KO</h3>
+                <div data-bind="sortable:vmmodels" id="sortable">
+                   <div data-bind="template:{name:template,data:data,afterRender:$parent.onVmRender},attr:{id:id}" class="item"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
