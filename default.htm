@@ -10,13 +10,12 @@
             }
 
         </style>
-        <script type="text/javascript" src="/scripts/app/baseController.js"
-                my-module = "demo\main/"                
+        <script type="text/javascript" src="scripts/app/baseController.js"
+                my-module = "demo/main"                
                 my-root   = ""></script>
     </head>
     <body>
-
-        <div data-bind="template:{name:'header'}"></div>
+        <div data-bind="template:{name:'demo/header'}"></div>
         <input type="text" data-bind="value:firstName,valueUpdate:'keyup'">&nbsp;&nbsp; 
         <span data-bind ="text:firstName"></span>
         <br>This is the model dialog title:<input type='text' data-bind ="value:dialog.title">

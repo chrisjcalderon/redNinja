@@ -29,7 +29,8 @@ if (typeof window.appController === 'undefined') {
 
         var Configuration = function () {
             var self = this;
-            //default styles
+            self.packages = {};
+
             self.defaultStyles = ['link!theme/jquery-ui.css',
                                   'link!styles/toastr.min.css',
                                   'link!styles/fullcalendar.css',
@@ -133,8 +134,13 @@ if (typeof window.appController === 'undefined') {
                         var onLoad = script.attr('my-onload');
                         var base = script.attr('my-root');
                         var container = script.attr('my-container');
+                        var package  = script.attr('my-package');
 
                         self.log.info("Processing : " + script.attr("src") + " / module{" + (module || 'na') + "}");
+
+                        if( package ) {
+                            self.definePackage(package);           
+                        }
 
                         if (module) { //If a module is defined
                             var parts = module.split("/");
@@ -191,6 +197,15 @@ if (typeof window.appController === 'undefined') {
                 }
             }
 
+
+            self.definePackage = function (name) {
+                //all packages go under /app/package-name
+                self.config.packages[name] = { path: "../app/" + name,
+                    main: 'main',
+                    lib: 'lib'
+                };
+            }
+
             self.run = function () {
                 var config = {
                     baseUrl: self.config.lib,
@@ -204,7 +219,8 @@ if (typeof window.appController === 'undefined') {
                         dt: "datatables/media/js",
                         dtools: "datatables/extras/",
                         content: self.config.content
-                    }
+                    },
+                    packages: self.config.packages
                 };
 
                 curl(config, [
@@ -503,6 +519,7 @@ if (typeof window.appController === 'undefined') {
 
             //Revealing Pattern - sort of. Used for the defines
             self.interface = {
+                addPackage: self.controller.definePackage,
                 listen: self.registerListener,
                 sendMsg: self.sendMessage,
                 trigger: self.sendMessage,

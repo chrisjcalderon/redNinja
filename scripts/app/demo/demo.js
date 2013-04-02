@@ -1,6 +1,6 @@
     define(['AppManager', 'AppModels'
     , 'text!content/file2.txt' //Retrieves a content file ...
-    , 'models/homepage'        //A Model... in this case, for the page?
+    , 'models/demo/homepage'        //A Model... in this case, for the page?
 ], function (app, models, someContent, page) {
 
 
@@ -27,11 +27,11 @@
             self.page.left.data({
                 title: "LEFT TITLE!",
                 other: 'Other Content...',
-                back: function () { self.page.left.template('left-section');  }
+                back: function () { self.page.left.template('demo\\left-section');  }
             }
             );
             //Change it!
-            self.page.left.template("left-section-2")
+            self.page.left.template("demo\\left-section-2")
         }
 
         //Model Initialization
