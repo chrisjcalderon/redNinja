@@ -54,35 +54,28 @@ if (typeof window.appController === 'undefined') {
                 return "";
             }
 
+            self.basePath = location.href.substring(0, location.href.lastIndexOf('/'));
             self.base = self.resolveInitialPath();
-            self.scripts = self.base + "/scripts";
+            self.scripts = self.base + "scripts";
             self.lib = self.scripts + "/lib";
-            self.app = self.scripts + "/app";
-            self.models = self.scripts + "/models";
-            self.content = "/media/content",
-            self.templates = self.base + "/views";
-            self.styles = self.base + "/styles";
+            self.app = "../app";
+            self.models = "../models";
+            self.content = "../../media/content",
+            self.templates = self.basePath + "/views";
+            self.styles = self.base + "../../styles";
             self.themes = self.styles + "/themes";
             self.theme = 'base';
             self.head = document.getElementsByTagName('script')[0].parentNode,
-            self.initialized = false;
+            self.initialized = true;
 
-            self.init = function (base) {
+            self.init = function () {
 
                 if (self.initialized) {
                     return;
                 }
 
-                self.initialized = true;
-                self.base = base;
-                self.scripts = base + "/scripts";
-                self.lib = self.scripts + "/lib";
-                self.app = self.scripts + "/app";
-                self.models = self.scripts + "/models";
-                self.content = "/media/content",
-                self.templates = base + "/views";
-                self.styles = base + "/styles";
-                self.themes = self.styles + "/themes";
+                //in case adjustments are needed post initialization
+
             }
         } //End Controller
 
@@ -199,7 +192,7 @@ if (typeof window.appController === 'undefined') {
             }
 
             self.run = function () {
-                config = {
+                var config = {
                     baseUrl: self.config.lib,
                     //preloads: ["curl/debug"],
                     paths: {
@@ -208,8 +201,8 @@ if (typeof window.appController === 'undefined') {
                         app: self.config.app,
                         lib: self.config.lib,
                         models: self.config.models,
-                        dt: self.config.lib + "/datatables/media/js",
-                        dtools: self.config.lib + "/datatables/extras/",
+                        dt: "datatables/media/js",
+                        dtools: "datatables/extras/",
                         content: self.config.content
                     }
                 };
