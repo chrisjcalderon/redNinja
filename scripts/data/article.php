@@ -1,7 +1,7 @@
 <?php
   function getData($id){
         mysql_connect("localhost", "", "") or die(mysql_error());
-        mysql_select_db("morethanamom_db") or die(mysql_error());
+        mysql_select_db("") or die(mysql_error());
         $sql = mysql_query("select id,title,introtext from jos_content where id=$id");
         $article = NULL;
 
