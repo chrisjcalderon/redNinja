@@ -1,0 +1,11 @@
+<span data-bind="text:helloWorldText"></span>
+<p>An observable array, click add name to add stuff to it</p>            
+<div  title="Add" data-bind="jqButton:{disabled:false},click:addNew">Add to the list...</div>
+<ul data-bind="foreach:names">
+    <li style="margin-bottom: 5px">
+        <div>
+            <span data-bind="text:name"></span> 
+            <a href="#" data-bind="click:$parent.remove">Remove...</a>
+        </div>
+    </li>
+</ul>   
