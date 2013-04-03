@@ -8,7 +8,9 @@ The framework uses at it's core the following amazing Open Source libraries
 CUJOS CURL:  https://github.com/cujojs/curl
 
 JQUERY: 	 http://jquery.com/ 
+
 KnockOut JS: http://knockoutjs.com
+
 <hr>
 
 <b>Optional, but included because they are awesome:</b>
@@ -34,5 +36,5 @@ Remove files not needed
 Remove plugins not needed or make them load via optional AMD module
 
 <hr>
-NOTE: in some of the demos I'm querying a joomla mysql database using php scripts (under/scripts/data)... change them
+NOTE: in some of the demos I'm querying a mysql database using php scripts (under/scripts/data)... change them
 to do whatever you need...
