@@ -1,4 +1,4 @@
-Quick App - EASY-FAST
+Quick App - EASY-FAST  (Working on the Name for this library)
 ========
 
 <b>A easy to use framework for developing MVVM applications built on top of popular Open Source Frameworks. </b>
@@ -26,9 +26,13 @@ For the grid template, I'm using the stylesheets and "approach" of the gantry fr
 <hr>
 TODOS:
 Document how to use the libraries, more samples, how-tos, etc.
+
 Clean up and document code
+
 Remove files not needed
+
 Remove plugins not needed or make them load via optional AMD module
+
 <hr>
 NOTE: in some of the demos I'm querying a joomla mysql database using php scripts (under/scripts/data)... change them
 to do whatever you need...
