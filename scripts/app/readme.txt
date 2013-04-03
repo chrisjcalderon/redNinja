@@ -8,8 +8,7 @@ The AppController is globally available AND defined under
     
 
     NOTE models and view models are Javascript AMD compliant Modules
-    Use define(['require','exports'],function() {} );
-    The results must be returned in exports.action
+ 
     MODULES: Are application components that are comprissed of
         1) An html file, with a reference to baseController, passing the module to be loaded in the my-[] parameters
         2) A script file specified in the my-module parameter
