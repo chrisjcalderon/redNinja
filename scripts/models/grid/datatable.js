@@ -1,4 +1,4 @@
-define(['AppModels'], function (models) {
+define(['AppModels','models/datatable'], function (models,dt) {
 
     var tableModel = function () {
         var self = this;

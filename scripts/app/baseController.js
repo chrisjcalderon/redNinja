@@ -33,7 +33,6 @@ if (typeof window.appController === 'undefined') {
 
             self.defaultStyles = ['link!theme/jquery-ui.css',
                                   'link!styles/toastr.min.css',
-                                  'link!styles/fullcalendar.css',
                                   'link!styles/base.css'
              ];
 
@@ -216,8 +215,6 @@ if (typeof window.appController === 'undefined') {
                         app: self.config.app,
                         lib: self.config.lib,
                         models: self.config.models,
-                        dt: "datatables/media/js",
-                        dtools: "datatables/extras/",
                         content: self.config.content
                     },
                     packages: self.config.packages
@@ -248,10 +245,9 @@ if (typeof window.appController === 'undefined') {
                 .next([                          //loads default javascript libraries
                     'jquery',                    //ensures jquery
                     'js!xdate.js',
-                    'js!app-utils.js',
-                    'js!fullcalendar.min.js!order',
-                    'dt/jquery.dataTables.min'
-                //"js!jquery-lightbox.js"
+                    'js!app-utils.js'
+                   // 'js!fullcalendar.min.js!order',
+                   // 'dt/jquery.dataTables.min'
                  ])
                  .then(function ($) { //when the page is ready then load the modules
                      $(document).ready(function () {
