@@ -1,0 +1,15 @@
+<h3 class="title">Read only view</h3> 
+
+
+<div data-bind="if:names().length==0">
+    <p class="warning"> No items have been added yet...</p>
+   
+</div>
+         
+<ul data-bind="foreach:names">
+    <li style="margin-bottom: 5px">
+        <div>
+            <span data-bind="text:name"></span> 
+        </div>
+    </li>
+</ul>   

@@ -12,10 +12,12 @@ define(['AppModels'
 
         self.init = function () {
             self.menu.rootClass = "sf-menu sf-vertical";
-            self.menu.add("Home", "Home");
-            self.menu.add("Home1", "Home");
-            self.menu.add("Home2", "Home");
-            self.menu.add("Home3", "Home");
+            self.menu.add("Main",      { template:'misc/main', data:null, model:'misc/main'});
+            self.menu.add("Read View", { template:'misc/demo3',data:null, model:'misc/main'});
+       
+            self.menu.add("Page 1",    { template:'misc/demo1',data:null, model:''});
+            self.menu.add("Page 2",    { template:'misc/demo2',data:null, model:''});
+   
         }
 
         self.then = function (fnc) {

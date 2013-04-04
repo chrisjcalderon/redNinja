@@ -18,7 +18,7 @@ define(['AppModels'
         self.clickMe = function () {
             toastr.info("<h3>Hello " + self.yourName() + " from " + self.context.name + "<h3>Check the new title :)");
             self.context.title(self.yourName());
-            self.context._container.css("title3");
+            self.context.container.css("title3");
            
             template.component.modules()[0].setParams(prompt("Article", 2));
 

@@ -11,6 +11,15 @@ function (require, app, $, page) {
     Note: In reallity, a module is a component as well...
         
     */
+
+    var templateDefaults = {
+        showTitle: true,
+        titleClass: '',
+        boxClass: '',
+        css: function () { return this.boxClass + ' ' + this.titleClass; }
+
+    };
+
     var Template = function () {
         var self = this;
         self.version = "0.1";
@@ -279,9 +288,10 @@ function (require, app, $, page) {
             var total = 1;
             var sections = new Array();
 
-            if (!self.hasAnyModule()) {
+            if ( !self.hasAnyModule() ) {
                 return new Array();
             }
+        
             if (self.sidebarA.hasModules()) { sections.push({ data: { data: self.sidebarA, class: "rt-sidebar-a" }, template: 'grid/sidebar' }); total++; }
             if (self.sidebarB.hasModules()) { sections.push({ data: { data: self.sidebarB, class: "rt-sidebar-b" }, template: 'grid/sidebar' }); total++; }
             if (self.sidebarC.hasModules()) { sections.push({ data: { data: self.sidebarC, class: "rt-sidebar-c" }, template: 'grid/sidebar' }); total++; }
@@ -378,7 +388,7 @@ function (require, app, $, page) {
         //Observables in case templates iterate through container modules and so dependencies are created
 
         self.addModule = function (module) {
-            module._container = self;
+            module.container = self;
             self.modules.push(module);
             return module;
         }
@@ -398,16 +408,16 @@ function (require, app, $, page) {
     var Module = function (name, template, model, params, title) { //For instance, list of links, list of articles, etc
         var self = this;
 
-        self.name = name;
-        self.template = template || 'grid/html';
-        self.model = model;
-        self.params = params;
-        self.data = ko.observable();
-        self.visible = ko.observable(true);
-        self.title = ko.observable(title || self.name);
-        self.showTitle = ko.observable(true);
-        self.css = "";
-        self.ready = ko.observable(false)
+        self.name      = name;
+        self.template  = ko.observable(template || 'grid/html');
+        self.model     = model;
+        self.params    = params;
+        self.data      = ko.observable();
+        self.visible   = ko.observable(true);
+        self.title     = ko.observable(title || self.name);
+        self.showTitle = ko.observable(templateDefaults.showTitle);
+        self.css       = templateDefaults.css;
+        self.ready     = ko.observable(false)
 
         self.ready.subscribe(function (value) {
             //toastr.info('ready ' + self.name);
@@ -416,8 +426,7 @@ function (require, app, $, page) {
         //Handles After Renders
         self.afterRender = function (element) {
 
-            if (element[0].className == 'infuser-loading') {
-                //app.log.info("Preparing render of template:" + self.template + " for module:" + self.name + " model:" + self.model);
+            if (element[0].className == 'infuser-loading') {                
                 return;
             }
 
@@ -431,15 +440,15 @@ function (require, app, $, page) {
 
             self.css = data.css || self.css;
             if (data.showTitle !== undefined) self.showTitle(data.showTitle);
-            if (data.visible !== undefined) self.visible(data.visible);
-            if (data.title !== undefined) self.title(data.title);
-            if (data.data !== undefined) self.data(data.data);
+            if (data.visible   !== undefined) self.visible(data.visible);
+            if (data.title     !== undefined) self.title(data.title);
+            if (data.data      !== undefined) self.data(data.data);
             return self;
         }
 
         self.setModel = function (model, template, params) {
-            self.template = template || self.template;
-            self.params = params || self.params;
+            self.template(template || self.template);
+            self.params   = params || self.params;
             if (typeof model === 'object') {
                 model.context = self;
                 app.log.info("setModel for " + self.name + " -> as object");
@@ -513,7 +522,8 @@ function (require, app, $, page) {
         component: template.component,
         init: template.init,
         Module: Module,
-        getSection: template.getSection
+        getSection: template.getSection,
+        defaults: templateDefaults
     }
 
 } //End Closure
