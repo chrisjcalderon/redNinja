@@ -7,6 +7,7 @@ sf-sub-indicator
 }
 .sf-menu li {
 	position: relative;
+ 
 }
 .sf-menu ul {
 	position: absolute;
@@ -37,6 +38,8 @@ sf-sub-indicator
 .sf-menu {
 	float: left;
 	margin-bottom: 1em;
+    margin-left: 0px !important;
+
 }
 .sf-menu ul {	
 	min-width: 12em; /* allow long menu items to determine submenu width */

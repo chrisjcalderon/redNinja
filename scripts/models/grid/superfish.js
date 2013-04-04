@@ -77,13 +77,14 @@ define(['AppModels', 'require'], function (app, require) {
                 var menu = ko.dataFor(event.target.parentElement);
                 //KO binds at the LI level, whereas we bind the click at the A level.
                 //So, we move one level up from A and get the KO model
-                toastr.info(menu.title);
+                app.trigger(self, new app.message("menuclick",menu,null), null);
+               // toastr.info(menu.title);
             });
 
 
         }
         self.afterRender = function (element, context) {
-            setTimeout(self.render, 500);
+            setTimeout(self.render, 100);
         }
     }
 
@@ -93,7 +94,10 @@ define(['AppModels', 'require'], function (app, require) {
 
              });
 
-    require(['link!styles/grid/menu/css/superfish.css'], function () { });
+    require(['link!styles/grid/menu/css/superfish.css',
+             'link!styles/grid/menu/css/superfish-vertical.css'
+
+    ], function () { });
 
     return MenuModel;
 

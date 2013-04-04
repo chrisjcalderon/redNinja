@@ -495,7 +495,8 @@ function (require, app, $, page) {
         if (self.model == '') {
             self.ready(true);
         } else {
-            setTimeout(self.init);
+            // setTimeout(self.init);
+            self.init();
         }
 
         return self;

@@ -12,6 +12,7 @@ define(['AppManager'
 
     var model = function () {
         var self = this;
+
         self.template = template;
 
         self.headerTitle = ko.observable("This is the header from the main app...");
@@ -27,35 +28,27 @@ define(['AppManager'
                         ]
             );
 
-            template.section["maintop"].setLayout(2, [3, 9]);
-            
-            //assigns a template. Since there is no specific model for it, then assings this model as the data/model
-            //In the case of the header, it just binds the headerTitle
+            template.section["maintop"].setLayout(2, [2, 10]);
+
             template.getSection("top").positions[0].addModule(new template.Module("", "misc/header", "", null)).data(self).showTitle(false);
             template.getSection("top").positions[0].addModule(new template.Module("", "grid/superfish", "", null)).data(test).showTitle(false);
-           
-            template.getSection("maintop").positions[0].addModule(new template.Module("", "misc/side-bar", "", null,"Options"));
+
+            template.getSection("maintop").positions[0].addModule(new template.Module("", "grid/superfish", "misc/leftmenu", null, "Sidebar"))._container.css("title1");
             template.getSection("maintop").positions[1].addModule(new template.Module("", "misc/main", "misc/main", null)).showTitle(false);
+
             template.getSection("footer").positions[0].addModule(new template.Module("", "", "", null)).showTitle(false);
 
+            models.on("menuclick").receive(function (sender, e) {
+                //the menu broadcasts click events if a handler is not set... the e is a message where e.obj is the menu itself (sender is the 
+                //menu model)
+                toastr.info("Got the menu click... " + e.obj.title);
+                self.headerTitle("Header says you last clicked " + e.obj.title);
+            });
         }
 
         self.load = function () {
 
             ko.applyBindings(self);
-        }
-
-        self.addModules = function () {
-
-            var sections = template.instance.sections();
-            for (var s = 0; s < sections.length; s++) {
-                var section = sections[s];
-                for (var p = 0; p < section.positions.length; p++) {
-                    var position = section.positions[p];
-                    position.addModule(new template.Module("Module for " + position.name, "", "", null));
-                }
-            }
-
         }
 
 

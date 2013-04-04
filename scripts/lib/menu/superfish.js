@@ -186,8 +186,13 @@
 	$.fn.extend({
 		hideSuperfishUl: function(instant) {
 			var $this = this,
-				o = sf.getOptions($this),
-				not = (o.retainPath === true) ? o.$path : '',
+				o = sf.getOptions($this);
+                if(!o ) return this;
+
+                if(typeof o.retainPath === undefined) {
+                    o.retainPath = false;
+                }
+                var not = (o.retainPath === true) ? o.$path : '',
 				$ul = $this.find('li.' + o.hoverClass).add(this).not(not).removeClass(o.hoverClass).children('ul'),
 				speed = o.speedOut;
 
