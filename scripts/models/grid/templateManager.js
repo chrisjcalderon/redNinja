@@ -279,6 +279,9 @@ function (require, app, $, page) {
             var total = 1;
             var sections = new Array();
 
+            if (!self.hasAnyModule()) {
+                return new Array();
+            }
             if (self.sidebarA.hasModules()) { sections.push({ data: { data: self.sidebarA, class: "rt-sidebar-a" }, template: 'grid/sidebar' }); total++; }
             if (self.sidebarB.hasModules()) { sections.push({ data: { data: self.sidebarB, class: "rt-sidebar-b" }, template: 'grid/sidebar' }); total++; }
             if (self.sidebarC.hasModules()) { sections.push({ data: { data: self.sidebarC, class: "rt-sidebar-c" }, template: 'grid/sidebar' }); total++; }
@@ -377,6 +380,7 @@ function (require, app, $, page) {
         self.addModule = function (module) {
             module._container = self;
             self.modules.push(module);
+            return module;
         }
 
         self.add = self.addModule;
@@ -430,6 +434,7 @@ function (require, app, $, page) {
             if (data.visible !== undefined) self.visible(data.visible);
             if (data.title !== undefined) self.title(data.title);
             if (data.data !== undefined) self.data(data.data);
+            return self;
         }
 
         self.setModel = function (model, template, params) {
@@ -444,12 +449,14 @@ function (require, app, $, page) {
             app.log.info("setModel for " + self.name + " -> " + model);
             self.model = model;
             self.init();
+            return self;
         }
 
         self.setParams = function (params) {
             self.params = params;
             app.log.info("setParams for " + self.name);
             self.init();
+            return self;
         }
 
         self.init = function () {
