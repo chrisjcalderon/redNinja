@@ -9,6 +9,7 @@ define(['AppModels', 'require'], function (app, require) {
         self.menus = new Array();
         self.selected = ko.observable(false);
         self.current = null;
+        self.type = "menu";
 
         self.add = function (title, action) {
             var menu = new MenuItem(title, action, self);
@@ -21,7 +22,11 @@ define(['AppModels', 'require'], function (app, require) {
         }
 
         self.select = function (menu) {
-            if (self.parent) {
+            if (!menu) {
+                menu = self;
+            }
+
+            if (self.parent && self.parent.current) {
                 self.parent.current.selected(false);
             }
             self.selected(true);
@@ -40,6 +45,7 @@ define(['AppModels', 'require'], function (app, require) {
         self.menuId;
         self.rootClass = "sf-menu";
         self.skin = 'black';
+        self.type = "root";
 
         if (typeof params == "string") {
             self.menuId = params;
@@ -77,8 +83,9 @@ define(['AppModels', 'require'], function (app, require) {
                 var menu = ko.dataFor(event.target.parentElement);
                 //KO binds at the LI level, whereas we bind the click at the A level.
                 //So, we move one level up from A and get the KO model
-                app.trigger(self, new app.message("menuclick",menu,null), null);
-               // toastr.info(menu.title);
+                menu.select(self);
+                app.trigger(self, new app.message("menuclick", menu, null), null);
+                // toastr.info(menu.title);
             });
 
 
