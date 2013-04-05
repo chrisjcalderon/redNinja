@@ -1,6 +1,8 @@
 RedNinja Library - Easy, Fast and mean!
 ========
 
+![Ninja Style](http://www.globalcommunitycloud.com/images/NinjaRed.jpg)
+
 <b>A easy to use framework for developing MVVM applications built on top of popular Open Source Frameworks. </b>
 
 The framework uses at it's core the following amazing Open Source libraries
