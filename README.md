@@ -1,4 +1,4 @@
-RedNinja Library - Easy, Fast and... 
+RedNinja Library - Easy, Fast and mean!
 ========
 
 <b>A easy to use framework for developing MVVM applications built on top of popular Open Source Frameworks. </b>
