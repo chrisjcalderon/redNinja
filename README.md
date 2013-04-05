@@ -1,4 +1,4 @@
-Quick App - EASY-FAST  (Working on the Name for this library)
+RedNinja Library - Easy, Fast and... 
 ========
 
 <b>A easy to use framework for developing MVVM applications built on top of popular Open Source Frameworks. </b>
