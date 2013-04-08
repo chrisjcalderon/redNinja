@@ -1,6 +1,8 @@
 RedNinja Library - Easy, Fast and mean!
 ========
 
+Visit us at http://chrisjcalderon.github.io/redNinja/
+
 ![Ninja Style](http://www.globalcommunitycloud.com/images/NinjaRed.jpg)
 
 <b>A easy to use library for developing MVVM applications built on top of popular Open Source Frameworks. </b>
