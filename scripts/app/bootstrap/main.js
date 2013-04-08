@@ -8,14 +8,23 @@ define([
         var self = this;
         self.template = template;
 
+        self.saveChanges = function () {
+            toastr.info("Changes saved...");
+
+        }
+        self.clicktoggle = function (model,event) {
+            var action = $(event.target).attr("action");
+            toastr.info("Clicked " + action);
+        }
+
         self.onInit = function () {
             var template = self.template;
             template.init();
 
             template.config([
                         { name: 'drawer', positions: 1 },
-                        //{ name: 'showcase', positions: 4 },
-                        { name: 'navigation', positions: 1 },
+            //{ name: 'showcase', positions: 4 },
+                        {name: 'navigation', positions: 1 },
                         { name: 'maintop', positions: 4 },
                         { name: 'breadcrumb', positions: 1 },
                         { name: 'mainbottom', positions: 2 },
@@ -26,11 +35,14 @@ define([
 
             self.loadTest();
             template.section["mainbottom"].setLayout(2, [3, 9]);
-            template.getSection("mainbottom").positions[1].module[0].setModel( { formID: 'form' }, "bootstrap/form").showTitle(false);
-            template.getSection("navigation").positions[0].module[0].template( "bootstrap/navbar").showTitle(false);
-          
-            template.getSection("mainbottom").positions[0].addModule(new template.Module("Name of Title", "", "", null));
-            template.getSection("mainbottom").positions[0].addModule(new template.Module("Name of Title", "", "", null));
+            template.getSection("mainbottom").positions[1].module[0].setModel({ formID: 'form' }, "bootstrap/form").showTitle(false);
+            template.getSection("navigation").positions[0].module[0].template("bootstrap/navbar").showTitle(false);
+
+            template.getSection("mainbottom").positions[0].addModule(new template.Module("Module1", "", "", null));
+            template.getSection("mainbottom").positions[0].addModule(new template.Module("Module2", "", "", null));
+
+            template.getSection("mainbottom").positions[0].module[0].title("Dialog");
+            template.getSection("mainbottom").positions[0].module[0].template("bootstrap/dialog").showTitle(true).data(self);
         }
 
         self.load = function () {
@@ -57,4 +69,4 @@ define([
     models.register(modelName, new model());
 
 
-});   //  End Closure
+});          //  End Closure
