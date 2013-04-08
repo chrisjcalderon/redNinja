@@ -1,21 +1,32 @@
 define([
     'AppManager', 'AppModels', 'models/bootstrap/templateManager'
-], function (app, models, template) {
+    , 'models/bootstrap/contact', 'models/bootstrap/contactDialog'
+], function (app, models, template, contact, contactDialog) {
 
     var modelName = 'gridTemplate';
 
     var model = function () {
         var self = this;
         self.template = template;
+        self.contactDialog = new contactDialog();
 
+
+        //the other modal...
         self.saveChanges = function () {
             toastr.info("Changes saved...");
 
         }
-        self.clicktoggle = function (model,event) {
+        self.clicktoggle = function (model, event) {
             var action = $(event.target).attr("action");
             toastr.info("Clicked " + action);
         }
+
+        //captures the dialog events...
+        models.on("ContactDialogEvent").receive(function (sender, event) {
+            toastr.info(event.params.action + " new(" + event.obj.isNew() + ")  / " + event.obj.firstName());
+
+        });
+
 
         self.onInit = function () {
             var template = self.template;
@@ -23,26 +34,37 @@ define([
 
             template.config([
                         { name: 'drawer', positions: 1 },
-            //{ name: 'showcase', positions: 4 },
-                        {name: 'navigation', positions: 1 },
+                        { name: 'navigation', positions: 1 },
                         { name: 'maintop', positions: 4 },
                         { name: 'breadcrumb', positions: 1 },
                         { name: 'mainbottom', positions: 2 },
                         { name: 'footer', positions: 3 },
-                        { name: 'copyright', positions: 1 }
+                        { name: 'copyright', positions: 1 },
+                        { name: 'dialogs', positions: 1} //hidden stuff
                         ]
             );
 
-            self.loadTest();
+            self.loadTest(self.template.instance);
             template.section["mainbottom"].setLayout(2, [3, 9]);
-            template.getSection("mainbottom").positions[1].module[0].setModel({ formID: 'form' }, "bootstrap/form").showTitle(false);
+            template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
             template.getSection("navigation").positions[0].module[0].template("bootstrap/navbar").showTitle(false);
 
             template.getSection("mainbottom").positions[0].addModule(new template.Module("Module1", "", "", null));
-            template.getSection("mainbottom").positions[0].addModule(new template.Module("Module2", "", "", null));
 
             template.getSection("mainbottom").positions[0].module[0].title("Dialog");
             template.getSection("mainbottom").positions[0].module[0].template("bootstrap/dialog").showTitle(true).data(self);
+
+            template.getSection("dialogs").positions[0].module[0].template("bootstrap/contactDialog").showTitle(false).data(self.contactDialog);
+
+           /* want to use as subtemplates? - easy! 
+             var template2 = new template.model();
+             template2.init();
+             template2.configSections([
+                        { name: 'main', positions: 4 }
+            ]);
+            self.loadTest(template2);
+            template.getSection("drawer").positions[0].module[0].template("bootstrap/grid-full").data(template2);
+            */
         }
 
         self.load = function () {
@@ -50,9 +72,9 @@ define([
             ko.applyBindings(self);
         }
 
-        self.loadTest = function () {
+        self.loadTest = function (tp) {
 
-            var sections = template.instance.sections();
+            var sections = tp.sections();
             for (var s = 0; s < sections.length; s++) {
                 var section = sections[s];
                 for (var p = 0; p < section.positions.length; p++) {
@@ -69,4 +91,4 @@ define([
     models.register(modelName, new model());
 
 
-});          //  End Closure
+});                          //  End Closure

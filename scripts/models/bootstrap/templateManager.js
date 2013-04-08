@@ -340,7 +340,8 @@ function (require, app, $, tbs) {
         init: template.init,
         Module: Module,
         getSection: template.getSection,
-        defaults: templateDefaults
+        defaults: templateDefaults,
+        model: Template
     }
 
 } //End Closure

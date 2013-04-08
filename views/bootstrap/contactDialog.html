@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div id="contactModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click:cancel">×</button>
+    <h3 id="contactModalLabel" data-bind="text:isNew()?'New Contact':'Edit Contact'">Contact</h3>
+  </div>
+  <div class="modal-body">
+
+    <form class="form-horizontal well"  data-bind="with:contact()">
+        <fieldset>
+          <legend>Enter your contact details</legend>
+          <div class="control-group">
+            <label class="control-label" for="input01">First Name</label>
+            <div class="controls">
+              <input type="text" class="input-medium" id="input01" data-bind="value:firstName">
+            </div>
+
+            <label class="control-label" for="input02">Last Name</label>
+            <div class="controls">
+              <input type="text" class="input-medium" id="input02" data-bind="value:lastName">
+            </div>
+
+            <label class="control-label" for="input03">Email</label>
+            <div class="controls">
+              <input type="text" class="input-medium" id="input03" data-bind="value:email">
+            </div>
+
+            <label class="control-label" for="input04">Address</label>
+            <div class="controls">
+              <textarea class="input-large" id="input04" data-bind="value:address"></textarea>
+            </div>
+          </div>
+
+        </fieldset>
+        
+    </form>
+
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true" data-bind="click:cancel">Close</button>
+    <button class="btn btn-primary" data-bind="click:save" data-dismiss="modal">Save changes</button>
+  </div>
+</div>
+
