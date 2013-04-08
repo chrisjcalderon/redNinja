@@ -1,8 +1,7 @@
 define(['require',
         'AppModels',
-        'jquery',
-        'models/grid/page'],
-function (require, app, $, page) {
+        'jquery'],
+function (require, app, $) {
     /*
    
     This Template Engine attempts to reproduce...
@@ -74,13 +73,6 @@ function (require, app, $, page) {
             self.component.add(component);
         }
 
-        self.config = function (id) {
-
-            page.get(id).then(function (data) {
-                toastr.info("getConfig: " + id);
-            });
-
-        }
 
         self.init = function () {
 

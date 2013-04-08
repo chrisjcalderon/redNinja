@@ -1,5 +1,7 @@
 define(['AppModels'], function (models) {
 
+
+    //not used yet... idea is to load a json config for setting up a template with sections/modules
     var PageModel = function () {
         var self = this;
 
