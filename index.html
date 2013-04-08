@@ -7,7 +7,7 @@
     <meta name="description" content="Redninja : A easy to use framework for developing SPA / MVVM applications built on top of popular Open Source Frameworks, suck as Cujos CURL, KnockoutJs and JQuery." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/custom/metro.min.css">
     <title>Redninja</title>
   </head>
 
@@ -32,35 +32,41 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>Welcome to RedNinja Library - Easy, Fast and mean!.</h3>
-         <img src="images/NinjaRed.jpg" alt="Ninja Style!" width="120px" height="182px" />
-             
+        
          <div class="row-fluid">
-             <div class="span1">
+             <div class="span3">
+                 <img src="images/NinjaRed.jpg" alt="Ninja Style!" style="width:120px !important;height:182px !important" />
              </div>
-             <div class="span11">
-                  <strong>A easy to use library for developing MVVM applications built on top of popular Open Source Frameworks. </strong>
+             <div class="span9">
+                 <blockquote class="pull-right">
+                  <p>A easy to use library for developing MVVM applications built on top of popular Open Source Frameworks.</p> 
+                       <small>By Christian Calderon  <cite title="Source Title"><a href="http://www.linkedin.com/in/chriscalderon">  Contact me  @ LinkedIn</a></cite></small>
+                 </blockquote>
              </div>
          </div>
         <div class="row-fluid">
             <div class="span12">
 
             <h4>The framework uses at it's core the following amazing Open Source libraries</h4>
-                <ul>
-                    <li> CUJOS CURL:  https://github.com/cujojs/curl</li>
-                    <li>JQUERY: 	 http://jquery.com/ </li>
-                    <li>KnockOut JS: http://knockoutjs.com</li>
+                <ul class="unstyled">
+                    <li style="list-style:none !important;list-style-type:none !important"><i class="icon-ok"></i>  CUJOS CURL:  <a href='https://github.com/cujojs/curl'>https://github.com/cujojs/curl</a></li>
+                    <li style="list-style:none !important;list-style-type:none !important"> <i class="icon-ok"></i>  JQUERY: 	 <a href='http://jquery.com/'>http://jquery.com/</a> </li>
+                    <li style="list-style:none !important;list-style-type:none !important"> <i class="icon-ok"></i>  KnockOut JS: <a href='http://knockoutjs.com'>http://knockoutjs.com</a></li>
                 </ul>
             <h4>Optional, but included because they are awesome:</h4>
             <ul>
-                <li>XDate JS:   http://arshaw.com/xdate/</li>
-                <li>DataTables: http://datatables.net/</li>
-                <li>Jquery UI:  jqueryui.com</li>
-                <li>Knockout External Template Engine : https://github.com/ifandelse/Knockout.js-External-Template-Engine</li>
+                 <li style="list-style:none !important;list-style-type:none !important"><i class="icon-ok"></i> XDate JS:   <a href='http://arshaw.com/xdate/'>http://arshaw.com/xdate/</a></li>
+                 <li style="list-style:none !important;list-style-type:none !important"><i class="icon-ok"></i> DataTables: <a href='http://datatables.net/'>http://datatables.net/</a></li>
+                 <li style="list-style:none !important;list-style-type:none !important"><i class="icon-ok"></i> Jquery UI:  <a href='jqueryui.com'>jqueryui.com</a></li>
+                 <li style="list-style:none !important;list-style-type:none !important"><i class="icon-ok"></i> KO External Template Engine: <a href='https://github.com/ifandelse/Knockout.js-External-Template-Engine'>Github site...</a></li>
             </ul>
 
-            <em>For the grid template, I'm using the stylesheets and "approach" of the gantry framework - really cool.</em>            
-            
-            
+            <div class="alert alert-warning" style="padding:10px">
+              There are two types of template models: one based on Gantry-framework and another is based on boostrap. They each have a 
+              model that allows you to register sections/positions and modules dynamically - they should help a lot in organizing
+              your page content and separate everything into small modules 
+            </div>            
+              
             </div>
         </div>
         
@@ -68,9 +74,9 @@
             <div class="span12">
                 <h4>Todo's</h4>
                     <ul>
-                        <li> Document how to use the libraries, more samples, how-tos, etc.</li>
-                        <li>Clean up and document code</li>
-                        <li>Remove dependencies/make them optional/load via AMD</li>
+                        <li style="list-style:none !important;list-style-type:none !important"><i class="icon-wrench"></i>  Document how to use the libraries, more samples, how-tos, etc.</li>
+                        <li style="list-style:none !important;list-style-type:none !important"><i class="icon-wrench"></i>  Clean up and document code</li>
+                        <li style="list-style:none !important;list-style-type:none !important"><i class="icon-wrench"></i>  Remove dependencies/make them optional/load via AMD</li>
                     </ul>
                     
                     NOTE: in some of the demos I'm querying a mysql database using php scripts (under/scripts/data)... change them
