@@ -55,6 +55,8 @@ define([
             );
 
             self.loadTest(self.template.instance);
+            template.getSection("drawer").positions[0].module[0].showTitle(false).data("<h3>Twitter Bootstrap Demo</h3>");
+
             template.section["mainbottom"].setLayout(2, [3, 9]);
             template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
             template.getSection("navigation").positions[0].module[0].template("bootstrap/navbar").showTitle(false);
@@ -105,4 +107,4 @@ define([
     models.register(modelName, new model());
 
 
-});                                //  End Closure
+});                                 //  End Closure

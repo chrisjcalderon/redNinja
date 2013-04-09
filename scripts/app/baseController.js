@@ -142,7 +142,7 @@ if (typeof window.appController === 'undefined') {
                         }
 
                         if (module) { //If a module is defined
-                            var parts = module.split("/");
+                            var parts = module.split("|");
                             if (!self.processedQueue[parts[0]]) {
                                 self.models.containers[parts[0]] = container || '';
                                 self.loadQueue[parts[0]] = { onload: parts[1], container: container };
