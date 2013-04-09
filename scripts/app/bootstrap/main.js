@@ -9,7 +9,12 @@ define([
         var self = this;
         self.template = template;
         self.contactDialog = new contactDialog();
+        self.contacts = ko.observableArray();
 
+        //for the remove contact... this could be yet in another module :)
+        self.remove = function (contact) {
+            self.contacts.remove(contact);
+        }
 
         //the other modal...
         self.saveChanges = function () {
@@ -23,6 +28,11 @@ define([
 
         //captures the dialog events...
         models.on("ContactDialogEvent").receive(function (sender, event) {
+            if (event.obj.isNew() && event.params.action == 'save') {
+                var contact = event.obj.clone();
+                contact.isNew(false);
+                self.contacts.push(contact);
+            }
             toastr.info(event.params.action + " new(" + event.obj.isNew() + ")  / " + event.obj.firstName());
 
         });
@@ -56,11 +66,15 @@ define([
 
             template.getSection("dialogs").positions[0].module[0].template("bootstrap/contactDialog").showTitle(false).data(self.contactDialog);
 
-           /* want to use as subtemplates? - easy! 
-             var template2 = new template.model();
-             template2.init();
-             template2.configSections([
-                        { name: 'main', positions: 4 }
+            for (var x = 0; x < 5; x++) {
+                self.contacts.push(new contact("Contact " + x, "LastName"));
+            }
+
+            /* want to use as subtemplates? - easy! 
+            var template2 = new template.model();
+            template2.init();
+            template2.configSections([
+            { name: 'main', positions: 4 }
             ]);
             self.loadTest(template2);
             template.getSection("drawer").positions[0].module[0].template("bootstrap/grid-full").data(template2);
@@ -91,4 +105,4 @@ define([
     models.register(modelName, new model());
 
 
-});                          //  End Closure
+});                                //  End Closure

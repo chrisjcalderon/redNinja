@@ -10,9 +10,17 @@ define(['AppModels'], function (models) {
         self.email = ko.observable(email);
         self.isNew = ko.observable(true);
 
+        if (first) {
+            self.isNew(false);
+        }
+
         self.fullname = ko.computed(function () {
             return self.firstName() + " " + self.lastName();
         });
+
+        self.clone = function () {
+            return new contactModel(self.firstName(), self.lastName(), self.email(), self.address());
+        }
     }
 
     return contactModel;

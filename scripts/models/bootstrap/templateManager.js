@@ -168,12 +168,12 @@ function (require, app, $, tbs) {
 
             base = base + pos;
             if (index == 0) {
-                prefix = " p-alpha ";
+                prefix += " p-alpha ";
             }
             if (index == (positions - 1)) {
                 prefix += " p-omega ";
             }
-
+            prefix += " pos" + index;
             return base + prefix; // + extra
 
         }

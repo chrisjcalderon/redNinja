@@ -38,7 +38,12 @@ define(['AppModels',
                     self.open();
                 }
 
-                self.edit = function () {
+                self.edit = function (obj) {
+                    if (obj) {
+                        self.contact(obj);
+                        self.open();
+                        return;
+                    }
                     var data = new contact("Christian", "Calderon", "email@domain.com");
                     data.isNew(false);
                     self.contact(data)
