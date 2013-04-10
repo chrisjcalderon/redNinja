@@ -2,6 +2,9 @@ RedNinja Library - Easy, Fast and mean!
 ========
 
 Visit us at http://chrisjcalderon.github.io/redNinja/
+<b>Where you will find live demos for the RedNija Library</b>
+
+
 
 ![Ninja Style](http://www.globalcommunitycloud.com/images/NinjaRed.jpg)
 
