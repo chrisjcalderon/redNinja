@@ -68,7 +68,7 @@ define([
             template.getSection("mainbottom").positions[0].addModule(new template.Module("", "bootstrap/leftnav", "", null)).showTitle(false);
 
             self.listModel.available = self.contacts;
-            template.getSection("mainbottom").positions[1].addModule(new template.Module("", "bootstrap/lists", "", null)).data(self.listModel).showTitle(false);
+            template.getSection("mainbottom").positions[1].addModule(new template.Module("", "bootstrap/lists", self.listModel, null)).showTitle(false);
 
             template.getSection("mainbottom").positions[0].module[0].title("Dialog");
             template.getSection("mainbottom").positions[0].module[0].template("bootstrap/dialog").showTitle(true).data(self);

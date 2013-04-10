@@ -229,9 +229,17 @@ function (require, app, $, tbs) {
 
         self.name = name;
         self.template = ko.observable(template || 'bootstrap/html');
-        self.model = model;
-        self.params = params;
+
         self.data = ko.observable();
+
+        if (typeof model === 'object') {
+            self.model = '';
+            self.data(model);
+        }else {
+            self.model = model;
+        }        
+
+        self.params = params;
         self.visible = ko.observable(true);
         self.title = ko.observable(title || self.name);
         self.showTitle = ko.observable(templateDefaults.showTitle);
@@ -259,9 +267,9 @@ function (require, app, $, tbs) {
 
             self.css = data.css || self.css;
             if (data.showTitle !== undefined) self.showTitle(data.showTitle);
-            if (data.visible !== undefined) self.visible(data.visible);
-            if (data.title !== undefined) self.title(data.title);
-            if (data.data !== undefined) self.data(data.data);
+            if (data.visible !== undefined)   self.visible(data.visible);
+            if (data.title !== undefined)     self.title(data.title);
+            if (data.data !== undefined)      self.data(data.data);
             return self;
         }
 
