@@ -1,0 +1,24 @@
+<div class="section"> 
+	<div class="title_wrapper">
+		<h2 data-bind="text:title"></h2> <!--Module Title-->
+        <div style="float:right;padding: 10px;cursor: pointer" data-bind="click:showHide,text:visible()?'hide':'show'">close</div>
+		<span class="title_wrapper_left"></span>
+		<span class="title_wrapper_right"></span>
+	</div>
+
+	<div class="section_content" data-bind="jqHideShow :{action:visible}">
+		<div class="sct">
+			<div class="sct_left">
+				<div class="sct_right">
+					<div class="sct_left">
+						<div class="sct_right">
+							    <!--Start Content-->
+                                 <!-- ko template:{name:template,data:data} --><!-- /ko -->
+                                <!--End Content-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>         
+    </div>
+</div>

@@ -1,0 +1,10 @@
+/**
+ * @version   $Id: master-gecko.css 6225 2012-12-31 07:22:21Z josh $
+ * @author    RocketTheme http://www.rockettheme.com
+ * @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+ * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
+ */
+
+.title1 .title:before {line-height: 1.3em;font-size: 0.8em;-moz-transform: rotate(90deg) scale(1.1, 1.1);transform: rotate(90deg) scale(1.1, 1.1);}
+
+.component-content h2:before {line-height: 1.4em;font-size: 0.5em;-moz-transform: rotate(90deg) scale(1.1, 1.1);transform: rotate(90deg) scale(1.1, 1.1);}

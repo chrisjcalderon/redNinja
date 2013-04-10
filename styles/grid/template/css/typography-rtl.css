@@ -1,0 +1,45 @@
+/**
+* @version   $Id: typography-rtl.css 1080 2012-06-04 21:50:46Z kevin $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+/* Drop Caps */
+body.rtl p.dropcap:first-letter {margin: 0 0 0 5px;float: right;}
+body.rtl p.dropcap2:first-letter, body.rtl p.dropcap4:first-letter, body.rtl p.dropcap6:first-letter {margin: 0 0 10px 10px;float: right;}
+body.rtl p.dropcap3:first-letter, body.rtl p.dropcap5:first-letter, body.rtl p.dropcap7:first-letter  {margin: 0 0 10px 10px;float: right;}
+
+/* List and Text Styles - Icons */
+body.rtl ul.list-icon li {padding: 0 26px 0 0;}
+body.rtl .text-icon {padding-left: 0;padding-right: 26px;}
+body.rtl .text-icon.email, body.rtl .text-icon.rightarrow, body.rtl .text-icon.twitter, body.rtl .email li, body.rtl .rightarrow li, body.rtl .twitter li {background-position: 100% 4px;}
+body.rtl .text-icon.phone, body.rtl .text-icon.leftarrow, body.rtl .text-icon.youtube, body.rtl .phone li, body.rtl .leftarrow li, body.rtl .youtube li {background-position: 100% -296px;}
+body.rtl .text-icon.quote, body.rtl .text-icon.circlearrow, body.rtl .text-icon.skype, body.rtl .quote li, body.rtl .circlearrow li, body.rtl .skype li {background-position: 100% -596px;}
+body.rtl .text-icon.cart, body.rtl .text-icon.downarrow, body.rtl .text-icon.facebook, body.rtl .cart li, body.rtl .downarrow li, body.rtl .facebook li {background-position: 100% -896px;}
+body.rtl .text-icon.rss, body.rtl .text-icon.uparrow, body.rtl .text-icon.like, body.rtl .rss li, body.rtl .uparrow li, body.rtl .like li {background-position: 100% -1196px;}
+body.rtl .text-icon.tags, body.rtl .text-icon.person, body.rtl .text-icon.video, body.rtl .tags li, body.rtl .person li, body.rtl .video li {background-position: 100% -1496px;}
+body.rtl .text-icon.write, body.rtl .text-icon.calendar, body.rtl .text-icon.dropbox, body.rtl .write li, body.rtl .calendar li, body.rtl .dropbox li {background-position: 100% -1796px;}
+body.rtl .text-icon.info, body.rtl .text-icon.doc, body.rtl .text-icon.vimeo, body.rtl .info li, body.rtl .doc li, body.rtl .vimeo li {background-position: 100% -2096px;}
+body.rtl .text-icon.sound, body.rtl .text-icon.bulb, body.rtl .text-icon.paypal, body.rtl .sound li, body.rtl .bulb li, body.rtl .paypal li {background-position: 100% -2396px;}
+
+/* Standard List Styles */
+body.rtl ul.checkmark li, body.rtl ul.circle-checkmark li, body.rtl ul.square-checkmark li, body.rtl ul.circle-small li, body.rtl ul.circle li, body.rtl ul.circle-large li, body.rtl ul.triangle-small li, body.rtl ul.triangle li, body.rtl ul.triangle-large li {padding: 0 30px 0 0;}
+body.rtl ul.checkmark li:after, body.rtl ul.circle-checkmark li:after, body.rtl ul.square-checkmark li:after {left: inherit;right: 14px;}
+body.rtl ul.circle-checkmark li:before {left: inherit;right: 7px;}
+body.rtl ul.square-checkmark li:before {left: inherit;right: 9px;}
+body.rtl ul.triangle-small li:after {left: inherit;right: 18px;}
+body.rtl ul.triangle li:after {left: inherit;right: 17px;}
+body.rtl ul.triangle-large li:after {left: inherit;right: 15px;}
+body.rtl ul.triangle.green li:after {border-color: transparent #74924A transparent transparent;}
+body.rtl ul.triangle.yellow li:after {border-color: transparent #D69839 transparent transparent;}
+body.rtl ul.triangle.red li:after {border-color: transparent #BD5151 transparent transparent;}
+body.rtl ul.triangle.blue li:after {border-color: transparent #488AAD transparent transparent;}
+body.rtl ul.triangle.white li:after {border-color: transparent #fff transparent transparent;}
+body.rtl ul.triangle.black li:after {border-color: transparent #000 transparent transparent;}
+body.rtl ul.circle-small li:after {left: inherit;right: 16px;}
+body.rtl ul.circle li:after {left: inherit;right: 15px;}
+body.rtl ul.circle-large li:after {left: inherit;right: 12px;}
+
+/* Notice Styles */
+body.rtl .approved, body.rtl .attention, body.rtl .alert, body.rtl .notice {padding: 10px 45px 10px 10px;background-position: 98% 50%;}

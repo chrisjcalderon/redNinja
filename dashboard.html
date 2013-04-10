@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<title>Administration Panel</title>
+<link media="screen" rel="stylesheet" type="text/css" href="styles/admin/admin.css"  />
+<script type="text/javascript" src="scripts/app/baseController.js" my-root="" my-module="dashboard\dashboard" my-styles="theme/nice2.css"></script>
+</head>
+
+<body>
+	<!--[if !IE]>start wrapper<![endif]-->
+	<div id="wrapper">
+        <!-- ko template:{name:'dashboard/app-header'} --><!-- /ko -->
+
+        <!--[if !IE]>Start content<![endif]-->		
+		<div id="content">	
+			<div id="page">
+				<div class="inner">										
+					<!-- ko template:{name:'dashboard/app-dashboard'} --><!-- /ko -->
+					<div data-bind="template:{name:contentTemplate(),data:contentData()}"></div>						                    
+                    <div data-bin="template:{name:contentTemplate2(),data:contentData2()}"></div>
+                    
+				</div>
+			</div>
+			<!--[if !IE]>start sidebar<![endif]-->
+			<div id="sidebar">
+				<div class="inner" data-bind="sortable:appModules.views">
+                     <!-- ko template:{name:(isModule?'dashboard/app-module':template),data:$data} --><!-- /ko -->
+				</div>
+			</div>
+			<!--[if !IE]>end sidebar<![endif]-->						
+		</div>
+		<!--[if !IE]>end content<![endif]-->		
+	</div>	
+    <!--[if !IE]>end wrapper<![endif]-->
+
+    <!-- ko template:{name:'/dashboard/page-footer'} --><!-- /ko -->					
+</body>
+</html>

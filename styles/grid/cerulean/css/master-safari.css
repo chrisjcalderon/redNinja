@@ -1,0 +1,9 @@
+/**
+* @version   $Id: master-safari.css 5695 2012-12-03 17:52:59Z kevin $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.main-surround {-webkit-backface-visibility: hidden;}
+#rt-header ul {-webkit-transform: translateZ(0);}

@@ -1,0 +1,113 @@
+/**
+* @version   $Id: master-ie8.css 7232 2013-02-06 04:25:13Z arifin $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.visible-large {
+	display: none !important;
+}
+.hidden-large {
+	display: inherit !important;
+}
+.visible-desktop {
+	display: inherit !important;
+}
+.hidden-desktop {
+	display: none !important;
+}
+
+/* Body */
+.right-top-pointer {
+	top: 48px;
+}
+.left-top-pointer {
+	bottom: 15px;
+}
+.right-btm-pointer {
+	top: 12px;
+}
+.left-btm-pointer {
+	bottom: 42px;
+}
+#rt-footer-surround {zoom: 1;}
+#rt-footer-surround .rt-footer-bg {border-left: none;border-right: none;}
+.rt-footer-bg {width: 1000px;}
+.button:before, .readon:before, .readmore:before, button.validate:before, #member-profile a:before, #member-registration a:before, .formelm-buttons button:before, .sprocket-mosaic-loadmore:before, #gantry-totop:before, #k2Container .k2ReadMore:before, #k2Container #submitCommentButton:before {line-height: 16px;}
+
+/* Navigation */
+.main-surround ul.menu ul li a, .main-surround ul.menu ul li .item, .main-surround ul.menu ul li .separator, .main-surround ul.menu ul li a:hover, .main-surround ul.menu ul li .item:hover, .main-surround ul.menu ul li .separator:hover {filter: none;}
+ul.menu li a:before, ul.menu li .item:before, ul.menu li .separator:before, .main-surround ul.menu li a:before, .main-surround ul.menu li .item:before, .main-surround ul.menu li .separator:before {display: none !important;}
+
+/* Module Variations */
+.box4 {filter: none;background-color: #111111;}
+
+/* Rok Gallery */
+.rokgallery-wrapper .rg-ss-title {
+		font-size: 240%;
+	}
+.rokgallery-wrapper .rg-ss-caption {
+		font-size: 160%;
+	}
+.rg-ss-caption, .rg-ss-title {filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);}
+.rg-ss-controls .next, .rg-ss-controls .prev {background-image: none !important;}
+body .rg-ss-slice img {max-width: 1000px !important;width: auto;}
+
+/* RokSprocket - Lists */
+.sprocket-lists .sprocket-lists-container li.active .sprocket-lists-title, .sprocket-lists .sprocket-lists-container li.active:hover .sprocket-lists-title {filter: none;}
+
+/* Extra's */
+a#gantry-totop:before {top: 9px;}
+body .submedmargintop {margin-top: 5px !important;}
+
+/* Grid Layout */
+body .rt-container {width: 960px;}
+.rt-container .rt-grid-1 {width: 80px;}
+.rt-container .rt-grid-2 {width: 160px;}
+.rt-container .rt-grid-3 {width: 240px;}
+.rt-container .rt-grid-4 {width: 320px;}
+.rt-container .rt-grid-5 {width: 400px;}
+.rt-container .rt-grid-6 {width: 480px;}
+.rt-container .rt-grid-7 {width: 560px;}
+.rt-container .rt-grid-8 {width: 640px;}
+.rt-container .rt-grid-9 {width: 720px;}
+.rt-container .rt-grid-10 {width: 800px;}
+.rt-container .rt-grid-11 {width: 880px;}
+.rt-container .rt-grid-12 {width: 960px;}
+
+.rt-container .rt-push-1 {left: 80px;}
+.rt-container .rt-push-2 {left: 160px;}
+.rt-container .rt-push-3 {left: 240px;}
+.rt-container .rt-push-4 {left: 320px;}
+.rt-container .rt-push-5 {left: 400px;}
+.rt-container .rt-push-6 {left: 480px;}
+.rt-container .rt-push-7 {left: 560px;}
+.rt-container .rt-push-8 {left: 640px;}
+.rt-container .rt-push-9 {left: 720px;}
+.rt-container .rt-push-10 {left: 800px;}
+.rt-container .rt-push-11 {left: 880px;}
+
+.rt-container .rt-pull-1 {left: -80px;}
+.rt-container .rt-pull-2 {left: -160px;}
+.rt-container .rt-pull-3 {left: -240px;}
+.rt-container .rt-pull-4 {left: -320px;}
+.rt-container .rt-pull-5 {left: -400px;}
+.rt-container .rt-pull-6 {left: -480px;}
+.rt-container .rt-pull-7 {left: -560px;}
+.rt-container .rt-pull-8 {left: -640px;}
+.rt-container .rt-pull-9 {left: -720px;}
+.rt-container .rt-pull-10 {left: -800px;}
+.rt-container .rt-pull-11 {left: -880px;}
+
+.rt-container .rt-prefix-1 {padding-left: 80px;}
+.rt-container .rt-prefix-2 {padding-left: 160px;}
+.rt-container .rt-prefix-3 {padding-left: 240px;}
+.rt-container .rt-prefix-4 {padding-left: 320px;}
+.rt-container .rt-prefix-5 {padding-left: 400px;}
+.rt-container .rt-prefix-6 {padding-left: 480px;}
+.rt-container .rt-prefix-7 {padding-left: 560px;}
+.rt-container .rt-prefix-8 {padding-left: 640px;}
+.rt-container .rt-prefix-9 {padding-left: 720px;}
+.rt-container .rt-prefix-10 {padding-left: 800px;}
+.rt-container .rt-prefix-11 {padding-left: 880px;}

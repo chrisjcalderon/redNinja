@@ -1,0 +1,27 @@
+<div id="page-surround" class="container-fluid">  
+    <!-- ko foreach:{data:sections,as:'section'} -->
+        <!-- ko if:hasModules()-->
+        <div class="row-fluid row-section" data-bind="attr:{id:sectionID}">
+            <!-- ko foreach:{data:positions,as:'position'} -->
+                <div data-bind="attr:{ class:$parent.getClass($index()) }">
+                     <!-- ko foreach:{data:modules,as:'module'} -->
+
+                             <div class="module-surround">
+                                  <!-- ko if:showTitle() -->
+		                          <div class="module-title">
+	                                 <h4 class="title" data-bind="text:title"></h4>
+	                               </div>
+                                 <!-- /ko --> 
+	                              <div class="module-content">	
+                                       <!-- ko template:{name:template(),data:data,afterRender:afterRender} --><!-- /ko -->
+			                       </div>
+	                         </div>
+
+                      <!-- /ko -->
+                </div>
+            <!-- /ko --><!--Positions-->
+        </div>
+         <!-- /ko --><!--Has Modules?-->
+    <!-- /ko --><!--sections-->
+
+</div>

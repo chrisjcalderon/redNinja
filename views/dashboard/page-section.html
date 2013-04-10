@@ -1,0 +1,23 @@
+<div class="section">
+	<div class="title_wrapper">
+		<h2 data-bind="text:title"></h2>
+		<span class="title_wrapper_left"></span>
+		<span class="title_wrapper_right"></span>
+	</div>
+	<div class="section_content">
+		<div class="sct">
+			<div class="sct_left">
+				<div class="sct_right">
+					<div class="sct_left">
+						<div class="sct_right" >
+                            <!-- ko if:template||''-->											
+                                <!-- ko template:{name:template,afterRender:afterRender,data:$data} --><!-- /ko -->
+                             <!-- /ko -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<span class="scb"><span class="scb_left"></span><span class="scb_right"></span></span>
+	</div>
+</div>

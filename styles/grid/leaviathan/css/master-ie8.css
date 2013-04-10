@@ -1,0 +1,104 @@
+/**
+* @version   $Id: master-ie8.css 6223 2012-12-31 06:43:34Z josh $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.visible-large {
+	display: none !important;
+}
+.hidden-large {
+	display: inherit !important;
+}
+.visible-desktop {
+	display: inherit !important;
+}
+.hidden-desktop {
+	display: none !important;
+}	
+.promo h1 {font-size: 3.7em;}
+.promo-image {
+	width: 40%;
+}
+.promo-image img {
+	max-width: 100%;
+}
+.component-content h2:before {font-size: 1em;}
+
+/* Menu */
+.l1.gf-menu > li.active > .rt-arrow-pointer {top: -1px;}
+.l1.gf-menu > li {background: #000;}
+.gf-menu .dropdown {background: #000;}
+ul.menu li li > a:before, ul.menu li li > .item:before, ul.menu li li > .separator:before {font-size: 18px;}
+
+.horizmenu .menu > li a, .horizmenu .menu > li .item, .horizmenu .menu > li .separator {filter: none;}
+ul.menu > li a, ul.menu > li .item, ul.menu > li .separator {filter: none;}
+
+/* Module Variations */
+.title1 .title:before {top: 0;line-height: 2.6em;}
+
+/* Features */
+#gantry-totop:before {content: '>';}
+
+/* RokSprocket - Mosaic */
+.sprocket-mosaic-hover {filter: alpha(opacity=0);}
+.sprocket-mosaic-image-container:hover .sprocket-mosaic-hover {filter: alpha(opacity=100);}
+.sprocket-mosaic .sprocket-mosaic-loadmore .loadmore-more:before {top: -13px;}
+
+/* Grid Layout */
+body .rt-container {width: 960px;}
+.rt-container .rt-grid-1 {width: 80px;}
+.rt-container .rt-grid-2 {width: 160px;}
+.rt-container .rt-grid-3 {width: 240px;}
+.rt-container .rt-grid-4 {width: 320px;}
+.rt-container .rt-grid-5 {width: 400px;}
+.rt-container .rt-grid-6 {width: 480px;}
+.rt-container .rt-grid-7 {width: 560px;}
+.rt-container .rt-grid-8 {width: 640px;}
+.rt-container .rt-grid-9 {width: 720px;}
+.rt-container .rt-grid-10 {width: 800px;}
+.rt-container .rt-grid-11 {width: 880px;}
+.rt-container .rt-grid-12 {width: 960px;}
+
+.rt-container .rt-push-1 {left: 80px;}
+.rt-container .rt-push-2 {left: 160px;}
+.rt-container .rt-push-3 {left: 240px;}
+.rt-container .rt-push-4 {left: 320px;}
+.rt-container .rt-push-5 {left: 400px;}
+.rt-container .rt-push-6 {left: 480px;}
+.rt-container .rt-push-7 {left: 560px;}
+.rt-container .rt-push-8 {left: 640px;}
+.rt-container .rt-push-9 {left: 720px;}
+.rt-container .rt-push-10 {left: 800px;}
+.rt-container .rt-push-11 {left: 880px;}
+
+.rt-container .rt-pull-1 {left: -80px;}
+.rt-container .rt-pull-2 {left: -160px;}
+.rt-container .rt-pull-3 {left: -240px;}
+.rt-container .rt-pull-4 {left: -320px;}
+.rt-container .rt-pull-5 {left: -400px;}
+.rt-container .rt-pull-6 {left: -480px;}
+.rt-container .rt-pull-7 {left: -560px;}
+.rt-container .rt-pull-8 {left: -640px;}
+.rt-container .rt-pull-9 {left: -720px;}
+.rt-container .rt-pull-10 {left: -800px;}
+.rt-container .rt-pull-11 {left: -880px;}
+
+.rt-container .rt-prefix-1 {padding-left: 80px;}
+.rt-container .rt-prefix-2 {padding-left: 160px;}
+.rt-container .rt-prefix-3 {padding-left: 240px;}
+.rt-container .rt-prefix-4 {padding-left: 320px;}
+.rt-container .rt-prefix-5 {padding-left: 400px;}
+.rt-container .rt-prefix-6 {padding-left: 480px;}
+.rt-container .rt-prefix-7 {padding-left: 560px;}
+.rt-container .rt-prefix-8 {padding-left: 640px;}
+.rt-container .rt-prefix-9 {padding-left: 720px;}
+.rt-container .rt-prefix-10 {padding-left: 800px;}
+.rt-container .rt-prefix-11 {padding-left: 880px;}
+
+/* Font size wackiness in IE8 */
+.promo p {
+	font-size: 1.3em !important;
+	line-height: 1.5em !important;
+}

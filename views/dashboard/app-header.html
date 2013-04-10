@@ -1,0 +1,77 @@
+<div id="head">			
+	<!--[if !IE]>start logo and user details<![endif]-->
+	<div id="logo_user_details">
+		<h1 id="logo"><a href="#">websitename Administration Panel</a></h1>
+		<!--[if !IE]>start user details<![endif]-->
+		<div id="user_details">
+			<ul id="user_details_menu">
+				<li>Welcome <strong>Administrator</strong></li>
+				<li>
+					<ul id="user_access">
+						<li class="first"><a href="#">My account</a></li>
+						<li class="last"><a href="#" data-bind="click:logOut">Log out</a></li>
+					</ul>
+				</li>
+				<li><a class="new_messages" href="#">4 new messages</a></li>
+			</ul>
+			<div id="server_details">
+				<dl>
+					<dt>Server time :</dt>
+					<dd data-bind="text:$root.localTime"></dd>
+				</dl>
+				<dl>
+					<dt>Last login ip :</dt>
+					<dd>192.168.0.15</dd>
+				</dl>
+			</div>
+			<!--[if !IE]>start search<![endif]-->
+			<div id="search_wrapper">
+				<div action="#" class="form">
+					<fieldset>
+						<label>
+							<input class="text" name="" type="text" data-bind="value:$root.searchText"/>
+						</label>
+						<span class="go" data-bind="click:$root.doSearch"></span>
+					</fieldset>
+				</div>
+				<ul id="search_wrapper_menu">
+					<li class="first"><a href="#">Advanced Search</a></li>
+					<li class="last"><a href="#">Admin Map</a></li>
+				</ul>
+			</div>
+		<!--[if !IE]>end search<![endif]-->
+		</div>
+				
+		<!--[if !IE]>end user details<![endif]-->
+				
+				
+				
+	</div>
+			
+	<!--[if !IE]>end logo end user details<![endif]-->
+			
+	<!--[if !IE]>start menus_wrapper<![endif]-->
+	<div id="menus_wrapper">
+		<div id="main_menu">
+			<ul data-bind="foreach:topTabs.views">
+				<li><a href="#" data-bind="click:$root.selectView,css:{selected:active,last:$index()==manager.views.length-1}"><span><span data-bind="text:title"></span></span></a></li>
+			</ul>
+		</div>
+				
+		<div id="sec_menu">
+			<ul data-bind="foreach:subMenus">
+                        
+				<li data-bind="if:!items">
+                    <a href="#" data-bind="text:title,attr:{class:type},click:$root.selectSubMenu"></a>
+                </li>
+				<li data-bind="if:items">
+                    <span class="drop"><span><span><a href="#" data-bind="text:title,attr:{class:type}"></a></span></span></span>
+                    <ul data-bind="foreach:items">
+                        <li><a href="#" data-bind="text:title,attr:{class:type},click:$root.selectSubMenu"></a></li>
+                    </ul>
+                </li>
+			</ul>
+		</div>
+	</div>
+	<!--[if !IE]>end menus_wrapper<![endif]-->						
+</div>

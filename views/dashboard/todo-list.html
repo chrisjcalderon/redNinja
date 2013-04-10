@@ -1,0 +1,15 @@
+<div class="todo_list" data-bind="foreach:$root.myTodos">
+	<dl>
+		<dt>
+            <span class="order" data-bind="text:$index()+1"></span> 
+            <span data-bind="text:title"></span>
+        </dt>
+		<dd data-bind="text:description">
+		</dd>
+		<dd>
+			<ul class="todo_menu" data-bind="foreach:actions">
+				<li><a href="#" data-bind="text:$data"></a></li>
+			</ul>
+		</dd>
+	</dl>													
+</div>

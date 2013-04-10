@@ -1,0 +1,10 @@
+<!-- ko if:$data -->
+    <div data-bind="html:$data.html?$data.html:$data"></div>
+ <!-- /ko --> 
+<!-- ko ifnot:$data -->
+<div style="text-shadow: none!important">       
+    <div>This is a placeholder for content. You should be adding your own stuff!</div>
+    <a href="#" class="readon">Read On</a>
+</div>    
+ <!-- /ko --> 
+

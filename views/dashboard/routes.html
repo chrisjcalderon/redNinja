@@ -1,0 +1,7 @@
+<div data-bind="foreach:$root.views.routes()">
+    <h3 data-bind="text:title" class="routeHeader"></h3>
+    <div data-bind="foreach:views" style="width: 100%">
+        <div class= "routeLink"  data-bind="text:title,click:$root.selectView,css:{activeLink:active}">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div id="rt-main" class="mb8-sa4">
+	<div class="rt-container">
+        <!-- ko if:sidebarA.hasModules() -->
+		    <div class="rt-grid-3 sidebar-left">
+                <div id="rt-sidebar-a">
+                       <!-- ko template:{name:'grid/sidebar',data:sidebarA}--> <!-- /ko --> 
+                </div>
+            </div>
+        <!-- /ko --> 
+		<div class="rt-grid-6">
+			<!-- ko if:hasContentTop() -->
+			<div id="rt-content-top">
+				<!-- ko template:{name:'grid/mainbody-section',data:{position:contentTop,me:$data}}--> <!-- /ko --> 
+				<div class="clear"></div>
+			</div>
+			<!-- /ko --> <!--End Content Bottom-->
+			<!--php if ($display_component) : -->
+			<div class="rt-block component-block">
+				<div class="component-content">
+                    <!-- ko if:componentModule().template!=''  -->
+                        <!-- ko template:{name:componentModule().template,data:componentModule().data,afterRender:componentModule().afterRender} --><!-- /ko -->                                             
+                    <!-- /ko --> 
+                    <!-- ko if:componentModule().template==''  -->			
+                        <div data-bind="html:componentModule().data"></div>
+                    <!-- /ko --> 
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--end component -->
+			<!-- ko if:hasContentBottom() -->
+			<div id="rt-content-bottom">
+				<!-- ko template:{name:'grid/mainbody-section',data:{position:contentBottom,me:$data}}--> <!-- /ko --> 
+				<div class="clear"></div>
+			</div>
+			<!-- /ko --> <!--End Content Bottom-->
+		</div>
+        <!--Start SideBars-->
+        <!-- ko if:sidebarB.hasModules() -->
+            <div class="rt-grid-3 sidebar-right">
+                <div id="rt-sidebar-b">
+                       <!-- ko template:{name:'grid/sidebar',data:sidebarB}--> <!-- /ko --> 
+                </div>
+            </div>
+        <!-- /ko --><!--End Sidebar B-->
+
+        <!-- ko if:sidebarC.hasModules() -->
+            <div class="rt-grid-2 sidebar-right">
+                <div id="rt-sidebar-c">
+                       <!-- ko template:{name:'grid/sidebar',data:sidebarC}--> <!-- /ko -->     
+                </div>
+            </div>
+        <!-- /ko --> <!--end sidebar C -->
+
+        <!--End SideBars-->
+		<div class="clear"></div>
+	</div>
+</div>

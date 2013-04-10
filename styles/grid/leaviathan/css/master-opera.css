@@ -1,0 +1,8 @@
+/**
+ * @version   $Id: master-gecko.css 6166 2012-12-27 19:26:08Z josh $
+ * @author    RocketTheme http://www.rockettheme.com
+ * @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+ * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
+ */
+
+ul.menu li li a:before, ul.menu li li a:before, ul.menu li li a:before, ul.menu li li .item:before, ul.menu li li .item:before, ul.menu li li .item:before, ul.menu li li .separator:before, ul.menu li li .separator:before, ul.menu li li .separator:before {font-size: 1.2em;top: 8px;}

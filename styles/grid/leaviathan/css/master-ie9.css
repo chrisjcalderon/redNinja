@@ -1,0 +1,23 @@
+/**
+* @version   $Id: master-ie9.css 6160 2012-12-27 17:39:38Z josh $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.readon, .rt-block {
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+}
+
+ul.menu li li > a:before, ul.menu li li > .item:before, ul.menu li li > .separator:before {font-size: 18px;}
+
+.horizmenu .menu > li a, .horizmenu .menu > li .item, .horizmenu .menu > li .separator {filter: none;}
+ul.menu > li a, ul.menu > li .item, ul.menu > li .separator {filter: none;}
+
+/* RokAjaxSearch */
+.rokajaxsearch .inputbox {filter: none;}
+
+/* RokSprocket */
+.sprocket-mosaic-filter ul li:hover, .sprocket-mosaic-order ul li:hover, .sprocket-tabs-nav > li .sprocket-tabs-inner:hover {filter: none;}
+
+body .rt-floatleft {margin-right: 4px;}

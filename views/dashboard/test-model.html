@@ -1,0 +1,10 @@
+<h3>This is a template bound to a dynamic model</h3>
+<div data-bind="text:_modelName + ' ' + firstName"></div>
+<h3>Left Modules from Context :)</h3>
+<ul data-bind="foreach:context.appModules">
+    <li>
+            <span data-bind="text:title"></span>
+            : Visible? <span data-bind="text:visible"></span>            
+    </li>
+    
+</ul>

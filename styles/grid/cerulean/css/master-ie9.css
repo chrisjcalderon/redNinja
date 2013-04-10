@@ -1,0 +1,34 @@
+/**
+* @version   $Id: master-ie9.css 5631 2012-12-03 02:33:25Z kevin $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2012 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+.readon {
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+}
+.box4 {filter: none;}
+
+/* Header */
+#rt-header .rt-container {border-radius: 0;}
+
+/* Footer */
+.rt-footer-bg, .rt-footer-bg2, #rt-footer {display: inline-block;}
+
+/* Navigation */
+ul.menu li.active.current > a:before, ul.menu li.active.current > .item:before, ul.menu li.active.current > .separator:before,
+ul.menu #current.active > a:before, ul.menu #current.active > .item:before, ul.menu #current.active > .separator:before {font-size: 15px;}
+.main-surround ul.menu ul li a, .main-surround ul.menu ul li .item, .main-surround ul.menu ul li .separator, .main-surround ul.menu ul li a:hover, .main-surround ul.menu ul li .item:hover, .main-surround ul.menu ul li .separator:hover {filter: none;}
+
+.l1.gf-menu > li {border-radius: 0;}
+.l1.gf-menu > li.active {filter: none;}
+.l1.gf-menu > li .item, .l1.gf-menu > li:hover .item, .l1.gf-menu > li:first-child .item {border-radius: 0 !important;}
+.gf-menu-toggle {display: none;}
+
+/* RokGallery */
+.rg-ss-controls .next, .rg-ss-controls .prev {background-image: none !important;}
+body .rg-ss-slice img {width: 100% !important;}
+
+/* RokSprocket - Lists */
+.sprocket-lists .sprocket-lists-container li.active .sprocket-lists-title, .sprocket-lists .sprocket-lists-container li.active:hover .sprocket-lists-title {filter: none;}

@@ -1,0 +1,32 @@
+<style>
+    #tblDemo tr.even {
+        background-color: #e4e4e9;
+    }
+    #tblDemo tr.even:hover {
+        background-color: #74b2d4;
+        color: White;
+    }
+    #tblDemo tr td {
+        padding: 5px;
+    }
+</style>
+<div id="datatable" style="width:95%;background-color:  white;padding: 10px">
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="tblDemo" width="100%" style="font-size: 14px;font-family: Tahoma">
+	    <thead>
+		    <tr>
+			    <th>ID</th>
+			    <th>Full Name(s)</th>
+			    <th>User Name</th>
+			    <th>Email</th>
+		    </tr>
+	    </thead>
+	    <tbody data-bind="foreach:(typeof data === 'undefined' ? $data:data ).items">
+		    <tr>
+			    <td data-bind="text:id"></td>
+                <td data-bind="text:name"></td>
+                <td data-bind="text:username"></td>
+                <td data-bind="text:email"></td>
+		    </tr>
+	    </tbody>
+    </table>
+</div>

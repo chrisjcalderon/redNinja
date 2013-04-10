@@ -1,0 +1,31 @@
+<style>
+    #rt-navigation,#rt-header {
+        background-color: rgb(59, 59, 59);        
+        
+    }
+     #rt-navigation  div.rt-block, #rt-header div.rt-block  {
+        margin:  0px;
+        padding: 0px;
+        margin-bottom:  8px !important;
+        margin-top: 5px !important;
+     }
+    
+    .sf-menu li.current {
+        order: 1px solid white;
+    }
+    
+    .sf-menu li.current a {
+        text-decoration: underline !important;
+    }
+
+</style>
+<div data-bind="attr:{class:skin}">
+    <ul data-bind="attr:{id:menuId,class:rootClass}">
+        <!-- ko foreach:menus-->
+            <li data-bind="css:{current:selected}">
+				    <a href="#" data-bind="text:title"></a>
+                    <!-- ko template:{if:hasMenus(),name:'grid/superfish-submenu',data:$data} --><!-- /ko -->
+            </li>
+        <!-- /ko -->
+    </ul>
+</div>

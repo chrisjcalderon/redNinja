@@ -1,0 +1,6 @@
+<ul class="sidebar_menu" data-bind="foreach:$root.sideMenuItems.views">
+	<li data-bind="css:{last:$index()==$root.sideMenuItems.views.length-1}">
+        <a href="#" data-bind="text:title,click:$root.selectView"></a>
+   </li>	
+</ul>
+

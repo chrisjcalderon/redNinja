@@ -1,0 +1,25 @@
+<div>
+<h3 style='color:#2d7ba6'>Content from file 1</h3>
+<div style="float:left">
+    <img src="/media/images/img2.jpg">
+</div>
+<div style="float:right">
+<strong>Yes, curl.js follows the CommonJS Loader Plugin specification, 
+<br>so you can use any compatible plugin. The following plugins are included:</strong>
+<ul>
+    <li>js! -- loads non-AMD javascript files. more info on the wiki</li>
+    <li>text! -- loads text files</li>
+    <li>link! -- loads css files via a link element (simple, fast)</li>
+    <li>css! -- loads css files (lots of options)</li>
+    <li>domReady! -- resolves when the dom is ready for manipulation</li>
+    <li>async! -- resolves when a module signals it's ready</li>
+</ul>
+</div>
+
+<div style="clear:both"></div>
+<p>
+    <b>The following plugins are in progress:</b>
+</p>
+<p>i18n! -- loads text strings and other locale-specific constants</p>
+<p>Complete plugin docs are on the wiki.</p>
+</div>

@@ -1,0 +1,86 @@
+/**
+* @version   $Id: master-rtl.css 5638 2012-12-03 09:00:49Z josh $
+* @author    RocketTheme http://www.rockettheme.com
+* @copyright Copyright (C) 2007 - 2013 RocketTheme, LLC
+* @license   http://www.rockettheme.com/legal/license.php RocketTheme Proprietary Use License
+*/
+
+/* Article */
+body.rtl .component-content .actions {float: left;}
+body.rtl .component-content .article-info dd {margin-left: 20px;margin-right: 0;}
+body.rtl .component-content .items-more ol li a {padding: 4px 15px 4px 0;background-position: 100% -488px;}
+body.rtl .component-content .items-more ol li a:hover {background-position: 100% 6px;}
+body.rtl ol, body.rtl ul {margin: 0 25px 10px 0;}
+body.rtl {overflow-x: hidden;}
+
+/* Navigation */
+/* Root Items */
+body.rtl .menu-block {float: right;}
+body.rtl .menutop li.root {float: right;}
+body.rtl .gf-menu {margin: 0;}
+body.rtl .gf-menu ul {margin: 0;}
+body.rtl .gf-menu.l1 > li {float: right;}
+body.rtl .gf-menu.l1 > li.active:first-child {border-radius: 0 10px 10px 0;}
+
+/* Dropdown Surrounds */
+body.rtl .menutop ul {float: right;}
+body.rtl .menutop .fusion-js-subs {float: right;margin-left: 10px;}
+
+/* Dropdown Items */
+body.rtl .menutop ul li {background-position: 96% -385px;}
+body.rtl .menutop ul li > .bullet {padding-left: 0;padding-right: 10px;}
+body.rtl .menutop li .item img {float: right;margin: 0 0 0 6px;}
+body.rtl .menutop li > .item .readon span {display: inherit;width: inherit;}
+body.rtl .menutop ul li.grouped-parent > .daddy span {background: none;}
+body.rtl .menutop ul li > .daddy span {background-position: 3px 3px;}
+
+/* Buttons */
+body.rtl .button:before, body.rtl .readon:before, body.rtl .readmore:before, body.rtl button.validate:before, body.rtl #member-profile a:before, body.rtl #member-registration a:before, body.rtl .formelm-buttons button:before, body.rtl .sprocket-mosaic-loadmore:before {right: 4px;}
+
+/* No JS */
+body.rtl .menutop li.root:hover > .fusion-submenu-wrapper {left:inherit;right: 0;}
+body.rtl .menutop ul li:hover > .fusion-submenu-wrapper {left: inherit;right: 180px;}
+
+/* Grouped & Modules */
+body.rtl .fusion-grouped ol li .item {padding: 4px 6px 4px 14px;}
+body.rtl .menutop .fusion-grouped ol li {margin-left: inherit;margin-right: 0;}
+
+/* Side Menu */
+body.rtl .module-content ul.menu li a:before, body.rtl .module-content ul.menu li .item:before, body.rtl .module-content ul.menu li .separator:before {margin-left: 10px;margin-right: 0;left: 10px;right: inherit;}
+
+
+/* Copyright Menu */
+body.rtl #rt-copyright ul.menu li a:after, body.rtl #rt-copyright ul.menu li .item:after, body.rtl #rt-copyright ul.menu li .separator:after {margin: 0 10px 0 0;}
+
+/* Module Variations */
+body.rtl .rt-block[class^="icon-"]:before, body.rtl .rt-block[class*=" icon-"]:before {float: right;margin: 14px 0 14px 14px;}
+body.rtl .rt-block.icon-large[class^="icon-"]:before, body.rtl .rt-block.icon-large[class*=" icon-"]:before {float: none;margin: 65px 0 50px;}
+body.rtl .gf-menu.l1 > li:first-child:hover > .item {border-radius: 6px 6px 6px 0;}
+body.rtl .title4 .title:before, body.rtl .title3 .title:before {right: inherit;left: 10px;}
+
+/* Joomla Core */
+body.rtl .component-content #searchForm input[type="radio"], body.rtl .component-content #searchForm input[type="checkbox"] {float: right;}
+body.rtl #contact-form fieldset {float: right;}
+
+/* Member Access */
+body.rtl #login-form label, body.rtl .component-content #password-lbl, body.rtl #username-lbl {float: right;}
+body.rtl .component-content .login + div ul li a, body.rtl #login-form a {padding: 4px 15px 4px 0;}
+body.rtl .component-content .login + div ul li a:before, body.rtl #login-form a:before {float: right;}
+body.rtl .layout-showcase .sprocket-features-arrows .arrow.next {right: 35px;left: inherit;}
+body.rtl .layout-showcase .sprocket-features-arrows {right: 55%;}
+
+/* RokSprocket - Lists */
+body.rtl .sprocket-lists-title .indicator {right: 10px;left: inherit;}
+body.rtl .sprocket-lists-arrows {float: right;}
+body.rtl .sprocket-lists-pagination {float: left;}
+body.rtl .sprocket-lists-container {margin: 0;}
+body.rtl .sprocket-lists-title.padding {padding-right: 50px !important;}
+
+/* RokSprocket - Tabs */
+body.rtl .sprocket-tabs-nav {margin: 0;}
+
+/* RokGallery */
+body.rtl .rg-ss-slice-list {margin: 0;}
+
+/* RokAjaxSearch */
+body.rtl #mod-search-searchword.inputbox, body.rtl .rokajaxsearch .roksearch-wrapper input#roksearch_search_str.inputbox:focus {background-position: 8px -67px;}

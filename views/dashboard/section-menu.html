@@ -1,0 +1,5 @@
+<ul class="section_menu" data-bind="foreach:tabs||[]">
+	<li><a href="#" data-bind="css:{active:$parent.activeTab() === $data},click:select">
+            <span><span data-bind="text:title"></span></span>
+    </a></li>
+</ul>

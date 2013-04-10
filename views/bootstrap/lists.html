@@ -1,0 +1,27 @@
+
+<div class="row-fluid" >
+    <div class="span12">
+        <h4>Drag/Sort the contacts here... it uses the same contact list as above as the source</h4>
+    </div> 
+</div>    
+
+<div class="row-fluid" >
+        <div class="span4">
+            <h3>Available</h3>
+            <ul data-bind="sortable:{data:available,beforeMove:beforMove}" style="list-style-type: none" class="nav nav-tabs nav-stacked nav-pills">                    
+                <li data-bind="css:{active:selected()},click:$parent.select"><a><i class='icon-zoom-in'></i> <span data-bind="text:fullname"></span> </a></li>
+            </ul>                
+        </div>
+        <div class="span4" style="margin-top: 100px">
+            <button class="btn btn-primary" data-bind="click:addSelected">Add</button>
+            <button class="btn btn-primary">Remove</button>
+        </div>
+        <div class="span4">
+            <h3>Selected</h3>
+            <span data-bind="text:selected().length  + ' of ' + maxSelected"></span>
+            <ul data-bind="sortable:{data:selected,afterMove: afterMove,allowDrop: allowDrop,beforeMove:beforMove}" style="list-style-type: none" class="nav nav-tabs nav-stacked nav-pills">                    
+                <li data-bind="css:{active:selected()},click:$parent.select"><a data-bind="text:fullname"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
