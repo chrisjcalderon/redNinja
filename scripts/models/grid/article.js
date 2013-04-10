@@ -5,10 +5,10 @@ define(['AppModels'], function (models) {
         self.context = null; //set by the template
 
         self.then = function (fnc) {
-            models.loadJson("/scripts/data/article.php?id=" + params).then(function (data) {
-                fnc(data.introtext);
+           // models.loadJson("/scripts/data/article.php?id=" + params).then(function (data) {
+                fnc("Article data...");
                 //self.context.data(data);
-            });
+            //});
         }
     }
 
