@@ -1,7 +1,8 @@
 define([
     'AppManager', 'AppModels', 'models/bootstrap/templateManager'
     , 'models/bootstrap/contact', 'models/bootstrap/contactDialog'
-], function (app, models, template, contact, contactDialog) {
+    , 'models/bootstrap/lists'
+], function (app, models, template, contact, contactDialog, listModel) {
 
     var modelName = 'gridTemplate';
 
@@ -10,6 +11,7 @@ define([
         self.template = template;
         self.contactDialog = new contactDialog();
         self.contacts = ko.observableArray();
+        self.listModel = new listModel();
 
         //for the remove contact... this could be yet in another module :)
         self.remove = function (contact) {
@@ -55,13 +57,18 @@ define([
             );
 
             self.loadTest(self.template.instance);
+            template.section["drawer"].setLayout(2, [2, 10]);
             template.getSection("drawer").positions[0].module[0].showTitle(false).data("<h3>Twitter Bootstrap Demo</h3>");
+            //template.getSection("maintop").positions[0].module[0].showTitle(false).data("<img class='redNinja img-polaroid' src='/images/NinjaRed.jpg'>");
 
             template.section["mainbottom"].setLayout(2, [3, 9]);
             template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
             template.getSection("navigation").positions[0].module[0].template("bootstrap/navbar").showTitle(false);
 
-            template.getSection("mainbottom").positions[0].addModule(new template.Module("Module1", "", "", null));
+            template.getSection("mainbottom").positions[0].addModule(new template.Module("", "bootstrap/leftnav", "", null)).showTitle(false);
+
+            self.listModel.available = self.contacts;
+            template.getSection("mainbottom").positions[1].addModule(new template.Module("", "bootstrap/lists", "", null)).data(self.listModel).showTitle(false);
 
             template.getSection("mainbottom").positions[0].module[0].title("Dialog");
             template.getSection("mainbottom").positions[0].module[0].template("bootstrap/dialog").showTitle(true).data(self);
@@ -107,4 +114,4 @@ define([
     models.register(modelName, new model());
 
 
-});                                 //  End Closure
+});                                   //  End Closure

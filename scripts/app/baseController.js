@@ -229,6 +229,7 @@ if (typeof window.appController === 'undefined') {
                     //assign to global scope, just in case
                     window['ko'] = ko;
                     window['toastr'] = toastr;
+                    $.support.cors = true;
                 })
                 .next([
                     'js!koExternalTemplateEngine_all.min.js!order',

@@ -15,3 +15,7 @@
 /images/rocketlauncher
 /CommonJSPacackjes.txt
 /src
+/scripts/app/flyout
+/views/flyout
+/flyout.html
+/scripts/models/flyout

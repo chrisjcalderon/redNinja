@@ -87,3 +87,36 @@
     width: 98%;cursor: 
     pointer
 }
+
+
+/*Bootstrap */
+.left-nav-sidenav {
+	margin: 30px 0px 0px; padding: 0px; border-radius: 6px; width: 228px; box-shadow: 0px 1px 4px rgba(0,0,0,0.065); background-color: rgb(255, 255, 255); -webkit-border-radius: 6px; -moz-border-radius: 6px; -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065); -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+}
+.left-nav-sidenav > li > a {
+	margin: 0px 0px -1px; padding: 8px 14px; border: 1px solid rgb(229, 229, 229); width: 190px; display: block;
+}
+.left-nav-sidenav > li:first-child > a {
+	border-radius: 6px 6px 0px 0px; -webkit-border-radius: 6px 6px 0 0; -moz-border-radius: 6px 6px 0 0;
+}
+.left-nav-sidenav > li:last-child > a {
+	border-radius: 0px 0px 6px 6px; -webkit-border-radius: 0 0 6px 6px; -moz-border-radius: 0 0 6px 6px;
+}
+
+.left-nav-sidenav li.nav-header {
+    margin-left: 5px !important;
+}
+.affix.left-nav-sidenav {
+	top: 40px;
+}
+.affix-bottom.left-nav-sidenav {
+	top: auto; bottom: 270px; position: absolute;
+}
+
+.redNinja {
+   width: 60px;
+   height:91px;
+   float:left;
+   margin-right: 25px;
+    
+}

@@ -9,6 +9,7 @@ define(['AppModels'], function (models) {
         self.address = ko.observable(address);
         self.email = ko.observable(email);
         self.isNew = ko.observable(true);
+        self.selected = ko.observable(false);
 
         if (first) {
             self.isNew(false);
