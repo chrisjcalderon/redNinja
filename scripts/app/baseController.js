@@ -92,6 +92,7 @@ if (typeof window.appController === 'undefined') {
             self.modelController = new modelController(self); //pass the logger
             self.models = self.modelController; //alias
 
+
             self.errorHandler = function (e) {
                 alert("ERROR " + e);
             }
@@ -113,6 +114,51 @@ if (typeof window.appController === 'undefined') {
                 }
             }
 
+            self.getLoader = function () {
+                //Shim
+                return {
+                    config: function () {
+                        return {
+                            baseUrl: self.config.lib,
+                            //preloads: ["curl/debug"],
+                            paths: {
+                                styles: self.config.styles,
+                                theme: self.config.themes + "/" + self.config.theme,
+                                app: self.config.app,
+                                lib: self.config.lib,
+                                models: self.config.models,
+                                content: self.config.content
+                            },
+                            packages: self.config.packages
+                        }
+                    } //End Config
+                    , base: {
+                        libs: ['jquery', 'js!jquery-ui.js', 'knockout', 'toastr.min'],
+                        complete: function ($, b, ko, toastr) {
+                            window['ko'] = ko;
+                            window['toastr'] = toastr;
+                            $.support.cors = true;
+                        }
+                    }//end base
+                    , knockout: {
+                        libs: ['js!koExternalTemplateEngine_all.min.js!order', 'js!ko-ui-bindings.js!order', 'js!knockout-sortable.js'],
+                        complete: function () {
+                            infuser.defaults.templateSuffix = ".html";
+                            infuser.defaults.templateUrl = self.config.templates;
+                            infuser.defaults.ajax.cache = true;
+                            infuser.defaults.loadingTemplate.content = '<div class="infuser-loading">&nbsp;</div>';
+                        }
+                    }, //end knockout extras
+                    main: {
+                        libs: ['jquery', 'js!xdate.js', 'js!app-utils.js'],
+                        complete: function ($) { //when the page is ready then load the modules
+                            $(document).ready(function () {
+                                self.runModules();
+                            });
+                        }
+                    }
+                };
+            }
 
             self.loadModulesFromScriptTags = function () {
 
@@ -133,12 +179,12 @@ if (typeof window.appController === 'undefined') {
                         var onLoad = script.attr('my-onload');
                         var base = script.attr('my-root');
                         var container = script.attr('my-container');
-                        var package  = script.attr('my-package');
+                        var package = script.attr('my-package');
 
                         self.log.info("Processing : " + script.attr("src") + " / module{" + (module || 'na') + "}");
 
-                        if( package ) {
-                            self.definePackage(package);           
+                        if (package) {
+                            self.definePackage(package);
                         }
 
                         if (module) { //If a module is defined
@@ -206,55 +252,15 @@ if (typeof window.appController === 'undefined') {
             }
 
             self.run = function () {
-                var config = {
-                    baseUrl: self.config.lib,
-                    //preloads: ["curl/debug"],
-                    paths: {
-                        styles: self.config.styles,
-                        theme: self.config.themes + "/" + self.config.theme,
-                        app: self.config.app,
-                        lib: self.config.lib,
-                        models: self.config.models,
-                        content: self.config.content
-                    },
-                    packages: self.config.packages
-                };
 
-                curl(config, [
-                    'jquery', //base libraries. 
-                    'js!jquery-ui.js',
-                    'knockout',
-                    'toastr.min'
-                ]).then(function ($, b, ko, toastr) {
-                    //assign to global scope, just in case
-                    window['ko'] = ko;
-                    window['toastr'] = toastr;
-                    $.support.cors = true;
-                })
-                .next([
-                    'js!koExternalTemplateEngine_all.min.js!order',
-                    'js!ko-ui-bindings.js!order',
-                    'js!knockout-sortable.js'
-                ]).then(function () {
-                    //Infuser configuration for external template engine
-                    infuser.defaults.templateSuffix = ".html";
-                    infuser.defaults.templateUrl = self.config.templates;
-                    infuser.defaults.ajax.cache = true;
-                    infuser.defaults.loadingTemplate.content = '<div class="infuser-loading">&nbsp;</div>';
-                })
-                .next(self.config.defaultStyles) //loads default styles
-                .next([                          //loads default javascript libraries
-                    'jquery',                    //ensures jquery
-                    'js!xdate.js',
-                    'js!app-utils.js'
-                   // 'js!fullcalendar.min.js!order',
-                   // 'dt/jquery.dataTables.min'
-                 ])
-                 .then(function ($) { //when the page is ready then load the modules
-                     $(document).ready(function () {
-                         self.runModules();
-                     });
-                 }); //end loading libraries
+                //Easier to manage - get loader returns the configuration
+                //for curl
+                var loader = self.getLoader();
+
+                curl(loader.config(), loader.base.libs).then(loader.base.complete)
+                 .next(loader.knockout.libs).then(loader.knockout.complete)
+                 .next(self.config.defaultStyles)
+                 .next(loader.main.libs).then(loader.main.complete);
             }
 
             self.runModules = function () {
