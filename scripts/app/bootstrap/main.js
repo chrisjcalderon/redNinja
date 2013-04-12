@@ -47,7 +47,7 @@ define([
             template.config([
                         { name: 'drawer', positions: 1 },
                         { name: 'navigation', positions: 1 },
-                        { name: 'maintop', positions: 4 },
+                        { name: 'maintop', positions: 3 },
                         { name: 'breadcrumb', positions: 1 },
                         { name: 'mainbottom', positions: 2 },
                         { name: 'footer', positions: 3 },
@@ -60,6 +60,8 @@ define([
             template.section["drawer"].setLayout(2, [2, 10]);
             template.getSection("drawer").positions[0].module[0].showTitle(false).data("<h3>Twitter Bootstrap Demo</h3>");
             //template.getSection("maintop").positions[0].module[0].showTitle(false).data("<img class='redNinja img-polaroid' src='/images/NinjaRed.jpg'>");
+
+            template.getSection("maintop").positions[0].module[0].showTitle(false).setModel('bootstrap/ninja');
 
             template.section["mainbottom"].setLayout(2, [3, 9]);
             template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
@@ -114,4 +116,4 @@ define([
     models.register(modelName, new model());
 
 
-});                                   //  End Closure
+});                                    //  End Closure

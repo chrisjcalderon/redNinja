@@ -302,7 +302,7 @@ function (require, app, $, tbs) {
                     //if the module produces an instance, then retrieve it using get and pass the params.
                     //Note: All get methods must return a promise object        
                     if (typeof model.get == 'function') {
-                        model.get(self.params).then(function (obj) {
+                        model.get(self.params,self).then(function (obj) {
                             obj.context = self;
                             self.data(obj);
                             self.ready(true);
