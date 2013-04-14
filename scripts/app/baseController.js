@@ -122,16 +122,16 @@ if (typeof window.appController === 'undefined') {
                             baseUrl: self.config.lib,
                             //preloads: ["curl/debug"],
                             paths: {
-                                styles: self.config.styles,
-                                theme: self.config.themes + "/" + self.config.theme,
-                                app: self.config.app,
-                                lib: self.config.lib,
-                                models: self.config.models,
-                                content: self.config.content
+                                styles:   self.config.styles,
+                                theme:    self.config.themes + "/" + self.config.theme,
+                                app:      self.config.app,
+                                lib:      self.config.lib,
+                                models:   self.config.models,
+                                content:  self.config.content
                             },
-                            packages: self.config.packages
+                            packages:     self.config.packages
                         }
-                    } //End Config
+                    } //end paths config
                     , base: {
                         libs: ['jquery', 'js!jquery-ui.js', 'knockout', 'toastr.min'],
                         complete: function ($, b, ko, toastr) {

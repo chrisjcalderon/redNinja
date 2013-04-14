@@ -227,6 +227,7 @@ function (require, app, $, tbs) {
     var Module = function (name, template, model, params, title) { //For instance, list of links, list of articles, etc
         var self = this;
 
+        self.moduleID = "module-" + (Module.instanceID++);
         self.name = name;
         self.template = ko.observable(template || 'bootstrap/html');
 
@@ -234,10 +235,11 @@ function (require, app, $, tbs) {
 
         if (typeof model === 'object') {
             self.model = '';
+            model.context = self;
             self.data(model);
-        }else {
+        } else {
             self.model = model;
-        }        
+        }
 
         self.params = params;
         self.visible = ko.observable(true);
@@ -246,9 +248,17 @@ function (require, app, $, tbs) {
         self.css = templateDefaults.css;
         self.ready = ko.observable(false)
 
-        self.ready.subscribe(function (value) {
-            //toastr.info('ready ' + self.name);
-        });
+        //self.ready.subscribe(function (value) {
+        //toastr.info('ready ' + self.name);
+        //});
+
+        //Should I do this to make it easier???
+        //self.data.subscribe(function(value) {
+        // if(typeof value === 'object') { -> then handle stuff such as
+        //  value.context = self;
+        // }
+        //});
+        //
 
         //Handles After Renders
         self.afterRender = function (element) {
@@ -258,7 +268,7 @@ function (require, app, $, tbs) {
             }
 
             if ((self.model != '' || typeof self.data() === 'object') && self.data() && self.data().afterRender !== undefined) {
-                app.log.info("Preparing rendering of template:" + self.template + " for module:" + self.name + " model:" + self.model);
+                app.log.info("Preparing rendering of template:" + self.template() + " for module:" + self.moduleID + " model:" + self.model);
                 self.data().afterRender(element, self);
             }
         }
@@ -267,9 +277,9 @@ function (require, app, $, tbs) {
 
             self.css = data.css || self.css;
             if (data.showTitle !== undefined) self.showTitle(data.showTitle);
-            if (data.visible !== undefined)   self.visible(data.visible);
-            if (data.title !== undefined)     self.title(data.title);
-            if (data.data !== undefined)      self.data(data.data);
+            if (data.visible !== undefined) self.visible(data.visible);
+            if (data.title !== undefined) self.title(data.title);
+            if (data.data !== undefined) self.data(data.data);
             return self;
         }
 
@@ -302,7 +312,7 @@ function (require, app, $, tbs) {
                     //if the module produces an instance, then retrieve it using get and pass the params.
                     //Note: All get methods must return a promise object        
                     if (typeof model.get == 'function') {
-                        model.get(self.params,self).then(function (obj) {
+                        model.get(self.params, self).then(function (obj) {
                             obj.context = self;
                             self.data(obj);
                             self.ready(true);
@@ -338,6 +348,8 @@ function (require, app, $, tbs) {
         return self;
 
     }     //End Module
+
+    Module.instanceID = 1;
 
     var template = new Template();
 

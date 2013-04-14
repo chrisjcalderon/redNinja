@@ -39,6 +39,11 @@ define([
 
         });
 
+        models.on("MenuClick").receive(function (sender, event) {
+            toastr.info("Click menu " + event.params.action );
+
+        });
+
 
         self.onInit = function () {
             var template = self.template;
@@ -65,7 +70,9 @@ define([
 
             template.section["mainbottom"].setLayout(2, [3, 9]);
             template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
-            template.getSection("navigation").positions[0].module[0].template("bootstrap/navbar").showTitle(false);
+            
+            //model, template / params - > for navmodel, the id of the navbar
+            template.getSection("navigation").positions[0].module[0].setModel("bootstrap/navbar","bootstrap/navbar","topNavigation").showTitle(false);
 
             template.getSection("mainbottom").positions[0].addModule(new template.Module("", "bootstrap/leftnav", "", null)).showTitle(false);
 
@@ -116,4 +123,4 @@ define([
     models.register(modelName, new model());
 
 
-});                                    //  End Closure
+});                                           //  End Closure

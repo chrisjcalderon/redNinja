@@ -38,6 +38,11 @@ define(['AppModels',
 
                 }
 
+                self.afterRender = function (element, me) {
+                   // $("#" + self.context.moduleID).fadeOut(0).fadeIn(1500);
+                    
+                }
+
             } //End model
 
             return contactList;
