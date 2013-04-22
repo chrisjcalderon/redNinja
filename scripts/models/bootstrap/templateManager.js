@@ -248,6 +248,22 @@ function (require, app, $, tbs) {
         self.css = templateDefaults.css;
         self.ready = ko.observable(false)
 
+        //Route handling
+        self.enableRouting = false;
+        self.routes = new Array();
+        self.template.subscribe(function (value) {
+            if (self.enableRouting == false) {
+                return;
+            }
+
+            if (value !== self.template()) {
+                document.location.hash = "/#" + self.moduleID + "/"  + self.template().replace("/","-");
+                self.routes.push({ template: self.template(), model: self.model, data: self.data() });
+            }
+        });
+
+        //End route handling
+
         //self.ready.subscribe(function (value) {
         //toastr.info('ready ' + self.name);
         //});
@@ -284,17 +300,26 @@ function (require, app, $, tbs) {
         }
 
         self.setModel = function (model, template, params) {
+
+            self.ready(false);
             self.template(template || self.template);
+
             self.params = params || self.params;
+
             if (typeof model === 'object') {
-                model.context = self;
+                if (model) {
+                    model.context = self;
+                }
                 app.log.info("setModel for " + self.name + " -> as object");
                 self.data(model);
+                self.ready(true);
                 return self;
             }
             app.log.info("setModel for " + self.name + " -> " + model);
+
             self.model = model;
             self.init();
+
             return self;
         }
 

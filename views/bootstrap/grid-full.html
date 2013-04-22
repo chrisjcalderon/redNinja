@@ -1,6 +1,7 @@
 <div id="page-surround" class="container-fluid">  
     <!-- ko foreach:{data:sections,as:'section'} -->
         <!-- ko if:hasModules()-->
+        <div class="container-fluid" style='padding-left:0px;padding-right: 0px'>
         <div class="row-fluid row-section" data-bind="attr:{id:sectionID}">
             <!-- ko foreach:{data:positions,as:'position'} -->
                 <div data-bind="attr:{ class:$parent.getClass($index()) }">
@@ -13,7 +14,7 @@
 	                               </div>
                                  <!-- /ko --> 
 	                              <div class="module-content" data-bind="attr:{id:moduleID}">	
-                                       <!-- ko template:{name:template(),data:data,afterRender:afterRender} --><!-- /ko -->
+                                       <!-- ko template:{if:ready(),name:template(),data:data,afterRender:afterRender} --><!-- /ko -->
 			                       </div>
 	                         </div>
 
@@ -21,6 +22,8 @@
                 </div>
             <!-- /ko --><!--Positions-->
         </div>
+        </div>
+        <div class="clearfix" style="display: table;clear: both"></div><!--New Section-->
          <!-- /ko --><!--Has Modules?-->
     <!-- /ko --><!--sections-->
 
