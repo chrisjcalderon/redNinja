@@ -5,17 +5,19 @@ define(['require',
 function (require, app, $, tbs) {
     /*
    
-    This Template Engine for bootstrap... sort of
+        Template Engine
    
         
     */
 
     var templateDefaults = {
         showTitle: true,
-        titleClass: '',
-        boxClass: '',
-        css: function () { return this.boxClass + ' ' + this.titleClass; }
-
+        moduleTitleCss: '',
+        contentCss: '',
+        containerCss:'',
+        sectionCss:'',
+        positionCss:'',
+        moduleCss:'',
     };
 
     var Template = function () {
@@ -23,12 +25,16 @@ function (require, app, $, tbs) {
         self.version = "0.1";
         self.sections = ko.observableArray([]);
         self._sections = {};
+        self.section = self._sections; //Alias
         Template.sectionLayout = new Array();
 
         self.defaultchrome = "standard";
 
         self.registerSection = function (name, positions) {
             var section = new Section(name, positions)
+
+            section.template = self; //reference to template
+
             self._sections[name] = section; //KeyMap
             self.sections.push(section);
         }
@@ -36,6 +42,23 @@ function (require, app, $, tbs) {
         self.removeSection = function (name) {
             self.sections.remove(self._sections[name]);
             delete self._sections[name];
+        }
+
+        self.move = function(module,toSection,andPosition) {
+            var section = self._sections[toSection];
+            if( !section ) {
+                app.log.error("Section " + section +  " not defined. Cannot move module");
+                return;
+            } 
+
+            if( andPosition > (section.positions.length-1) ){
+                app.log.error("Section " + section +  " does not have position " +  position +  " defined. Cannot move module");
+                return;                
+            }
+
+            module.container.remove(module); //remove itself from the containing section
+            section.positions[andPosition].add(module);
+
         }
 
         self.hasModules = function (name) {
@@ -54,6 +77,24 @@ function (require, app, $, tbs) {
             return false;
         }
 
+        self.findModule = function(name) {
+            
+            for(var s=0;s<self.sections.length;s++) {
+                var section = self.sections()[s];
+                var positions = section.positions;
+                for (var p = 0; p < positions.length; p++) {
+                    var position = positions[p];
+                    for(var m=0;m<position.modules.length;m++){
+                        var module = position.module[m];
+                        if(module.name == name) {
+                            return module;
+                        }
+                    }//End Modules
+                }//End Positions
+            }//End Sections
+            return null;
+        }
+
         self.configSections = function (sections) {
             for (var s = 0; s < sections.length; s++) {
                 var section = sections[s];
@@ -61,10 +102,10 @@ function (require, app, $, tbs) {
             }
         }
 
+        self.config = self.configSections; //alias
 
         self.init = function () {
 
-            //6 Columns
             Template.sectionLayout.push([12]);
             Template.sectionLayout.push([6, 6]);
             Template.sectionLayout.push([4, 4, 4]);
@@ -113,6 +154,7 @@ function (require, app, $, tbs) {
             self._positions.valueHasMutated();
             return container;
         }
+
         self.init = function () {
             if (self.positionCount == 1) {
                 self.positions.push(new Container(self.name, self.name, self.defaultchrome, self));
@@ -192,8 +234,6 @@ function (require, app, $, tbs) {
         return self;
     }
 
-
-
     var Container = function (name, group, chrome, section) {
         var self = this;
         self.name = name;
@@ -221,17 +261,22 @@ function (require, app, $, tbs) {
         self.clear = function () {
             self.modules.removeAll();
         }
+
+        self.remove = function(module) {
+            self.modules.remove(module);
+        }
+
         return self;
     }
 
-    var Module = function (name, template, model, params, title) { //For instance, list of links, list of articles, etc
+    var Module = function (name, template, model, params, title) {
         var self = this;
 
         self.moduleID = "module-" + (Module.instanceID++);
         self.name = name;
-        self.template = ko.observable(template || 'bootstrap/html');
-
+        self.template = ko.observable(template || 'template/html');
         self.data = ko.observable();
+        self.container = null; //set by the Container
 
         if (typeof model === 'object') {
             self.model = '';
@@ -244,39 +289,18 @@ function (require, app, $, tbs) {
         self.params = params;
         self.visible = ko.observable(true);
         self.title = ko.observable(title || self.name);
-        self.showTitle = ko.observable(templateDefaults.showTitle);
+        self.showTitle = ko.observable(templateDefaults.moduleCss);
         self.css = templateDefaults.css;
         self.ready = ko.observable(false)
 
-        //Route handling
-        self.enableRouting = false;
-        self.routes = new Array();
-        self.template.subscribe(function (value) {
-            if (self.enableRouting == false) {
-                return;
-            }
+        //Handles After Renders - For a Module
+        self.onAfterRender = new Array();
+        self.subscribeOnRender = function (callBack) {
+            self.onAfterRender.push(callBack);
+        }
 
-            if (value !== self.template()) {
-                document.location.hash = "/#" + self.moduleID + "/"  + self.template().replace("/","-");
-                self.routes.push({ template: self.template(), model: self.model, data: self.data() });
-            }
-        });
 
-        //End route handling
-
-        //self.ready.subscribe(function (value) {
-        //toastr.info('ready ' + self.name);
-        //});
-
-        //Should I do this to make it easier???
-        //self.data.subscribe(function(value) {
-        // if(typeof value === 'object') { -> then handle stuff such as
-        //  value.context = self;
-        // }
-        //});
-        //
-
-        //Handles After Renders
+        //Three Levels for handling after renders: 1) Model, 2)Direct Subcription, 3rd Global Event listen/handler
         self.afterRender = function (element) {
 
             if (element[0].className == 'infuser-loading') {
@@ -287,6 +311,16 @@ function (require, app, $, tbs) {
                 app.log.info("Preparing rendering of template:" + self.template() + " for module:" + self.moduleID + " model:" + self.model);
                 self.data().afterRender(element, self);
             }
+
+            //Preference to subscribers
+            for (var r = 0; r < self.onAfterRender.length; r++) {
+                self.onAfterRender[r](element, self);
+            }
+
+            //Global Trigger 
+            app.trigger(self, new app.message("onModuleRender", self, { element: element }));
+
+
         }
 
         self.set = function (data) {
@@ -295,7 +329,10 @@ function (require, app, $, tbs) {
             if (data.showTitle !== undefined) self.showTitle(data.showTitle);
             if (data.visible !== undefined) self.visible(data.visible);
             if (data.title !== undefined) self.title(data.title);
-            if (data.data !== undefined) self.data(data.data);
+            if (data.data !== undefined) {
+                data.context = self;
+                self.data(data.data);
+            }
             return self;
         }
 

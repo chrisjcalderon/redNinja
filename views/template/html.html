@@ -1,0 +1,13 @@
+<!-- ko if:$data -->
+    <div data-bind="html:$data.html?$data.html:$data"></div>
+ <!-- /ko --> 
+<!-- ko ifnot:$data -->
+<div >   
+    <div>This is a placeholder for content. You should be adding your own stuff!</div>
+    <button class="btn btn-small btn-primary">Primary</button>
+    <button class="btn btn-small btn-success">Success</button>
+ 
+
+</div>    
+ <!-- /ko --> 
+

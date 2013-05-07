@@ -54,7 +54,8 @@ if (typeof window.appController === 'undefined') {
                 return "";
             }
 
-            self.basePath = location.href.substring(0, location.href.lastIndexOf('/'));
+            self.basePath = location.href.split("#")[0];
+            self.basePath = self.basePath.substring(0, self.basePath.lastIndexOf('/'));
             self.base = self.resolveInitialPath();
             self.scripts = self.base + "scripts";
             self.lib = self.scripts + "/lib";

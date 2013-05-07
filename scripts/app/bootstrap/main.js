@@ -1,5 +1,5 @@
 define([
-    'AppManager', 'AppModels', 'models/bootstrap/templateManager'
+    'AppManager', 'AppModels', 'models/templateManager'
     , 'models/bootstrap/contact', 'models/bootstrap/contactDialog'
     , 'models/bootstrap/lists'
 ], function (app, models, template, contact, contactDialog, listModel) {
