@@ -16,7 +16,7 @@ function (require, app, $, tbs) {
         sectionCss:'',
         positionCss:'',
         moduleCss:''
-    };
+    }; 
 
     var Template = function () {
         var self = this;
