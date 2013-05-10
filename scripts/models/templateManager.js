@@ -4,10 +4,8 @@ define(['require',
         , 'models/bootstrap/bootstrap'],
 function (require, app, $, tbs) {
     /*
-   
         Template Engine
-   
-        
+
     */
 
     var templateDefaults = {
@@ -17,7 +15,7 @@ function (require, app, $, tbs) {
         containerCss:'',
         sectionCss:'',
         positionCss:'',
-        moduleCss:'',
+        moduleCss:''
     };
 
     var Template = function () {
@@ -26,40 +24,40 @@ function (require, app, $, tbs) {
         self.sections = ko.observableArray([]);
         self._sections = {};
         self.section = self._sections; //Alias
-        Template.sectionLayout = new Array();
+        Template.sectionLayout = [];
 
         self.defaultchrome = "standard";
 
         self.registerSection = function (name, positions) {
-            var section = new Section(name, positions)
+            var section = new Section(name, positions);
 
             section.template = self; //reference to template
 
             self._sections[name] = section; //KeyMap
             self.sections.push(section);
-        }
+        };
 
         self.removeSection = function (name) {
             self.sections.remove(self._sections[name]);
             delete self._sections[name];
-        }
+        };
 
-        self.move = function(module,toSection,andPosition) {
+        self.move = function (module, toSection, andPosition) {
             var section = self._sections[toSection];
-            if( !section ) {
-                app.log.error("Section " + section +  " not defined. Cannot move module");
+            if (!section) {
+                app.log.error("Section " + section + " not defined. Cannot move module");
                 return;
-            } 
+            }
 
-            if( andPosition > (section.positions.length-1) ){
-                app.log.error("Section " + section +  " does not have position " +  position +  " defined. Cannot move module");
-                return;                
+            if (andPosition > (section.positions.length - 1)) {
+                app.log.error("Section " + section + " does not have position " + andPosition + " defined. Cannot move module");
+                return;
             }
 
             module.container.remove(module); //remove itself from the containing section
             section.positions[andPosition].add(module);
 
-        }
+        };
 
         self.hasModules = function (name) {
             var section = self._sections[name];
@@ -75,32 +73,32 @@ function (require, app, $, tbs) {
                 }
             }
             return false;
-        }
+        };
 
-        self.findModule = function(name) {
-            
-            for(var s=0;s<self.sections.length;s++) {
+        self.findModule = function (name) {
+
+            for (var s = 0; s < self.sections.length; s++) {
                 var section = self.sections()[s];
                 var positions = section.positions;
                 for (var p = 0; p < positions.length; p++) {
                     var position = positions[p];
-                    for(var m=0;m<position.modules.length;m++){
+                    for (var m = 0; m < position.modules.length; m++) {
                         var module = position.module[m];
-                        if(module.name == name) {
+                        if (module.name == name) {
                             return module;
                         }
                     }//End Modules
                 }//End Positions
             }//End Sections
             return null;
-        }
+        };
 
         self.configSections = function (sections) {
             for (var s = 0; s < sections.length; s++) {
                 var section = sections[s];
                 self.registerSection(section.name, section.positions);
             }
-        }
+        };
 
         self.config = self.configSections; //alias
 
@@ -112,7 +110,7 @@ function (require, app, $, tbs) {
             Template.sectionLayout.push([3, 3, 3, 3]);
             Template.sectionLayout.push([2, 2, 2, 2, 2, 2]);
 
-        }
+        };
 
         self.getSection = function (name) {
             return {
@@ -129,14 +127,14 @@ function (require, app, $, tbs) {
             };
         }
 
-    } //End Template
+    }; //End Template
 
     var Section = function (name, positions) {
         var self = this;
         self.name = name;
         self.sectionID = 'section-' + name;
         self.defaultchrome = "standard";
-        self.positions = new Array()
+        self.positions = [];
         self._positions = ko.observable(self.positions);
         self.positionCount = positions;
         self.forcePositions = false;
@@ -148,12 +146,12 @@ function (require, app, $, tbs) {
         });
 
         self.addPosition = function () {
-            var container = new Container(self.name, self.name + " " + self.positions.length, self.defaultchrome, self)
+            var container = new Container(self.name, self.name + " " + self.positions.length, self.defaultchrome, self);
             self.positions.push(container);
             self.positionCount++;
             self._positions.valueHasMutated();
             return container;
-        }
+        };
 
         self.init = function () {
             if (self.positionCount == 1) {
@@ -164,19 +162,19 @@ function (require, app, $, tbs) {
                 }
             }
             self._positions.valueHasMutated();
-        }
+        };
 
         self.setLayout = function (positions, layout) {
             self.layouts["l" + positions] = layout;
-        }
+        };
 
         self.getLayout = function (positions) {
-            if (typeof self.layouts['l' + positions] !== undefined) {
+            if (typeof self.layouts['l' + positions] !== 'undefined') {
                 return self.layouts['l' + positions];
             } else {
                 return null;
             }
-        }
+        };
 
         self.getPositionCount = function () {
             var total = 0;
@@ -186,7 +184,7 @@ function (require, app, $, tbs) {
                 }
             }
             return total;
-        }
+        };
 
         self.getClass = function (index) {
 
@@ -200,7 +198,7 @@ function (require, app, $, tbs) {
 
             if (layout) { //If there is a predefined layout, then use it
                 pos = layout[index];
-            } else {        //otherwise autoadjust                
+            } else {        //otherwise autoadjust
                 var totalPositions = self.positions.length;
                 var blocks = Template.sectionLayout[positions - 1][index];
                 var offset = (totalPositions - positions) * 2;
@@ -218,7 +216,7 @@ function (require, app, $, tbs) {
             prefix += " pos" + index;
             return base + prefix; // + extra
 
-        }
+        };
 
         self.hasModules = function () {
 
@@ -229,10 +227,10 @@ function (require, app, $, tbs) {
                 }
             }
             return false;
-        }
+        };
         self.init(positions);
         return self;
-    }
+    };
 
     var Container = function (name, group, chrome, section) {
         var self = this;
@@ -250,24 +248,24 @@ function (require, app, $, tbs) {
             module.container = self;
             self.modules.push(module);
             return module;
-        }
+        };
 
         self.add = self.addModule;
 
         self.hasModules = function () {
             return self.modules().length > 0;
-        }
+        };
 
         self.clear = function () {
             self.modules.removeAll();
-        }
+        };
 
-        self.remove = function(module) {
+        self.remove = function (module) {
             self.modules.remove(module);
-        }
+        };
 
         return self;
-    }
+    };
 
     var Module = function (name, template, model, params, title) {
         var self = this;
@@ -291,16 +289,16 @@ function (require, app, $, tbs) {
         self.title = ko.observable(title || self.name);
         self.showTitle = ko.observable(templateDefaults.moduleCss);
         self.css = templateDefaults.css;
-        self.ready = ko.observable(false)
+        self.ready = ko.observable(false);
 
         //Handles After Renders - For a Module
-        self.onAfterRender = new Array();
+        self.onAfterRender = [];
         self.subscribeOnRender = function (callBack) {
             self.onAfterRender.push(callBack);
-        }
+        };
 
 
-        //Three Levels for handling after renders: 1) Model, 2)Direct Subcription, 3rd Global Event listen/handler
+        //Three Levels for handling after renders: 1) Model, 2)Direct Subscription, 3rd Global Event listen/handler
         self.afterRender = function (element) {
 
             if (element[0].className == 'infuser-loading') {
@@ -317,11 +315,11 @@ function (require, app, $, tbs) {
                 self.onAfterRender[r](element, self);
             }
 
-            //Global Trigger 
+            //Global Trigger
             app.trigger(self, new app.message("onModuleRender", self, { element: element }));
 
 
-        }
+        };
 
         self.set = function (data) {
 
@@ -334,7 +332,7 @@ function (require, app, $, tbs) {
                 self.data(data.data);
             }
             return self;
-        }
+        };
 
         self.setModel = function (model, template, params) {
 
@@ -358,45 +356,45 @@ function (require, app, $, tbs) {
             self.init();
 
             return self;
-        }
+        };
 
         self.setParams = function (params) {
             self.params = params;
             app.log.info("setParams for " + self.name);
             self.init();
             return self;
-        }
+        };
 
         self.init = function () {
             if (self.model) {
-                //The data comes from a AMD module                
+                //The data comes from a AMD module
                 require(['models/' + self.model], function (model) {
-                    //if the module produces an instance, then retrieve it using get and pass the params.
-                    //Note: All get methods must return a promise object        
-                    if (typeof model.get == 'function') {
-                        model.get(self.params, self).then(function (obj) {
-                            obj.context = self;
-                            self.data(obj);
+                        //if the module produces an instance, then retrieve it using get and pass the params.
+                        //Note: All get methods must return a promise object
+                        if (typeof model.get == 'function') {
+                            model.get(self.params, self).then(function (obj) {
+                                obj.context = self;
+                                self.data(obj);
+                                self.ready(true);
+                            });
+                        } else {
+                            //Otherwise the data is the model itself (likely a singleton or raw data)
+                            model.context = self;
+                            self.data(model);
                             self.ready(true);
-                        });
-                    } else {
-                        //Otherwise the data is the model itself (likely a singleton or raw data)
-                        model.context = self;
-                        self.data(model);
-                        self.ready(true);
+                        }
+                    }, //End
+                    function (error) {
+                        app.log.error("Error loading model " + self.model + ":" + error.description);
+                        toastr.error("Error loading " + self.model);
                     }
-                }, //End 
-                function (error) {
-                    app.log.error("Error loading model " + self.model + ":" + error.description);
-                    toastr.error("Error loading " + self.model);
-                }
                 ); //End Require
             } else {
-                //if it does not require a model then set the data to the Module itsef
+                //if it does not require a model then set the data to the Module itself
                 self.data(self);
                 self.ready(true);
             }
-        }
+        };
 
 
         //if setting a model and template @ the constructor
@@ -409,7 +407,7 @@ function (require, app, $, tbs) {
 
         return self;
 
-    }     //End Module
+    };     //End Module
 
     Module.instanceID = 1;
 
