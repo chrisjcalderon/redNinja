@@ -2,8 +2,6 @@
 // (c) Christian J Calderon - http://url.com/
 // License: MIT (http://www.opensource.org/licenses/mit-license.php)
 
-
-
 if (typeof window.appController === 'undefined') {
     (function () {
         var DEBUG = true;
@@ -12,15 +10,15 @@ if (typeof window.appController === 'undefined') {
             if (DEBUG) {
                 self.info = function (msg) {
                     console.log("INFO: " + msg);
-                }
+                };
                 self.error = function (msg) {
                     console.log("ERROR: " + msg);
-                }
+                };
             } else {
                 self.info = function () { };
                 self.error = function () { };
             }
-        }
+        };
 
         //Configuration Object
         //a) Used to configure the URL's for CURL to load resources
@@ -52,7 +50,7 @@ if (typeof window.appController === 'undefined') {
                     }
                 }
                 return "";
-            }
+            };
 
             self.basePath = location.href.split("#")[0];
             self.basePath = self.basePath.substring(0, self.basePath.lastIndexOf('/'));
@@ -61,12 +59,12 @@ if (typeof window.appController === 'undefined') {
             self.lib = self.scripts + "/lib";
             self.app = "../app";
             self.models = "../models";
-            self.content = "../../media/content",
+            self.content = "../../media/content";
             self.templates = self.basePath + "/views";
             self.styles = self.base + "../../styles";
             self.themes = self.styles + "/themes";
             self.theme = 'base';
-            self.head = document.getElementsByTagName('script')[0].parentNode,
+            self.head = document.getElementsByTagName('script')[0].parentNode;
             self.initialized = true;
 
             self.init = function () {
@@ -74,11 +72,10 @@ if (typeof window.appController === 'undefined') {
                 if (self.initialized) {
                     return;
                 }
-
+                return;
                 //in case adjustments are needed post initialization
-
             }
-        } //End Controller
+        }; //End Controller
 
         //App Controller
         var applicationController = function () {
@@ -96,13 +93,13 @@ if (typeof window.appController === 'undefined') {
 
             self.errorHandler = function (e) {
                 alert("ERROR " + e);
-            }
+            };
 
-            self.config = new Configuration("");
+            self.config = new Configuration();
 
             self.scripts = function () {
                 return document.getElementsByTagName('script');
-            }
+            };
 
             self.each = function (ary, func) {
                 if (ary) {
@@ -113,7 +110,7 @@ if (typeof window.appController === 'undefined') {
                         }
                     }
                 }
-            }
+            }  ;
 
             self.getLoader = function () {
                 //Shim
@@ -159,7 +156,7 @@ if (typeof window.appController === 'undefined') {
                         }
                     }
                 };
-            }
+            } ;
 
             self.loadModulesFromScriptTags = function () {
 
@@ -173,7 +170,7 @@ if (typeof window.appController === 'undefined') {
                         var root = script.attr('my-root');
 
                         if (typeof root != 'undefined' && root !== null) {
-                            self.config.init(root);
+                            self.config.init();
                         }
 
                         var module = script.attr('my-module');
@@ -205,7 +202,7 @@ if (typeof window.appController === 'undefined') {
 
                     } //End Processing
                 }); //End looping
-            } //End function
+            }; //End function
 
             self.init = function () {
                 if (self.status == 'registering') {
@@ -217,7 +214,7 @@ if (typeof window.appController === 'undefined') {
                 } else if (self.status == 'loaded') {
                     self.runModules();
                 }
-            }
+            };
 
             self.loadCurl = function () {
                 if (typeof curl === "undefined") {
@@ -228,20 +225,17 @@ if (typeof window.appController === 'undefined') {
                     node.src = self.config.lib + "/curl.js";
                     self.config.head.appendChild(node);
                 }
-            }
+            };
 
             self.load = function () {
                 if (typeof curl === "undefined") {
                     setTimeout(self.load, 100);
                 } else {
-                    //Don't reeeeally need the appController to be exposed... I think... 
-                    //but just if someone needs a hold of it :)
-                    //The AppModels has a reference to what's really needed in to load everything
-                    define('AppManager', [], function () { return window["appController"]; })
-                    define('AppModels', [], function () { return window["appController"].modelController.interface; })
+                    define('AppManager', [], function () { return window["appController"]; });
+                    define('AppModels', [], function () {  return window["appController"].modelController.interface; });
                     self.run();
                 }
-            }
+            };
 
 
             self.definePackage = function (name) {
@@ -250,7 +244,7 @@ if (typeof window.appController === 'undefined') {
                     main: 'main',
                     lib: 'lib'
                 };
-            }
+            };
 
             self.run = function () {
 
@@ -262,7 +256,7 @@ if (typeof window.appController === 'undefined') {
                  .next(loader.knockout.libs).then(loader.knockout.complete)
                  .next(self.config.defaultStyles)
                  .next(loader.main.libs).then(loader.main.complete);
-            }
+            } ;
 
             self.runModules = function () {
 
@@ -295,7 +289,7 @@ if (typeof window.appController === 'undefined') {
                 );
                 self.loadQueue = {}
             }
-        }
+        };
 
         //Model/Module Controller
         var modelController = function (app) {
@@ -326,7 +320,7 @@ if (typeof window.appController === 'undefined') {
                             }, self.errorHandler
                 );
                 return prom;
-            }
+            };
 
             self.loadViewModel = function (container, template, model) {
                 var result = null;
@@ -364,7 +358,7 @@ if (typeof window.appController === 'undefined') {
                     }
                 );
                 return prom;
-            }
+            };
 
             self.destroyVm = function (vm) {
                 var view = self.viewModels[vm];
@@ -372,7 +366,7 @@ if (typeof window.appController === 'undefined') {
                     $("#" + view.container).empty(); //remove();
                     self.log.info("Removed VM " + vm);
                 }
-            }
+            };
 
             self.loadFile = function (file) {
                 var result = null;
@@ -386,12 +380,8 @@ if (typeof window.appController === 'undefined') {
                             }, self.errorHandler
                 );
                 return prom;
-            }
+            };
 
-
-            //"jsonp": Loads in a JSON block using JSONP. Adds an extra "?callback=?" to the end of your URL to specify the callback. 
-            //Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the cache option is set to true.
-            //http://api.jquery.com/jQuery.ajax/
             self.loadJson = function (url) {
                 var def = new $.Deferred();
                 var prom = def.promise();
@@ -409,12 +399,12 @@ if (typeof window.appController === 'undefined') {
                 });
 
                 return prom;
-            }
+            };
 
 
             self.createMessage = function (type, obj, params) {
                 return { msg: type, params: params, obj: obj };
-            }
+            };
 
             self.registerListener = function (msg) {
                 var def = new $.Deferred();
@@ -429,19 +419,19 @@ if (typeof window.appController === 'undefined') {
                 });
 
                 return promise;
-            }
+            };
 
             self.unsubscribe = function (promise) {
                 for (var l = 0; l < self.modelListerners.length; l++) {
                     var listener = self.modelListerners[l];
                     if (listener.promise === promise) {
-                        delete listener;
+                        //delete listener;
                         self.modelListerners[l] == undefined;
                         delete self.modelListerners[l];
                         return;
                     }
                 }
-            }
+            };
 
             self.sendMessage = function (sender, msg, callback) {
                 for (var l = 0; l < self.modelListerners.length; l++) {
@@ -451,11 +441,12 @@ if (typeof window.appController === 'undefined') {
                         self.log.info("Send Message : " + msg.msg);
                     }
                 }
-            }
+            };
 
             self.run = function () {
                 //first initialize: NOTE, for better performance, the inits and loads should
                 //be defferred! / non blocking
+                var mode;
                 for (m in this.models) {
                     var model = self.models[m];
                     self.init(m);
@@ -465,7 +456,7 @@ if (typeof window.appController === 'undefined') {
                     var model = self.models[m];
                     self.load(m);
                 }
-            }
+            };
 
             self.register = function (name, obj) {
                 if (!self.models[name]) {
@@ -474,31 +465,31 @@ if (typeof window.appController === 'undefined') {
                     obj.isLoaded = false;
                     obj.isInitialized = false;
                 }
-            }
+            };
 
             self.get = function (name) {
                 return self.models[name];
-            }
+            };
 
             self.getModel = function (name) {
                 return self.models[name] ?
                         self.models[name].instance || self.models[name] : self.models[name];
-            }
+            };
 
             self.load = function (name) {
                 if (!self.models[name].isLoaded) {
-                    self.models[name].isLoaded = true
+                    self.models[name].isLoaded = true;
                     if (self.models[name].load) {
                         self.log.info("call " + name + ".load(" + self.containers[name] + ")");
                         self.get(name).load(self.containers[name]);
                         self.sendMessage(self.models[name], self.createMessage("OnNewModelLoad", self.models[name], { name: name }));
                     }
                 }
-            }
+            };
 
             self.isDefined = function (name) {
                 return typeof self.models[name] !== "undefined";
-            }
+            };
 
             self.init = function (name) {
                 var model = self.models[name];
@@ -509,7 +500,7 @@ if (typeof window.appController === 'undefined') {
                         model.onInit();
                     }
                 }
-            }
+            };
 
             self.destroy = function (name) {
                 if (self.isDefined(name)) {
@@ -519,7 +510,7 @@ if (typeof window.appController === 'undefined') {
                     }
                     delete self.models[name];
                 }
-            }
+            };
 
             //Revealing Pattern - sort of. Used for the defines
             self.interface = {
@@ -546,12 +537,12 @@ if (typeof window.appController === 'undefined') {
                 }
             }
 
-        } //End Model Controller
+        }; //End Model Controller
 
         window.appController = new applicationController();
         window.myApp = window.appController;
 
-    })()//End Closure
+    })();//End Closure
     
 }
 
