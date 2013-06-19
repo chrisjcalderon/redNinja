@@ -15,14 +15,14 @@ define(['AppManager', 'AppModels', 'text!content/file1.txt'], function (app, mod
         self.openDialogHandler = function (sender, msg, callback) {
             self.openDialog(true);
             self.callBackOnMsg = callback;
-        }
+        };
 
         self.changeContent = function () {
             models.loadFile("file2.txt").then(function (content) {
                 self.dialogContent(content);
             });
 
-        }
+        };
         self.closeDialog = function () {
             if (self.openDialog()) {
                 self.openDialog(false);
@@ -32,7 +32,7 @@ define(['AppManager', 'AppModels', 'text!content/file1.txt'], function (app, mod
                 });
             }
 
-        }
+        };
 
         self.onInit = function () {
             var subcription = models.on("OpenContactDialog").call(self.openDialogHandler);
@@ -41,12 +41,12 @@ define(['AppManager', 'AppModels', 'text!content/file1.txt'], function (app, mod
                 self.fromParent(value);
                 models.sendMsg(self, models.message("AddItem", self, { value: value }));
             });
-        }
+        };
 
         self.load = function (container) {
             ko.applyBindings(self, document.getElementById(container || "contactModule"));
         }
-    }
+    };
 
     myApp.models.register(modelName, new model());
 

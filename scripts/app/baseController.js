@@ -15,8 +15,10 @@ if (typeof window.appController === 'undefined') {
                     console.log("ERROR: " + msg);
                 };
             } else {
-                self.info = function () { };
-                self.error = function () { };
+                self.info = function () {
+                };
+                self.error = function () {
+                };
             }
         };
 
@@ -30,9 +32,9 @@ if (typeof window.appController === 'undefined') {
             self.packages = {};
 
             self.defaultStyles = ['link!theme/jquery-ui.css',
-                                  'link!styles/toastr.min.css',
-                                  'link!styles/base.css'
-             ];
+                'link!styles/toastr.min.css',
+                'link!styles/base.css'
+            ];
 
             self.resolveInitialPath = function () {
                 var nodes = document.getElementsByTagName('script');
@@ -72,9 +74,7 @@ if (typeof window.appController === 'undefined') {
                 if (self.initialized) {
                     return;
                 }
-                return;
-                //in case adjustments are needed post initialization
-            }
+            } ;
         }; //End Controller
 
         //App Controller
@@ -110,7 +110,7 @@ if (typeof window.appController === 'undefined') {
                         }
                     }
                 }
-            }  ;
+            };
 
             self.getLoader = function () {
                 //Shim
@@ -120,14 +120,14 @@ if (typeof window.appController === 'undefined') {
                             baseUrl: self.config.lib,
                             //preloads: ["curl/debug"],
                             paths: {
-                                styles:   self.config.styles,
-                                theme:    self.config.themes + "/" + self.config.theme,
-                                app:      self.config.app,
-                                lib:      self.config.lib,
-                                models:   self.config.models,
-                                content:  self.config.content
+                                styles: self.config.styles,
+                                theme: self.config.themes + "/" + self.config.theme,
+                                app: self.config.app,
+                                lib: self.config.lib,
+                                models: self.config.models,
+                                content: self.config.content
                             },
-                            packages:     self.config.packages
+                            packages: self.config.packages
                         }
                     } //end paths config
                     , base: {
@@ -156,7 +156,7 @@ if (typeof window.appController === 'undefined') {
                         }
                     }
                 };
-            } ;
+            };
 
             self.loadModulesFromScriptTags = function () {
 
@@ -231,8 +231,12 @@ if (typeof window.appController === 'undefined') {
                 if (typeof curl === "undefined") {
                     setTimeout(self.load, 100);
                 } else {
-                    define('AppManager', [], function () { return window["appController"]; });
-                    define('AppModels', [], function () {  return window["appController"].modelController.interface; });
+                    define('AppManager', [], function () {
+                        return window["appController"];
+                    });
+                    define('AppModels', [], function () {
+                        return window["appController"].modelController.interface;
+                    });
                     self.run();
                 }
             };
@@ -253,10 +257,10 @@ if (typeof window.appController === 'undefined') {
                 var loader = self.getLoader();
 
                 curl(loader.config(), loader.base.libs).then(loader.base.complete)
-                 .next(loader.knockout.libs).then(loader.knockout.complete)
-                 .next(self.config.defaultStyles)
-                 .next(loader.main.libs).then(loader.main.complete);
-            } ;
+                    .next(loader.knockout.libs).then(loader.knockout.complete)
+                    .next(self.config.defaultStyles)
+                    .next(loader.main.libs).then(loader.main.complete);
+            };
 
             self.runModules = function () {
 
@@ -268,14 +272,13 @@ if (typeof window.appController === 'undefined') {
                     self.log.info("Preparing modules: module{" + (m) + "}");
                     cLoadQueue.push('app/' + m);
                 }
-
                 var modulesToLoad = cLoadQueue.join("-");
                 self.log.info("Loading modules: " + modulesToLoad);
 
                 //loads the modules
                 curl(cLoadQueue)
-                .then(
-                    sucess = function (oj) {
+                    .then(
+                    success = function (oj) {
                         self.log.info("Modules loaded: " + modulesToLoad);
                         self.log.info("Waiting for " + modulesToLoad + " to run...");
                         setTimeout(function () {
@@ -313,11 +316,11 @@ if (typeof window.appController === 'undefined') {
                 var prom = def.promise();
                 curl(['models/' + model])
                     .then(
-                            function (obj) {
-                                self.log.info("Loading Model: " + model);
-                                result = (typeof obj === 'function') ? obj() : obj;
-                                def.resolve(result);
-                            }, self.errorHandler
+                    function (obj) {
+                        self.log.info("Loading Model: " + model);
+                        result = (typeof obj === 'function') ? obj() : obj;
+                        def.resolve(result);
+                    }, self.errorHandler
                 );
                 return prom;
             };
@@ -350,10 +353,10 @@ if (typeof window.appController === 'undefined') {
 
                         self.log.info("Loading VM: " + model + " on container " + container + " using template " + template);
                         ko.applyBindingsToNode(
-                                        document.getElementById(container),            // Container
-                                        {template: { name: template, data: result} },  // Template & Model
-                                          result                                       // Model..
-                                        );
+                            document.getElementById(container),            // Container
+                            {template: { name: template, data: result} },  // Template & Model
+                            result                                       // Model..
+                        );
                         def.resolve(result);
                     }
                 );
@@ -374,10 +377,10 @@ if (typeof window.appController === 'undefined') {
                 var prom = def.promise();
                 curl(['text!content/' + file])
                     .then(
-                            function (content) {
-                                self.log.info("Loading File : " + file);
-                                def.resolve(content);
-                            }, self.errorHandler
+                    function (content) {
+                        self.log.info("Loading File : " + file);
+                        def.resolve(content);
+                    }, self.errorHandler
                 );
                 return prom;
             };
@@ -445,15 +448,15 @@ if (typeof window.appController === 'undefined') {
 
             self.run = function () {
                 //first initialize: NOTE, for better performance, the inits and loads should
-                //be defferred! / non blocking
-                var mode;
-                for (m in this.models) {
-                    var model = self.models[m];
+                //be defered! / non blocking
+                var model;
+                for (var m in this.models) {
+                    model = self.models[m];
                     self.init(m);
                 }
                 //then load
-                for (m in this.models) {
-                    var model = self.models[m];
+                for (var m in this.models) {
+                    model = self.models[m];
                     self.load(m);
                 }
             };
@@ -473,7 +476,7 @@ if (typeof window.appController === 'undefined') {
 
             self.getModel = function (name) {
                 return self.models[name] ?
-                        self.models[name].instance || self.models[name] : self.models[name];
+                    self.models[name].instance || self.models[name] : self.models[name];
             };
 
             self.load = function (name) {
@@ -535,7 +538,7 @@ if (typeof window.appController === 'undefined') {
                 loadingHtml: function (html) {
                     infuser.defaults.loadingTemplate = html;
                 }
-            }
+            };
 
         }; //End Model Controller
 
@@ -543,7 +546,7 @@ if (typeof window.appController === 'undefined') {
         window.myApp = window.appController;
 
     })();//End Closure
-    
+
 }
 
 window.appController.init();   

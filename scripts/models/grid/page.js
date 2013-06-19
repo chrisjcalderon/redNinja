@@ -17,7 +17,7 @@ define(['AppModels'], function (models) {
 
         }
 
-    }
+    };
 
     var model = new PageModel();
     return {

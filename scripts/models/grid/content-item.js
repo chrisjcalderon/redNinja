@@ -12,7 +12,7 @@ define(['AppModels'], function (app) {
             return prom;
         }
 
-    }
+    };
 
     var model = new ItemModel();
     return {

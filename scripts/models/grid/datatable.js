@@ -27,7 +27,7 @@ define(['AppModels','models/datatable'], function (models,dt) {
             fnc(self);
         }
 
-    }
+    };
 
     return {
         get: function () {

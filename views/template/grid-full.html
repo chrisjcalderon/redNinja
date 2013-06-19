@@ -4,9 +4,9 @@
         <div class="container-fluid" style='padding-left:0px;padding-right: 0px'>
         <div class="row-fluid row-section" data-bind="attr:{id:sectionID}">
             <!-- ko foreach:{data:positions,as:'position'} -->
+                <!-- ko if:hasModules()-->
                 <div data-bind="attr:{ 'class':$parent.getClass($index()) }">
                      <!-- ko foreach:{data:modules,as:'module'} -->
-
                              <div class="module-surround">
                                   <!-- ko if:showTitle() -->
 		                          <div class="module-title">
@@ -17,14 +17,13 @@
                                        <!-- ko template:{name:template(),data:data,afterRender:afterRender} --><!-- /ko -->
 			                       </div>
 	                         </div>
-
                       <!-- /ko -->
                 </div>
+                 <!-- /ko --><!--Has Modules for position-->
             <!-- /ko --><!--Positions-->
         </div>
         </div>
         <div class="clearfix" style="display: table;clear: both"></div><!--New Section-->
          <!-- /ko --><!--Has Modules?-->
     <!-- /ko --><!--sections-->
-
 </div>

@@ -26,7 +26,7 @@ define(['AppModels'], function (models) {
 
         }
 
-    }
+    };
 
     return {
         //The template will pass the params and the context (Module)

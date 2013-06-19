@@ -51,7 +51,7 @@ define(['AppModels',
 
                 }
 
-            } //End model
+            }; //End model
 
             return contactDialog;
 

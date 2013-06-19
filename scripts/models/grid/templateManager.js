@@ -146,7 +146,7 @@ function (require, app, $) {
 
             if (layout) { //If there is a predefined layout, then use it
                 pos = layout[index];
-            } else {        //otherwise autoadjust                
+            } else {        //otherwise autoadjust
                 var totalPositions = self._sections[name].positions.length;
                 var blocks = self.sectionLayout[positions - 1][index];
                 var offset = (totalPositions - positions) * 2;
@@ -167,7 +167,7 @@ function (require, app, $) {
 
         }
 
-    } //End Template
+    }; //End Template
 
     var Section = function (name, positions) {
         var self = this;
@@ -217,7 +217,7 @@ function (require, app, $) {
 
         self.init(positions);
         return self;
-    }
+    };
 
     var ContentSection = function () {
         var self = this;
@@ -227,13 +227,13 @@ function (require, app, $) {
         self.sidebarC = new Container("sidebar-c", "sidebar-c", "standard", self);
         self.component = new Container("component", "component", "component", self);
         self.contentTop = [new Container("content-top-a", "content-top", "standard", self),
-                            new Container("content-top-a", "content-top", "standard", self),
-                            new Container("content-top-a", "content-top", "standard", self),
-                           ];
+            new Container("content-top-a", "content-top", "standard", self),
+            new Container("content-top-a", "content-top", "standard", self),
+        ];
         self.contentBottom = [new Container("content-bottom-a", "content-bottom", "standard", self),
-                               new Container("content-bottom-a", "content-bottom", "standard", self),
-                               new Container("content-bottom-a", "content-bottom", "standard", self),
-                           ];
+            new Container("content-bottom-a", "content-bottom", "standard", self),
+            new Container("content-bottom-a", "content-bottom", "standard", self),
+        ];
 
         self.componentModule = function () {
             return self.component.modules()[0];
@@ -242,28 +242,92 @@ function (require, app, $) {
 
         //schema for each section...
         self.topSchema = {
-            "l0": [[0], [0, 0], [0, 0, 0]], //0
-            "l1": [[1], [0, 0], [1, 0, 0]], //1
-            "l2": [[2], [1, 1], [1, 1, 0]], //2
-            "l3": [[3], [2, 1], [1, 1, 1]], //3
-            "l4": [[4], [2, 2], [2, 1, 1]], //4
-            "l5": [[5], [3, 2], [2, 2, 1]], //5
-            "l6": [[6], [3, 3], [2, 2, 2]], //6
-            "l7": [[7], [4, 3], [2, 3, 2]], //7
-            "l8": [[8], [4, 4], [2, 4, 2]], //8
-            "l9": [[9], [5, 4], [3, 3, 3]], //9
-            "l10": [[10], [5, 5], [3, 4, 3]], //10
-            "l11": [[11], [6, 5], [3, 5, 3]], //11
-            "l12": [[12], [6, 6], [4, 4, 4]]  //12
+            "l0": [
+                [0],
+                [0, 0],
+                [0, 0, 0]
+            ], //0
+            "l1": [
+                [1],
+                [0, 0],
+                [1, 0, 0]
+            ], //1
+            "l2": [
+                [2],
+                [1, 1],
+                [1, 1, 0]
+            ], //2
+            "l3": [
+                [3],
+                [2, 1],
+                [1, 1, 1]
+            ], //3
+            "l4": [
+                [4],
+                [2, 2],
+                [2, 1, 1]
+            ], //4
+            "l5": [
+                [5],
+                [3, 2],
+                [2, 2, 1]
+            ], //5
+            "l6": [
+                [6],
+                [3, 3],
+                [2, 2, 2]
+            ], //6
+            "l7": [
+                [7],
+                [4, 3],
+                [2, 3, 2]
+            ], //7
+            "l8": [
+                [8],
+                [4, 4],
+                [2, 4, 2]
+            ], //8
+            "l9": [
+                [9],
+                [5, 4],
+                [3, 3, 3]
+            ], //9
+            "l10": [
+                [10],
+                [5, 5],
+                [3, 4, 3]
+            ], //10
+            "l11": [
+                [11],
+                [6, 5],
+                [3, 5, 3]
+            ], //11
+            "l12": [
+                [12],
+                [6, 6],
+                [4, 4, 4]
+            ]  //12
         };
         self.bottomSchema = self.topSchema; //[[12], [6, 6], [2, 2, 2]];
 
         self.schemas = ko.observable(["sa", "mb", "sb", "sc"]);
         self.schema = { // Note- Respect Schema?
-            "l1": [["mb"], [12]],
-            "l2": [["sa", "mb"], [4, 8]],
-            "l3": [["sa", "mb", "sb"], [3, 6, 3]],
-            "l4": [["sa", "mb", "sb", "sc"], [2, 6, 2, 2]]
+            "l1": [
+                ["mb"],
+                [12]
+            ],
+            "l2": [
+                ["sa", "mb"],
+                [4, 8]
+            ],
+            "l3": [
+                ["sa", "mb", "sb"],
+                [3, 6, 3]
+            ],
+            "l4": [
+                ["sa", "mb", "sb", "sc"],
+                [2, 6, 2, 2]
+            ]
         };
 
         //self.blocks = 2;
@@ -274,19 +338,28 @@ function (require, app, $) {
         //self.layout("grid/main-body");
         self.layout("grid/main");
 
-        //Constructs an array of mainbody sections to render, based on sidebar's available and 
+        //Constructs an array of mainbody sections to render, based on sidebar's available and
         //schema composition
         self.sections = function () {
             var total = 1;
             var sections = new Array();
 
-            if ( !self.hasAnyModule() ) {
+            if (!self.hasAnyModule()) {
                 return new Array();
             }
-        
-            if (self.sidebarA.hasModules()) { sections.push({ data: { data: self.sidebarA, class: "rt-sidebar-a" }, template: 'grid/sidebar' }); total++; }
-            if (self.sidebarB.hasModules()) { sections.push({ data: { data: self.sidebarB, class: "rt-sidebar-b" }, template: 'grid/sidebar' }); total++; }
-            if (self.sidebarC.hasModules()) { sections.push({ data: { data: self.sidebarC, class: "rt-sidebar-c" }, template: 'grid/sidebar' }); total++; }
+
+            if (self.sidebarA.hasModules()) {
+                sections.push({ data: { data: self.sidebarA, class: "rt-sidebar-a" }, template: 'grid/sidebar' });
+                total++;
+            }
+            if (self.sidebarB.hasModules()) {
+                sections.push({ data: { data: self.sidebarB, class: "rt-sidebar-b" }, template: 'grid/sidebar' });
+                total++;
+            }
+            if (self.sidebarC.hasModules()) {
+                sections.push({ data: { data: self.sidebarC, class: "rt-sidebar-c" }, template: 'grid/sidebar' });
+                total++;
+            }
 
             var layout = self.schema["l" + total];
             var areas = layout[0];
@@ -311,23 +384,23 @@ function (require, app, $) {
 
         self.hasContentTop = function () {
             return self.contentTop[0].hasModules() ||
-                   self.contentTop[1].hasModules() ||
-                   self.contentTop[2].hasModules();
+                self.contentTop[1].hasModules() ||
+                self.contentTop[2].hasModules();
         }
 
         self.hasContentBottom = function () {
             return self.contentBottom[0].hasModules() ||
-                   self.contentBottom[1].hasModules() ||
-                   self.contentBottom[2].hasModules();
+                self.contentBottom[1].hasModules() ||
+                self.contentBottom[2].hasModules();
         }
 
         self.hasAnyModule = function () {
             return self.sidebarA.hasModules() ||
-                   self.sidebarB.hasModules() ||
-                   self.sidebarC.hasModules() ||
-                   self.hasContentTop() ||
-                   self.hasContentBottom() ||
-                   self.component.hasModules();
+                self.sidebarB.hasModules() ||
+                self.sidebarC.hasModules() ||
+                self.hasContentTop() ||
+                self.hasContentBottom() ||
+                self.component.hasModules();
         }
 
         self.getClass = function (container, index, position) {
@@ -365,7 +438,7 @@ function (require, app, $) {
             return base + prefix;
         }
 
-    }
+    };
 
     var Container = function (name, group, chrome, section) {
         var self = this;
@@ -395,21 +468,21 @@ function (require, app, $) {
             self.modules.removeAll();
         }
         return self;
-    }
+    };
 
     var Module = function (name, template, model, params, title) { //For instance, list of links, list of articles, etc
         var self = this;
 
-        self.name      = name;
-        self.template  = ko.observable(template || 'grid/html');
-        self.model     = model;
-        self.params    = params;
-        self.data      = ko.observable();
-        self.visible   = ko.observable(true);
-        self.title     = ko.observable(title || self.name);
+        self.name = name;
+        self.template = ko.observable(template || 'grid/html');
+        self.model = model;
+        self.params = params;
+        self.data = ko.observable();
+        self.visible = ko.observable(true);
+        self.title = ko.observable(title || self.name);
         self.showTitle = ko.observable(templateDefaults.showTitle);
-        self.css       = templateDefaults.css;
-        self.ready     = ko.observable(false)
+        self.css = templateDefaults.css;
+        self.ready = ko.observable(false)
 
         self.ready.subscribe(function (value) {
             //toastr.info('ready ' + self.name);
@@ -418,7 +491,7 @@ function (require, app, $) {
         //Handles After Renders
         self.afterRender = function (element) {
 
-            if (element[0].className == 'infuser-loading') {                
+            if (element[0].className == 'infuser-loading') {
                 return;
             }
 
@@ -432,15 +505,15 @@ function (require, app, $) {
 
             self.css = data.css || self.css;
             if (data.showTitle !== undefined) self.showTitle(data.showTitle);
-            if (data.visible   !== undefined) self.visible(data.visible);
-            if (data.title     !== undefined) self.title(data.title);
-            if (data.data      !== undefined) self.data(data.data);
+            if (data.visible !== undefined) self.visible(data.visible);
+            if (data.title !== undefined) self.title(data.title);
+            if (data.data !== undefined) self.data(data.data);
             return self;
         }
 
         self.setModel = function (model, template, params) {
             self.template(template || self.template);
-            self.params   = params || self.params;
+            self.params = params || self.params;
             if (typeof model === 'object') {
                 model.context = self;
                 app.log.info("setModel for " + self.name + " -> as object");
@@ -462,27 +535,27 @@ function (require, app, $) {
 
         self.init = function () {
             if (self.model) {
-                //The data comes from a AMD module                
+                //The data comes from a AMD module
                 require(['models/' + self.model], function (model) {
-                    //if the module produces an instance, then retrieve it using get and pass the params.
-                    //Note: All get methods must return a promise object        
-                    if (typeof model.get == 'function') {
-                        model.get(self.params).then(function (obj) {
-                            obj.context = self;
-                            self.data(obj);
+                        //if the module produces an instance, then retrieve it using get and pass the params.
+                        //Note: All get methods must return a promise object
+                        if (typeof model.get == 'function') {
+                            model.get(self.params).then(function (obj) {
+                                obj.context = self;
+                                self.data(obj);
+                                self.ready(true);
+                            });
+                        } else {
+                            //Otherwise the data is the model itself (likely a singleton or raw data)
+                            model.context = self;
+                            self.data(model);
                             self.ready(true);
-                        });
-                    } else {
-                        //Otherwise the data is the model itself (likely a singleton or raw data)
-                        model.context = self;
-                        self.data(model);
-                        self.ready(true);
+                        }
+                    }, //End
+                    function (error) {
+                        app.log.error("Error loading model " + self.model + ":" + error.description);
+                        toastr.error("Error loading " + self.model);
                     }
-                }, //End 
-                function (error) {
-                    app.log.error("Error loading model " + self.model + ":" + error.description);
-                    toastr.error("Error loading " + self.model);
-                }
                 ); //End Require
             } else {
                 //if it does not require a model then set the data to the Module itsef
@@ -502,7 +575,7 @@ function (require, app, $) {
 
         return self;
 
-    }     //End Module
+    };     //End Module
 
     var template = new Template();
     //Revealing pattern

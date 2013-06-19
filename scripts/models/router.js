@@ -22,7 +22,7 @@ define(['AppModels',
                 hasher.init();
             }
 
-            self.onInvalidRoute  = function(handler) {
+            self.onInvalidRoute = function (handler) {
                 crossroads.bypassed.add(handler);
             }
 
@@ -87,7 +87,7 @@ define(['AppModels',
             }
             self.go = self.set;
 
-        }
+        };
 
         return Router;
 

@@ -33,7 +33,7 @@ define(['AppModels', 'require'], function (app, require) {
             self.parent.current = self;
         }
         return self;
-    }
+    };
 
     var MenuModel = function (params) {
         var self = this;
@@ -93,7 +93,7 @@ define(['AppModels', 'require'], function (app, require) {
         self.afterRender = function (element, context) {
             setTimeout(self.render, 100);
         }
-    }
+    };
 
     require(['js!menu/superfish!order'
               , 'js!menu/hoverIntent!order'

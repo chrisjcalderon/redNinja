@@ -18,13 +18,13 @@ define(['AppManager'
             var template = self.template;
             template.init();
             self.template.config([
-                        { name: 'navigation', positions: 1 },
-                        { name: 'maintop', positions: 4 },
-                        { name: 'breadcrumb', positions: 1 },
-                        { name: 'footer', positions: 3 },
-                        { name: 'copyright', positions: 1 }
-                        ]
-            ); 
+                { name: 'navigation', positions: 1 },
+                { name: 'maintop', positions: 4 },
+                { name: 'breadcrumb', positions: 1 },
+                { name: 'footer', positions: 3 },
+                { name: 'copyright', positions: 1 }
+            ]
+            );
             self.loadTest();
 
 
@@ -43,7 +43,7 @@ define(['AppManager'
                 template.section["navigation"].positions[0].module[0].setModel(test, "grid/superfish", "");
             }
 
-        }
+        };
 
         self.debug = function () {
 
@@ -58,10 +58,10 @@ define(['AppManager'
                 }
             });
 
-        }
+        };
         self.load = function () {
             ko.applyBindings(self);
-        }
+        };
 
         self.loadTest = function () {
 
@@ -81,7 +81,7 @@ define(['AppManager'
 
             mainBody.component.addModule(new template.Module("THE COMPONENT", "", "/grid/article", "2", "Hi"));
 
-            for (var p = 0; p < mainBody.contentTop.length-1; p++) {
+            for (var p = 0; p < mainBody.contentTop.length - 1; p++) {
                 mainBody.contentTop[p].addModule(new template.Module("Module for CT-" + p, "", "", null));
                 mainBody.contentBottom[p].addModule(new template.Module("Module for CB-" + p, "", "", null));
             }
@@ -89,7 +89,7 @@ define(['AppManager'
             mainBody.component.modules()[0].init();
 
         }
-    }
+    };
     models.register(modelName, new model());
 
 

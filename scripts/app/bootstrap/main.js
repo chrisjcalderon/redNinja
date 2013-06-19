@@ -16,17 +16,17 @@ define([
         //for the remove contact... this could be yet in another module :)
         self.remove = function (contact) {
             self.contacts.remove(contact);
-        }
+        };
 
         //the other modal...
         self.saveChanges = function () {
             toastr.info("Changes saved...");
 
-        }
+        };
         self.clicktoggle = function (model, event) {
             var action = $(event.target).attr("action");
             toastr.info("Clicked " + action);
-        }
+        };
 
         //captures the dialog events...
         models.on("ContactDialogEvent").receive(function (sender, event) {
@@ -40,7 +40,7 @@ define([
         });
 
         models.on("MenuClick").receive(function (sender, event) {
-            toastr.info("Click menu " + event.params.action );
+            toastr.info("Click menu " + event.params.action);
 
         });
 
@@ -50,16 +50,17 @@ define([
             template.init();
 
             template.config([
-                        { name: 'drawer', positions: 1 },
-                        { name: 'navigation', positions: 1 },
-                        { name: 'maintop', positions: 3 },
-                        { name: 'breadcrumb', positions: 1 },
-                        { name: 'mainbottom', positions: 2 },
-                        { name: 'footer', positions: 3 },
-                        { name: 'copyright', positions: 1 },
-                        { name: 'dialogs', positions: 1} //hidden stuff
-                        ]
+                { name: 'drawer', positions: 1 },
+                { name: 'navigation', positions: 1 },
+                { name: 'maintop', positions: 3 },
+                { name: 'breadcrumb', positions: 1 },
+                { name: 'mainbottom', positions: 2 },
+                { name: 'footer', positions: 3 },
+                { name: 'copyright', positions: 1 },
+                { name: 'dialogs', positions: 1} //hidden stuff
+            ]
             );
+
 
             self.loadTest(self.template.instance);
             template.section["drawer"].setLayout(2, [2, 10]);
@@ -70,9 +71,9 @@ define([
 
             template.section["mainbottom"].setLayout(2, [3, 9]);
             template.getSection("mainbottom").positions[1].module[0].template("bootstrap/main").data(self).showTitle(false);
-            
+
             //model, template / params - > for navmodel, the id of the navbar
-            template.getSection("navigation").positions[0].module[0].setModel("bootstrap/navbar","bootstrap/navbar","topNavigation").showTitle(false);
+            template.getSection("navigation").positions[0].module[0].setModel("bootstrap/navbar", "bootstrap/navbar", "topNavigation").showTitle(false);
 
             template.getSection("mainbottom").positions[0].addModule(new template.Module("", "bootstrap/leftnav", "", null)).showTitle(false);
 
@@ -88,21 +89,21 @@ define([
                 self.contacts.push(new contact("Contact " + x, "LastName"));
             }
 
-            /* want to use as subtemplates? - easy! 
-            var template2 = new template.model();
-            template2.init();
-            template2.configSections([
-            { name: 'main', positions: 4 }
-            ]);
-            self.loadTest(template2);
-            template.getSection("drawer").positions[0].module[0].template("bootstrap/grid-full").data(template2);
-            */
-        }
+            /* want to use as subtemplates? - easy!
+             var template2 = new template.model();
+             template2.init();
+             template2.configSections([
+             { name: 'main', positions: 4 }
+             ]);
+             self.loadTest(template2);
+             template.getSection("drawer").positions[0].module[0].template("bootstrap/grid-full").data(template2);
+             */
+        };
 
         self.load = function () {
 
             ko.applyBindings(self);
-        }
+        };
 
         self.loadTest = function (tp) {
 
@@ -119,7 +120,7 @@ define([
         }
 
 
-    }
+    };
     models.register(modelName, new model());
 
 

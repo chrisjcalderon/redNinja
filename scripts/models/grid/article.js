@@ -10,7 +10,7 @@ define(['AppModels'], function (models) {
                 //self.context.data(data);
             });
         }
-    }
+    };
 
     return {
         get: function (params) {

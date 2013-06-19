@@ -18,30 +18,32 @@
         //Model Functions
         self.clickMe = function () {
             toastr.info("HI!");
-        }
+        };
 
         self.changeLeft = function () {
             //Sets the data needed by the new template
             //It could be another model as well...  just request it as such:
             //models.getModel("leftNavModelName");... and bind it then
             self.page.left.data({
-                title: "LEFT TITLE!",
-                other: 'Other Content...',
-                back: function () { self.page.left.template('demo\\left-section');  }
-            }
+                    title: "LEFT TITLE!",
+                    other: 'Other Content...',
+                    back: function () {
+                        self.page.left.template('demo\\left-section');
+                    }
+                }
             );
             //Change it!
             self.page.left.template("demo\\left-section-2")
-        }
+        };
 
         //Model Initialization
 
         self.load = function () {
             ko.applyBindings(self);
-        }
+        };
         self.onInit = function () {
         }
-    }
+    };
 
     //Registers the model with the app... if ya want da'
     models.register(modelName, new model());

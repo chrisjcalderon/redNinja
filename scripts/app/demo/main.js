@@ -24,7 +24,7 @@ define(['AppManager', 'AppModels',
                     c.address("Address " + l);
                     self.clients.push(c);
 
-                }
+                };
 
                 self.init = function () {
                     self.initialized(true);
@@ -33,20 +33,20 @@ define(['AppManager', 'AppModels',
                     });
                     $("#dynamicmodule2").load("/contact.html"); //no callback needed
 
-                }
+                };
 
                 self.getModel = function () {
                     models.loadModel("/demo/dialog").then(function (dialog) {
                         toastr.info(dialog.title());
                     });
-                }
+                };
 
                 //KO View Model Handling
                 self.removeVM = function (vm, element) {
                     $(element).fadeOut("slow", function () {
                         self.vmmodels.remove(vm);
                     }, 1000);
-                }
+                };
 
                 self.addVm = function (id, template, data) {
                     id = "dynKo" + id;
@@ -54,17 +54,17 @@ define(['AppManager', 'AppModels',
                         $(data.containerElement).prev("div").fadeOut("slow", function () {
                             self.vmmodels.remove(vm);
                         });
-                    }
+                    };
                     var vm = { name: id, id: id, template: template, data: data };
                     self.vmmodels.push(vm);
-                }
+                };
 
                 self.onVmRender = function (element, model) {
                     setTimeout(function () {
                         model.containerElement = element;
                         $(element).prev("div").effect("highlight", { color: "#2d7ba6" }, 1000);
                     });
-                }
+                };
                 //End KnockOut View Model Handling
 
                 //Adds API and KI VMs
@@ -80,7 +80,7 @@ define(['AppManager', 'AppModels',
                     });
                     //Using KO
                     self.addVm(self.counter++, "/demo/test", new Contact());
-                }
+                };
 
 
                 //Sends an message Open Contact
@@ -93,7 +93,7 @@ define(['AppManager', 'AppModels',
                         //Deferred handling...
                         toastr.info("ACTION COMPLETED..." + result.startDate());
                     });
-                }
+                };
 
                 //Loads two COMPLETE submodels... nice
                 self.loadModel = function () {
@@ -102,7 +102,7 @@ define(['AppManager', 'AppModels',
                     }
                 }
 
-            }
+            };
 
             //The Model App... separated from the model...
             var modelApp = function () {
@@ -124,20 +124,20 @@ define(['AppManager', 'AppModels',
                             self.instance.modules.push(msg.params.name);
                             toastr.info("MSG: " + msg.msg + "/" + msg.params.name);
                     }
-                }
+                };
 
                 self.load = function () {
                     self.instance = new model();
                     models.on("OnNewModelLoad").receive(self.handleMessage);
                     models.on("AddItem").receive(self.handleMessage);
                     ko.applyBindings(self.instance);
-                }
+                };
                 self.onInit = function () {
                     models.log.info("OnInit for " + modelName);
                 }
 
 
-            }
+            };
 
             var oApp = new modelApp();
             models.register(modelName, oApp);

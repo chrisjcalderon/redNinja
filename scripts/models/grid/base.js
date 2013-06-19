@@ -19,7 +19,7 @@ define(['AppModels'
             toastr.info("<h3>Hello " + self.yourName() + " from " + self.context.name + "<h3>Check the new title :)");
             self.context.title(self.yourName());
             self.context.container.css("title3");
-           
+
             template.component.modules()[0].setParams(prompt("Article", 2));
 
             //ideally
@@ -27,10 +27,10 @@ define(['AppModels'
         }
 
         self.afterRender = function (element, context) {
-           // toastr.warning("Sweet");
+            // toastr.warning("Sweet");
         }
 
-    }
+    };
 
     //**** RULES OF ENGAGEMENT HAHA 
     //If get is a function, then it must return a deferred object

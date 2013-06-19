@@ -22,7 +22,7 @@ define(['AppModels'], function (models) {
         self.clone = function () {
             return new contactModel(self.firstName(), self.lastName(), self.email(), self.address());
         }
-    }
+    };
 
     return contactModel;
 

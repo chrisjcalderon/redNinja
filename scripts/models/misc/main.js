@@ -43,7 +43,7 @@ define(['AppModels', 'models/misc/contact'
             self.contacts.push(c);
         }
 
-    }
+    };
 
     /*note, there are other ways on which a model can be returned, one is:
     return {

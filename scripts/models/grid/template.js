@@ -14,7 +14,7 @@ define(['AppModels'
 
         //Your Methods
         self.clickMe = function () {
-            
+
             self.context.title(self.text());
 
         }
@@ -23,7 +23,7 @@ define(['AppModels'
 
         }
 
-    }
+    };
 
     return {
         get: function (params) {

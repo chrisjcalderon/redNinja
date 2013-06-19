@@ -7,13 +7,13 @@ define(['AppModels'], function (models) {
 
         self.what = function () {
             models.log.info("HEY YOU!! - " + self.firstName());
-        }
+        };
 
         self.unloadMe = function () {
             if (self._viewModel) {
                 $("#" + self._viewModel.container).fadeOut("slow", self._destroy);
             }
-        }
+        };
         //models.listen(self, "OpenContactDialog", self.what)
     };
 

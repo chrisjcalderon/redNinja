@@ -4,6 +4,11 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Knockout" level="project" />
+    <orderEntry type="library" name="RedNinja App" level="project" />
+    <orderEntry type="library" name="JQuery" level="project" />
+    <orderEntry type="library" name="RedNinja Template" level="project" />
+    <orderEntry type="library" name="JQueryUI" level="project" />
   </component>
 </module>
 

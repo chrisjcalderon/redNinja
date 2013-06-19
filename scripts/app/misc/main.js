@@ -23,10 +23,10 @@ define(['AppManager'
             template.defaults.showTitle = false;
 
             template.config([
-                        { name: 'top', positions: 1 },
-                        { name: 'maintop', positions: 2 },
-                        { name: 'footer', positions: 1 }
-                        ]
+                { name: 'top', positions: 1 },
+                { name: 'maintop', positions: 2 },
+                { name: 'footer', positions: 1 }
+            ]
             );
 
             template.section["maintop"].setLayout(2, [2, 10]);
@@ -51,7 +51,7 @@ define(['AppManager'
 
                 }
             });
-        }
+        };
 
         self.load = function () {
 
@@ -59,7 +59,7 @@ define(['AppManager'
         }
 
 
-    }
+    };
     models.register(modelName, new model());
 
 

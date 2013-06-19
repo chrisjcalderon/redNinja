@@ -7,21 +7,21 @@ define(['AppModels', 'require'], function (app, require) {
 
         self.then = function (fnc) {
             app.loadFile('menu.html').then(function (data) {
-                fnc({html:data,afterRender:self.afterRender});
+                fnc({html: data, afterRender: self.afterRender});
                 //setTimeout(function () {$("#sitemenu").superfish();}, 500);
             });
         }
 
         self.afterRender = function (element, context) {
-            
-            $("#sitemenu").superfish({            
-                    delay:       200,                            
-                    animation:   {opacity:'show',height:'show'},  
-                    speed:       'fast'	,
-                    autoArrows:  true
-            });		                
+
+            $("#sitemenu").superfish({
+                delay: 200,
+                animation: {opacity: 'show', height: 'show'},
+                speed: 'fast',
+                autoArrows: true
+            });
         }
-    }
+    };
 
     require(['js!menu/superfish!order'
               ,'js!menu/hoverIntent!order'

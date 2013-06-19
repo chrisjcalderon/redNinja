@@ -9,7 +9,9 @@ define(['AppModels',
 
                 self.available = ko.observableArray();
 
-                self.selected = ko.observableArray([{ fullname: 'drop here', selected: ko.observable(false), isDefault: true}]);
+                self.selected = ko.observableArray([
+                    { fullname: 'drop here', selected: ko.observable(false), isDefault: true}
+                ]);
 
                 self.addSelected = function () {
                     for (var i = self.available().length - 1; i >= 0; i--) {
@@ -39,11 +41,11 @@ define(['AppModels',
                 }
 
                 self.afterRender = function (element, me) {
-                   // $("#" + self.context.moduleID).fadeOut(0).fadeIn(1500);
-                    
+                    // $("#" + self.context.moduleID).fadeOut(0).fadeIn(1500);
+
                 }
 
-            } //End model
+            }; //End model
 
             return contactList;
 

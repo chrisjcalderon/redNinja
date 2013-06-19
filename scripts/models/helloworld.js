@@ -10,7 +10,7 @@ define(['AppModels'], function (models) {
         self.names = ko.observableArray();
 
         self.remove = function (item) {
-            self.names.remove(item)            
+            self.names.remove(item)
         }
 
 
@@ -18,7 +18,7 @@ define(['AppModels'], function (models) {
             self.names.push({ name: "Name -- " + self.names().length });
         }
 
-    }
+    };
 
     return {
         model: HelloWorldModel

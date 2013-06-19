@@ -26,7 +26,7 @@ define(['AppModels'
         }
 
 
-    }
+    };
 
     return {
         get: function (params) {

@@ -3,7 +3,7 @@ define(['AppModels'
 ], function () {
 
 
-    var model = function (first, last, email,address) {
+    var model = function (first, last, email, address) {
         var self = this;
 
         self.firstName = ko.observable(first);
@@ -16,7 +16,7 @@ define(['AppModels'
             return self.firstName() + " " + self.lastName();
         });
 
-    }
+    };
 
     return model;
 

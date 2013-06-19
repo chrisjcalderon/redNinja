@@ -18,7 +18,7 @@ define(['AppModels'], function (models) {
             //you can use html attributes such as data-action='blah'
             $("body").on("click", self.menuId + " ul.nav li", function (e) {
                 var menu = $(this);
-                if( menu.hasClass("dropdown") ) {
+                if (menu.hasClass("dropdown")) {
                 } else {
                     $(self.menuId + " ul.nav li").removeClass("active");
                     menu.addClass("active");
@@ -38,7 +38,7 @@ define(['AppModels'], function (models) {
             $(self.menuId).fadeOut(0).fadeIn(500);
         }
 
-    }
+    };
 
     return {
         //The template will pass the params and the context (Module)

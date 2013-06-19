@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="RedNinja Template" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/scripts/models/templateManager.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/scripts/models/templateManager.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

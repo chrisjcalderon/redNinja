@@ -25,7 +25,7 @@ define(['AppModels'], function (models) {
             self.context.template(self.templates[self.current]);
 
         }
-    }
+    };
 
     return {
         //The template will pass the params and the context (Module)

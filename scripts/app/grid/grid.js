@@ -19,15 +19,15 @@ define(['AppManager'
             template.init();
 
             self.template.config([
-                        { name: 'drawer', positions: 1 },
-                        { name: 'showcase', positions: 4 },
-                        { name: 'navigation', positions: 1 },
-                        { name: 'maintop', positions: 4 },
-                        { name: 'breadcrumb', positions: 1 },
-                        { name: 'mainbottom', positions: 4 },
-                        { name: 'footer', positions: 3 },
-                        { name: 'copyright', positions: 1 }
-                        ]
+                { name: 'drawer', positions: 1 },
+                { name: 'showcase', positions: 4 },
+                { name: 'navigation', positions: 1 },
+                { name: 'maintop', positions: 4 },
+                { name: 'breadcrumb', positions: 1 },
+                { name: 'mainbottom', positions: 4 },
+                { name: 'footer', positions: 3 },
+                { name: 'copyright', positions: 1 }
+            ]
             );
 
             self.loadTest();
@@ -49,9 +49,9 @@ define(['AppManager'
             template.section["footer"].positions[0].module[0].showTitle(false);
             template.section["footer"].positions[1].module[0].showTitle(false);
             template.section["footer"].positions[2].module[0].showTitle(false);
-            template.section["footer"].positions[0].module[0].data("<div class='approved'>I'm 2</div>")
-            template.section["footer"].positions[1].module[0].data("<div class='notice'><span class='text-icon info'>&nbsp;</span>This footer has a custom layout of 2,8,2</div>")
-            template.section["footer"].positions[2].module[0].data("<div class='approved'>I'm 2</div>")
+            template.section["footer"].positions[0].module[0].data("<div class='approved'>I'm 2</div>");
+            template.section["footer"].positions[1].module[0].data("<div class='notice'><span class='text-icon info'>&nbsp;</span>This footer has a custom layout of 2,8,2</div>");
+            template.section["footer"].positions[2].module[0].data("<div class='approved'>I'm 2</div>");
             template.section["footer"].positions[0].css("box1");
             template.section["footer"].positions[1].css("box2");
             template.section["footer"].positions[2].css("box1");
@@ -68,12 +68,12 @@ define(['AppManager'
                 template.section["navigation"].positions[0].module[0].setModel(test, "grid/superfish", "");
             }
 
-        }
+        };
 
         self.load = function () {
 
             ko.applyBindings(self);
-        }
+        };
 
         self.loadTest = function () {
 
@@ -87,15 +87,15 @@ define(['AppManager'
             }
 
             var mainBody = template.content;
-            for (var x = 1; x < 5;x++ ) {
+            for (var x = 1; x < 5; x++) {
                 var m = new template.Module("Sidebar-a", "", "", null);
-                m.css="title" + x;                
-                mainBody.sidebarA.addModule( m );
+                m.css = "title" + x;
+                mainBody.sidebarA.addModule(m);
                 var m = new template.Module("Sidebar-b", "", "", null);
-                m.css="box" + x;              
-                mainBody.sidebarB.addModule(m);  
+                m.css = "box" + x;
+                mainBody.sidebarB.addModule(m);
             }
-            
+
             //mainBody.sidebarC.addModule(new template.Module("Module for Sidebar-C", "", "", null));
             //mainBody.sidebarC.addModule(new template.Module("Module for Sidebar-C", "", "", null));
             mainBody.component.addModule(new template.Module("THE COMPONENT", "", "/grid/article", "3", "Hi"));
@@ -109,22 +109,23 @@ define(['AppManager'
 
             mainBody.component.modules()[0].init();
 
-        }
+        };
 
         self.loadModules = function () {
             models.loadJson("/scripts/data/modules.php").then(function (data) {
                 //alert(data.length);
                 for (var x = 0; x < data.length; x++) {
                     var m = new template.Module("sidebar-a", "", "", "", data[x].title);
-                    m.data(data[x].content)
+                    m.data(data[x].content);
                     template.content.sidebarA.addModule(m);
                     //alert(data[x].title);
                     // mainBody.sidebarB.addModule(new template.Module("Module for Sidebar-B", "", "", null));
                 }
             });
         }
-    }
+    };
     models.register(modelName, new model());
 
 
-});                                             //End Closure
+});
+                                             //End Closure
